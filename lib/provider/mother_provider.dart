@@ -3,9 +3,11 @@ import 'package:partograph/model/amniotic_fluid.dart';
 import 'package:partograph/model/blood_pressure.dart';
 import 'package:partograph/model/descent.dart';
 import 'package:partograph/model/dilatation.dart';
+import 'package:partograph/model/drug_iv_fluids.dart';
 import 'package:partograph/model/heart_rate.dart';
 import 'package:partograph/model/mother.dart';
 import 'package:partograph/model/moulding_fetal.dart';
+import 'package:partograph/model/oxytocin.dart';
 import 'package:partograph/model/partogram_recording.dart';
 import 'package:partograph/model/pulse.dart';
 import 'package:partograph/model/temperature.dart';
@@ -36,7 +38,9 @@ class MotherProvider with ChangeNotifier {
               urine: [],
               uterineContractions: [],
               pulse: [],
-              temperature: [])
+              temperature: [],
+              oxytocin: [],
+              dateCreeation: DateTime.now())
         ]),
     Mother(
         id: 2,
@@ -61,7 +65,9 @@ class MotherProvider with ChangeNotifier {
               urine: [],
               uterineContractions: [],
               pulse: [],
-              temperature: [])
+              temperature: [],
+              oxytocin: [],
+              dateCreeation: DateTime.now())
         ]),
     Mother(
         id: 3,
@@ -86,7 +92,9 @@ class MotherProvider with ChangeNotifier {
               urine: [],
               uterineContractions: [],
               pulse: [],
-              temperature: [])
+              temperature: [],
+              oxytocin: [],
+              dateCreeation: DateTime.now())
         ]),
   ];
 
@@ -197,6 +205,26 @@ class MotherProvider with ChangeNotifier {
         .last
         .urine
         .add(urine);
+    notifyListeners();
+  }
+
+
+  postOxytocin(Oxytocin oxytocin, Mother mother) async {
+    _motherList
+        .firstWhere((element) => element == mother)
+        .partogramRecording
+        .last
+        .oxytocin
+        .add(oxytocin);
+    notifyListeners();
+  }
+    postDrugIvFluids(DrugIvFluid drugIvFluid, Mother mother) async {
+    _motherList
+        .firstWhere((element) => element == mother)
+        .partogramRecording
+        .last
+        .drugIvFluid
+        .add(drugIvFluid);
     notifyListeners();
   }
 }

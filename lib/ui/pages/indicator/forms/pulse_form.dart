@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:partograph/model/mother.dart';
+import 'package:partograph/model/pulse.dart';
+import 'package:partograph/provider/mother_provider.dart';
 import 'package:partograph/ui/widgets/custom_text.dart';
 import 'package:partograph/ui/widgets/titled_header.dart';
+import 'package:provider/provider.dart';
 
 class PulseForm extends StatefulWidget {
   const PulseForm({Key? key, required this.mother}) : super(key: key);
- final Mother mother;
+  final Mother mother;
   @override
   State<PulseForm> createState() => _PulseFormState();
 }
@@ -17,12 +20,11 @@ class _PulseFormState extends State<PulseForm> {
 
   @override
   Widget build(BuildContext context) {
+    final _motherProvider = Provider.of<MotherProvider>(context);
     return Column(
-       mainAxisSize: MainAxisSize.min,
+      mainAxisSize: MainAxisSize.min,
       children: [
-        const TitledHeader(
-          title: "Pulse",
-        ),
+        
         Form(
           key: _formKeyHR,
           child: Column(
@@ -52,15 +54,19 @@ class _PulseFormState extends State<PulseForm> {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    print("dù");
                     if (_formKeyHR.currentState!.validate()) {
-                      print("yes");
-                    } else {
-                      print("ERROR");
-                    }
+                      _motherProvider.postPulse(
+                          Pulse(
+                            time: TimeOfDay.now(),
+                            id: 0,
+                            value: int.parse(_pulseTextEditingController.text),
+                          ),
+                          widget.mother);
+                      Navigator.pop(context);
+                    } else {}
                   },
                   child: const Text(
-                    "Save Pulse",
+                    "Save",
                     style: TextStyle(color: Colors.white),
                   ),
                 ),

@@ -5,6 +5,7 @@ import 'package:partograph/model/dilatation.dart';
 import 'package:partograph/model/drug_iv_fluids.dart';
 import 'package:partograph/model/heart_rate.dart';
 import 'package:partograph/model/moulding_fetal.dart';
+import 'package:partograph/model/oxytocin.dart';
 import 'package:partograph/model/pulse.dart';
 import 'package:partograph/model/temperature.dart';
 import 'package:partograph/model/urine.dart';
@@ -12,6 +13,7 @@ import 'package:partograph/model/uterine_contractions.dart';
 
 class PartogramRecording {
   int id;
+  DateTime dateCreeation;
   List<AmnioticFluid> amnioticFluid;
   List<HeartRate> heartRate;
   List<MouldingFetal> mouldingFetal;
@@ -23,6 +25,7 @@ class PartogramRecording {
   List<UterineContraction> uterineContractions;
   List<Temperature> temperature;
   List<Pulse> pulse;
+  List<Oxytocin> oxytocin;
 
   PartogramRecording(
       {required this.id,
@@ -36,11 +39,14 @@ class PartogramRecording {
       required this.urine,
       required this.uterineContractions,
       required this.temperature,
-      required this.pulse});
+      required this.pulse,
+      required this.dateCreeation,
+      required this.oxytocin});
 
   Map<dynamic, dynamic> toMap() {
     var map = <String, dynamic>{
       'id': id,
+      'dateCreeation': dateCreeation,
       'amnioticFluid': amnioticFluid.map((e) => e.toMap()).toList(),
       'heartRate': heartRate.map((e) => e.toMap()).toList(),
       'mouldingFetal': mouldingFetal.map((e) => e.toMap()).toList(),
@@ -52,6 +58,7 @@ class PartogramRecording {
       'uterineContractions': uterineContractions.map((e) => e.toMap()).toList(),
       'temperature': temperature.map((e) => e.toMap()).toList(),
       'pulse': pulse.map((e) => e.toMap()).toList(),
+      'oxytocin': oxytocin.map((e) => e.toMap()).toList(),
     };
 
     return map;
@@ -84,12 +91,13 @@ class PartogramRecording {
       temperature: (data['temperature']
           .map<Temperature>((i) => Temperature.fromMap(i))
           .toList()),
-      pulse: (data['pulse']
-          .map<Pulse>((i) => Pulse.fromMap(i))
-          .toList()),
+      pulse: (data['pulse'].map<Pulse>((i) => Pulse.fromMap(i)).toList()),
+      oxytocin:
+          (data['oxytocin'].map<Oxytocin>((i) => Oxytocin.fromMap(i)).toList()),
       uterineContractions: (data['uterineContractions']
           .map<UterineContraction>((i) => UterineContraction.fromMap(i))
           .toList()),
+      dateCreeation: data['dateCreeation'],
     );
   }
 }

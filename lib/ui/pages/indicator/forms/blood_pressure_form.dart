@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:partograph/model/blood_pressure.dart';
 import 'package:partograph/model/mother.dart';
+import 'package:partograph/provider/mother_provider.dart';
 import 'package:partograph/ui/widgets/bp_text.dart';
 import 'package:partograph/ui/widgets/titled_header.dart';
+import 'package:provider/provider.dart';
 
 class BloodPressureForm extends StatefulWidget {
   const BloodPressureForm({Key? key, required this.mother}) : super(key: key);
- final Mother mother;
+  final Mother mother;
   @override
   State<BloodPressureForm> createState() => _BloodPressureFormState();
 }
@@ -19,12 +22,10 @@ class _BloodPressureFormState extends State<BloodPressureForm> {
 
   @override
   Widget build(BuildContext context) {
+    final _motherProvider = Provider.of<MotherProvider>(context);
     return Column(
-       mainAxisSize: MainAxisSize.min,
+      mainAxisSize: MainAxisSize.min,
       children: [
-        const TitledHeader(
-          title: "Blood Pressure",
-        ),
         Form(
           key: _formKeyBP,
           child: Column(
@@ -48,15 +49,24 @@ class _BloodPressureFormState extends State<BloodPressureForm> {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    print("dù");
                     if (_formKeyBP.currentState!.validate()) {
-                      print("yes");
+                      _motherProvider.postBloodPressure(
+                          BloodPressure(
+                            time: TimeOfDay.now(),
+                            id: 0,
+                            systolic:
+                                int.parse(_systolicTextEditingController.text),
+                            diastolic:
+                                int.parse(_diastolicTextEditingController.text),
+                          ),
+                          widget.mother);
+                      Navigator.pop(context);
                     } else {
                       print("ERROR");
                     }
                   },
                   child: const Text(
-                    "Save Blood Pressure",
+                    "Save",
                     style: TextStyle(color: Colors.white),
                   ),
                 ),

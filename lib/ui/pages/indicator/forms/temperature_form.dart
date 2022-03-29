@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:partograph/model/mother.dart';
+import 'package:partograph/model/temperature.dart';
+import 'package:partograph/provider/mother_provider.dart';
 import 'package:partograph/ui/widgets/custom_text.dart';
 import 'package:partograph/ui/widgets/titled_header.dart';
+import 'package:provider/provider.dart';
 
 class TemperatureForm extends StatefulWidget {
   const TemperatureForm({Key? key, required this.mother}) : super(key: key);
@@ -18,12 +21,11 @@ class _TemperatureFormState extends State<TemperatureForm> {
 
   @override
   Widget build(BuildContext context) {
+    final _motherProvider = Provider.of<MotherProvider>(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const TitledHeader(
-          title: "Temperature",
-        ),
+       
         Form(
           key: _formKeyTemp,
           child: Column(
@@ -53,15 +55,20 @@ class _TemperatureFormState extends State<TemperatureForm> {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    print("dù");
                     if (_formKeyTemp.currentState!.validate()) {
-                      print("yes");
-                    } else {
-                      print("ERROR");
-                    }
+                      _motherProvider.postTemperature(
+                          Temperature(
+                            time: TimeOfDay.now(),
+                            id: 0,
+                            value:
+                                double.parse(_tempTextEditingController.text),
+                          ),
+                          widget.mother);
+                      Navigator.pop(context);
+                    } else {}
                   },
                   child: const Text(
-                    "Save Temperature",
+                    "Save",
                     style: TextStyle(color: Colors.white),
                   ),
                 ),

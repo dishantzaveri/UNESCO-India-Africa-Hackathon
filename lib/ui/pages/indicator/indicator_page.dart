@@ -4,8 +4,9 @@ import 'package:partograph/model/mother.dart';
 import 'package:partograph/ui/pages/indicator/List/amniotic_fluid_list.dart';
 import 'package:partograph/ui/pages/indicator/List/fetal_heart_rate_list.dart';
 import 'package:partograph/ui/pages/indicator/List/labour_progress_list.dart';
+import 'package:partograph/ui/pages/indicator/List/mother_conditon_list.dart';
 import 'package:partograph/ui/pages/indicator/forms/fetal_heart_rate_form.dart';
- import 'package:partograph/ui/pages/indicator/forms/moduling_form.dart';
+import 'package:partograph/ui/pages/indicator/forms/moduling_form.dart';
 import 'package:partograph/ui/pages/indicator/forms/mother_condition_form.dart';
 import 'package:partograph/ui/widgets/timer_widget.dart';
 
@@ -49,7 +50,9 @@ class IndicatorPage extends StatelessWidget {
           mother: mother,
         );
       case "Mother's condition":
-        return const MotherConditionForm();
+        return MotherConditionList(
+          mother: mother,
+        );
       default:
     }
   }
@@ -63,7 +66,7 @@ class IndicatorPage extends StatelessWidget {
       case "Amniotic fluid & Moulding":
         return ModulingForm(
           mother: mother,
-        ); 
+        );
       case "Mother's condition":
         return const MotherConditionForm();
       default:

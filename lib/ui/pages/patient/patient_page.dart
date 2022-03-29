@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:partograph/model/mother.dart';
 import 'package:partograph/provider/utility_provider.dart';
-import 'package:partograph/ui/pages/indicator/%20indicator_page.dart';
+import 'package:partograph/ui/pages/indicator/indicator_page.dart';
 import 'package:partograph/ui/pages/partograph/partograph_page.dart';
 import 'package:partograph/ui/widgets/indicator_card.dart';
 import 'package:partograph/ui/widgets/titled_header.dart';
