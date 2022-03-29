@@ -1,5 +1,6 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:partograph/ui/pages/home/tabs/history_tab.dart';
 import 'package:partograph/ui/pages/home/tabs/home_tab.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,11 +23,9 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     _screens = [
       const HomeTab(),
-      Container(
-        color: Colors.red,
-      ),
-      Container(
-        color: Colors.cyan,
+      const HistoryTab(),
+      const Center(
+        child: Text("midwife's profile"),
       )
     ];
   }

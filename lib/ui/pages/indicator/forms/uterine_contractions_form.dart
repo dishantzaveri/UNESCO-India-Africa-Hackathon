@@ -32,8 +32,8 @@ class UterineContractionsForm extends StatelessWidget {
                 maxLines: 1,
                 message: 'fetal heart rate is required',
                 keyboardType: TextInputType.number,
-                icon: Icons.waves,
-                iconColor: Colors.cyan,
+                icon: Icons.favorite,
+                iconColor: Colors.cyan
               ),
             ],
           ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'charts/fetal_heart_rate_graph.dart';
+
 class PartographPage extends StatelessWidget {
   const PartographPage({Key? key}) : super(key: key);
 
@@ -9,7 +11,11 @@ class PartographPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Partograph"),
       ),
-      body: Container(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: const [FetalHeartRate()],
+        ),
+      ),
     );
   }
 }

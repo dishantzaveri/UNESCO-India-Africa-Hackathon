@@ -26,6 +26,7 @@ class App extends StatelessWidget {
       ],
       child: MaterialApp(
           title: 'Partograph',
+          debugShowCheckedModeBanner: false,
           theme: theme,
           darkTheme: darkTheme,
           home: const AnimatedLoaderScreen(),
