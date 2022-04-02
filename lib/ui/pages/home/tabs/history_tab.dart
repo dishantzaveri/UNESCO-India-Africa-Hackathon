@@ -36,6 +36,7 @@ class _HistoryTabState extends State<HistoryTab>
             titlePadding: const EdgeInsets.only(left: 10, bottom: 10),
           ),
           leading: const SizedBox(),
+          actions:   [ Container()],
         ),
         SliverList(
             delegate: SliverChildListDelegate([
