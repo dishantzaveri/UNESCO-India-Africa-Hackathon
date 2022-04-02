@@ -3,7 +3,6 @@ import 'package:partograph/model/blood_pressure.dart';
 import 'package:partograph/model/mother.dart';
 import 'package:partograph/provider/mother_provider.dart';
 import 'package:partograph/ui/widgets/bp_text.dart';
-import 'package:partograph/ui/widgets/titled_header.dart';
 import 'package:provider/provider.dart';
 
 class BloodPressureForm extends StatefulWidget {
@@ -62,7 +61,7 @@ class _BloodPressureFormState extends State<BloodPressureForm> {
                           widget.mother);
                       Navigator.pop(context);
                     } else {
-                      print("ERROR");
+                      
                     }
                   },
                   child: const Text(

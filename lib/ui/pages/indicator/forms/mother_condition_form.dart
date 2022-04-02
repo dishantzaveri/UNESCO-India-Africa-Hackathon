@@ -64,11 +64,11 @@ class _MotherConditionFormState extends State<MotherConditionForm> {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    print("dù");
+                     
                     if (_formKeyBP.currentState!.validate()) {
-                      print("yes");
+                       
                     } else {
-                      print("ERROR");
+                       
                     }
                   },
                   child: const Text(
@@ -113,11 +113,11 @@ class _MotherConditionFormState extends State<MotherConditionForm> {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    print("dù");
+                     
                     if (_formKeyHR.currentState!.validate()) {
-                      print("yes");
+                       
                     } else {
-                      print("ERROR");
+                       
                     }
                   },
                   child: const Text(
@@ -162,11 +162,11 @@ class _MotherConditionFormState extends State<MotherConditionForm> {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    print("dù");
+                     
                     if (_formKeyTemp.currentState!.validate()) {
-                      print("yes");
+                       
                     } else {
-                      print("ERROR");
+                       
                     }
                   },
                   child: const Text(
@@ -265,11 +265,11 @@ class _MotherConditionFormState extends State<MotherConditionForm> {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    print("dù");
+                     
                     if (_formKeyUrine.currentState!.validate()) {
-                      print("yes");
+                       
                     } else {
-                      print("ERROR");
+                       
                     }
                   },
                   child: const Text(

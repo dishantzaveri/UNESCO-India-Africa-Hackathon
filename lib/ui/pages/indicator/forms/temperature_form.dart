@@ -3,7 +3,6 @@ import 'package:partograph/model/mother.dart';
 import 'package:partograph/model/temperature.dart';
 import 'package:partograph/provider/mother_provider.dart';
 import 'package:partograph/ui/widgets/custom_text.dart';
-import 'package:partograph/ui/widgets/titled_header.dart';
 import 'package:provider/provider.dart';
 
 class TemperatureForm extends StatefulWidget {

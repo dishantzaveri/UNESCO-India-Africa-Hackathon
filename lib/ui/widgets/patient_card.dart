@@ -18,8 +18,8 @@ class PatientCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 2.5),
-        padding: const EdgeInsets.all(5.0),
-        height: 50,
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        height: 70,
         decoration: BoxDecoration(
             color: Colors.grey.shade300,
             borderRadius: const BorderRadius.all(Radius.circular(10))),
@@ -32,8 +32,8 @@ class PatientCard extends StatelessWidget {
                   color: color,
                 ),
               ),
-              width: 30,
-              height: 30,
+              width: 50,
+              height: 50,
               decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(5.0))),
@@ -47,10 +47,14 @@ class PatientCard extends StatelessWidget {
               children: [
                 Text(
                   mother.fullname,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Text(
                   "Ward No ${mother.age}",
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 )
               ],
             ),
@@ -59,12 +63,12 @@ class PatientCard extends StatelessWidget {
               child: Center(
                 child: Icon(
                   Icons.arrow_forward_ios,
-                  size: 15,
+                  size: 25,
                   color: color,
                 ),
               ),
-              width: 25,
-              height: 25,
+              width: 40,
+              height: 40,
               decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(5.0))),

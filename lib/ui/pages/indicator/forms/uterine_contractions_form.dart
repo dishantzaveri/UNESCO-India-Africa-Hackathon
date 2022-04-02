@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:partograph/model/heart_rate.dart';
 import 'package:partograph/model/mother.dart';
 import 'package:partograph/model/uterine_contractions.dart';
 import 'package:partograph/provider/mother_provider.dart';
@@ -23,18 +22,17 @@ class UterineContractionsForm extends StatelessWidget {
           child: Column(
             children: [
               CustomTextfield(
-                hitText: 'eg. 20',
-                labelText: 'Uterine contractions',
-                siUnit: "(Sec)",
-                focusNode: FocusNode(),
-                textEditingController:
-                    _uterineContractionsTextEditingController,
-                maxLines: 1,
-                message: 'fetal heart rate is required',
-                keyboardType: TextInputType.number,
-                icon: Icons.favorite,
-                iconColor: Colors.cyan
-              ),
+                  hitText: 'eg. 20',
+                  labelText: 'Uterine contractions',
+                  siUnit: "(Sec)",
+                  focusNode: FocusNode(),
+                  textEditingController:
+                      _uterineContractionsTextEditingController,
+                  maxLines: 1,
+                  message: 'fetal heart rate is required',
+                  keyboardType: TextInputType.number,
+                  icon: Icons.favorite,
+                  iconColor: Colors.cyan),
             ],
           ),
         ),
@@ -58,9 +56,7 @@ class UterineContractionsForm extends StatelessWidget {
                           ),
                           mother);
                       Navigator.pop(context);
-                    } else {
-                      print("ERROR");
-                    }
+                    } else {}
                   },
                   child: const Text(
                     "Save",

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:partograph/provider/auth_provider.dart';
+import 'package:partograph/constants/enum.dart';
 import 'package:partograph/provider/mother_provider.dart';
 import 'package:partograph/ui/pages/patient/patient_history_page.dart';
-import 'package:partograph/ui/pages/patient/patient_page.dart';
-import 'package:partograph/ui/widgets/category.dart';
 import 'package:partograph/ui/widgets/patient_card.dart';
 import 'package:partograph/ui/widgets/titled_header.dart';
 
@@ -20,23 +18,22 @@ class _HistoryTabState extends State<HistoryTab>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    final _authProvider = Provider.of<AuthProvider>(context);
     final _motherProvider = Provider.of<MotherProvider>(context);
     return CustomScrollView(
       slivers: <Widget>[
         SliverAppBar(
           pinned: true,
           expandedHeight: MediaQuery.of(context).size.height * 0.2,
-          flexibleSpace: const FlexibleSpaceBar(
-            title: Text(
+          flexibleSpace:   FlexibleSpaceBar(
+            title: const Text(
               'History',
               style: TextStyle(color: Colors.white),
             ),
-            // background: Image.asset(
-            //   'assets/headers/header4.jpeg',
-            //   fit: BoxFit.fill,
-            // ),
-            titlePadding: EdgeInsets.only(left: 10, bottom: 10),
+            background: Image.asset(
+              'assets/images/header2.jpg',
+              fit: BoxFit.fill,
+            ),
+            titlePadding: const EdgeInsets.only(left: 10, bottom: 10),
           ),
           leading: const SizedBox(),
         ),
@@ -66,22 +63,26 @@ class _HistoryTabState extends State<HistoryTab>
           )
         ])),
         SliverList(
-            delegate:
-                SliverChildBuilderDelegate((BuildContext context, int index) {
+            delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
           return PatientCard(
             color: Colors.pink,
-            mother: _motherProvider.motherList[index],
+            mother: _motherProvider.motherByCategory(
+                caseCategory: CaseCategory.done)[index],
             onTap: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (_) => PatientHistoryPage(
-                            mother: _motherProvider.motherList[index],
+                            mother: _motherProvider.motherByCategory(
+                                caseCategory: CaseCategory.done)[index],
                           )));
             },
           );
-        }, childCount: _motherProvider.motherList.length)),
-        
+        },
+                childCount: _motherProvider
+                    .motherByCategory(caseCategory: CaseCategory.done)
+                    .length)),
       ],
     );
   }

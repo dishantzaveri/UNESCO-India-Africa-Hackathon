@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:partograph/constants/enum.dart';
 import 'package:partograph/model/amniotic_fluid.dart';
 import 'package:partograph/model/blood_pressure.dart';
 import 'package:partograph/model/descent.dart';
@@ -25,6 +26,7 @@ class MotherProvider with ChangeNotifier {
         gestationPeriod: '9 month',
         history: 'HP, BP, Malar',
         membraneRaptureTime: DateTime.now(),
+        caseCategory: CaseCategory.active,
         partogramRecording: [
           PartogramRecording(
               id: 1,
@@ -49,6 +51,7 @@ class MotherProvider with ChangeNotifier {
         parity: 3,
         admissionDate: DateTime.now(),
         gestationPeriod: '9 month',
+        caseCategory: CaseCategory.critical,
         history:
             'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
         membraneRaptureTime: DateTime.now(),
@@ -76,6 +79,7 @@ class MotherProvider with ChangeNotifier {
         parity: 3,
         admissionDate: DateTime.now(),
         gestationPeriod: '9 month',
+        caseCategory: CaseCategory.critical,
         history:
             'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
         membraneRaptureTime: DateTime.now(),
@@ -96,11 +100,246 @@ class MotherProvider with ChangeNotifier {
               oxytocin: [],
               dateCreeation: DateTime.now())
         ]),
+    Mother(
+        id: 4,
+        fullname: 'Silivia Matata',
+        age: 32,
+        parity: 2,
+        admissionDate: DateTime.now(),
+        gestationPeriod: '9 month',
+        caseCategory: CaseCategory.incoming,
+        history:
+            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
+        membraneRaptureTime: DateTime.now(),
+        partogramRecording: [
+          PartogramRecording(
+              id: 3,
+              amnioticFluid: [],
+              heartRate: [],
+              mouldingFetal: [],
+              descent: [],
+              dilatation: [],
+              bloodPressure: [],
+              drugIvFluid: [],
+              urine: [],
+              uterineContractions: [],
+              pulse: [],
+              temperature: [],
+              oxytocin: [],
+              dateCreeation: DateTime.now())
+        ]),
+    Mother(
+        id: 5,
+        fullname: 'Marry Kimei',
+        age: 24,
+        parity: 1,
+        admissionDate: DateTime.now(),
+        gestationPeriod: '9 month',
+        caseCategory: CaseCategory.incoming,
+        history:
+            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
+        membraneRaptureTime: DateTime.now(),
+        partogramRecording: [
+          PartogramRecording(
+              id: 5,
+              amnioticFluid: [],
+              heartRate: [],
+              mouldingFetal: [],
+              descent: [],
+              dilatation: [],
+              bloodPressure: [],
+              drugIvFluid: [],
+              urine: [],
+              uterineContractions: [],
+              pulse: [],
+              temperature: [],
+              oxytocin: [],
+              dateCreeation: DateTime.now())
+        ]),
+    Mother(
+        id: 6,
+        fullname: 'Cake Innocent',
+        age: 24,
+        parity: 1,
+        admissionDate: DateTime.now(),
+        gestationPeriod: '9 month',
+        caseCategory: CaseCategory.incoming,
+        history:
+            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
+        membraneRaptureTime: DateTime.now(),
+        partogramRecording: [
+          PartogramRecording(
+              id: 5,
+              amnioticFluid: [],
+              heartRate: [],
+              mouldingFetal: [],
+              descent: [],
+              dilatation: [],
+              bloodPressure: [],
+              drugIvFluid: [],
+              urine: [],
+              uterineContractions: [],
+              pulse: [],
+              temperature: [],
+              oxytocin: [],
+              dateCreeation: DateTime.now())
+        ]),
+    Mother(
+        id: 7,
+        fullname: 'Angel Mike',
+        age: 24,
+        parity: 1,
+        admissionDate: DateTime.now(),
+        gestationPeriod: '9 month',
+        caseCategory: CaseCategory.latent,
+        history:
+            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
+        membraneRaptureTime: DateTime.now(),
+        partogramRecording: [
+          PartogramRecording(
+              id: 5,
+              amnioticFluid: [],
+              heartRate: [],
+              mouldingFetal: [],
+              descent: [],
+              dilatation: [],
+              bloodPressure: [],
+              drugIvFluid: [],
+              urine: [],
+              uterineContractions: [],
+              pulse: [],
+              temperature: [],
+              oxytocin: [],
+              dateCreeation: DateTime.now())
+        ]),
+    Mother(
+        id: 7,
+        fullname: 'Paula Kamira',
+        age: 24,
+        parity: 1,
+        admissionDate: DateTime.now(),
+        gestationPeriod: '9 month',
+        caseCategory: CaseCategory.latent,
+        history:
+            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
+        membraneRaptureTime: DateTime.now(),
+        partogramRecording: [
+          PartogramRecording(
+              id: 5,
+              amnioticFluid: [],
+              heartRate: [],
+              mouldingFetal: [],
+              descent: [],
+              dilatation: [],
+              bloodPressure: [],
+              drugIvFluid: [],
+              urine: [],
+              uterineContractions: [],
+              pulse: [],
+              temperature: [],
+              oxytocin: [],
+              dateCreeation: DateTime.now())
+        ]),
+    Mother(
+        id: 8,
+        fullname: 'Silivia Matata',
+        age: 24,
+        parity: 1,
+        admissionDate: DateTime.now(),
+        gestationPeriod: '9 month',
+        caseCategory: CaseCategory.done,
+        history:
+            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
+        membraneRaptureTime: DateTime.now(),
+        partogramRecording: [
+          PartogramRecording(
+              id: 5,
+              amnioticFluid: [],
+              heartRate: [],
+              mouldingFetal: [],
+              descent: [],
+              dilatation: [],
+              bloodPressure: [],
+              drugIvFluid: [],
+              urine: [],
+              uterineContractions: [],
+              pulse: [],
+              temperature: [],
+              oxytocin: [],
+              dateCreeation: DateTime.now())
+        ]),
+    Mother(
+        id: 7,
+        fullname: 'Silivia Matata',
+        age: 24,
+        parity: 1,
+        admissionDate: DateTime.now(),
+        gestationPeriod: '9 month',
+        caseCategory: CaseCategory.done,
+        history:
+            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
+        membraneRaptureTime: DateTime.now(),
+        partogramRecording: [
+          PartogramRecording(
+              id: 5,
+              amnioticFluid: [],
+              heartRate: [],
+              mouldingFetal: [],
+              descent: [],
+              dilatation: [],
+              bloodPressure: [],
+              drugIvFluid: [],
+              urine: [],
+              uterineContractions: [],
+              pulse: [],
+              temperature: [],
+              oxytocin: [],
+              dateCreeation: DateTime.now())
+        ]),
+    Mother(
+        id: 9,
+        fullname: 'Silivia Matata',
+        age: 24,
+        parity: 1,
+        admissionDate: DateTime.now(),
+        gestationPeriod: '9 month',
+        caseCategory: CaseCategory.done,
+        history:
+            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
+        membraneRaptureTime: DateTime.now(),
+        partogramRecording: [
+          PartogramRecording(
+              id: 5,
+              amnioticFluid: [],
+              heartRate: [],
+              mouldingFetal: [],
+              descent: [],
+              dilatation: [],
+              bloodPressure: [],
+              drugIvFluid: [],
+              urine: [],
+              uterineContractions: [],
+              pulse: [],
+              temperature: [],
+              oxytocin: [],
+              dateCreeation: DateTime.now())
+        ]),
   ];
 
   ///Constructor users
   MotherProvider();
   List<Mother> get motherList => _motherList;
+  List<Mother> motherByCategory({required CaseCategory caseCategory}) {
+    return _motherList
+        .where((mother) => mother.caseCategory == caseCategory)
+        .toList();
+  }
+
+  List<Mother> currentPatients({required CaseCategory caseCategory}) {
+    return _motherList
+        .where((mother) => mother.caseCategory != caseCategory)
+        .toList();
+  }
 
   postMother(Mother mother) async {
     _motherList.add(mother);
@@ -208,7 +447,6 @@ class MotherProvider with ChangeNotifier {
     notifyListeners();
   }
 
-
   postOxytocin(Oxytocin oxytocin, Mother mother) async {
     _motherList
         .firstWhere((element) => element == mother)
@@ -218,7 +456,8 @@ class MotherProvider with ChangeNotifier {
         .add(oxytocin);
     notifyListeners();
   }
-    postDrugIvFluids(DrugIvFluid drugIvFluid, Mother mother) async {
+
+  postDrugIvFluids(DrugIvFluid drugIvFluid, Mother mother) async {
     _motherList
         .firstWhere((element) => element == mother)
         .partogramRecording

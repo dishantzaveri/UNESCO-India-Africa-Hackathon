@@ -7,11 +7,6 @@ import 'package:partograph/ui/pages/indicator/List/widget/oxytocin_card.dart';
 import 'package:partograph/ui/pages/indicator/List/widget/pulse_card.dart';
 import 'package:partograph/ui/pages/indicator/List/widget/temperature_card.dart';
 import 'package:partograph/ui/pages/indicator/List/widget/urine_card.dart';
-import 'package:partograph/ui/pages/indicator/forms/blood_pressure_form.dart';
-import 'package:partograph/ui/pages/indicator/forms/pulse_form.dart';
-import 'package:partograph/ui/pages/indicator/forms/temperature_form.dart';
-import 'package:partograph/ui/pages/indicator/forms/urine_form.dart';
-import 'package:partograph/ui/widgets/titled_header_button.dart';
 import 'package:provider/provider.dart';
 
 class MotherConditionList extends StatelessWidget {

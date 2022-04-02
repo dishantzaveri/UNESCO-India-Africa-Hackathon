@@ -1,19 +1,213 @@
 import 'package:flutter/material.dart';
-
-import 'background/background.dart';
-import 'forms/login_form.dart';
+import 'package:partograph/ui/pages/auth/fade_animation.dart';
+import 'package:partograph/ui/pages/home/home_page.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({ Key? key }) : super(key: key);
-
+  LoginPage({Key? key}) : super(key: key);
+  final _formKey = GlobalKey<FormState>();
+  final _numberEditingController = TextEditingController();
+  final _passwordEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(
-          children:  const [
-              Background(),  LoginForm() ,
-          ],
-        ),
-      );
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: <Widget>[
+                Container(
+                  height: 400,
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/image-2.png'),
+                          fit: BoxFit.fill)),
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned(
+                        left: 30,
+                        width: 80,
+                        height: 200,
+                        child: FadeAnimation(
+                            delay: 1,
+                            childWidget: Container(
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/images/light-1.png'))),
+                            )),
+                      ),
+                      Positioned(
+                        left: 140,
+                        width: 80,
+                        height: 150,
+                        child: FadeAnimation(
+                            delay: 1.3,
+                            childWidget: Container(
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/images/light-2.png'))),
+                            )),
+                      ),
+                      Positioned(
+                        right: 40,
+                        top: 40,
+                        width: 80,
+                        height: 150,
+                        child: FadeAnimation(
+                            delay: 1.5,
+                            childWidget: Container(
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/images/clock.png'))),
+                            )),
+                      ),
+                      Positioned(
+                        child: FadeAnimation(
+                            delay: 1.6,
+                            childWidget: Container(
+                              margin: const EdgeInsets.only(top: 50),
+                              child: const Center(
+                                child: Text(
+                                  "Login",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 40,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            )),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Column(
+                    children: <Widget>[
+                      FadeAnimation(
+                          delay: 1.8,
+                          childWidget: Container(
+                            padding: const EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                                boxShadow: const [
+                                  BoxShadow(
+                                      color: Color.fromARGB(51, 143, 226, 251),
+                                      blurRadius: 20.0,
+                                      offset: Offset(0, 10))
+                                ]),
+                            child: Column(
+                              children: <Widget>[
+                                Container(
+                                  padding: const EdgeInsets.all(8.0),
+                                  decoration: const BoxDecoration(
+                                      border: Border(
+                                          bottom:
+                                              BorderSide(color: Colors.grey))),
+                                  child: TextFormField(
+                                    focusNode: FocusNode(),
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return "Registration number is required";
+                                      } else {
+                                        return null;
+                                      }
+                                    },
+                                    controller: _numberEditingController,
+                                    decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                        hintText: "Midwife Number",
+                                        hintStyle:
+                                            TextStyle(color: Colors.grey[400])),
+                                  ),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: TextFormField(
+                                    focusNode: FocusNode(),
+                                    obscureText: true,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return "password is required";
+                                      } else {
+                                        return null;
+                                      }
+                                    },
+                                    controller: _passwordEditingController,
+                                    decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                        hintText: "Password",
+                                        hintStyle:
+                                            TextStyle(color: Colors.grey[400])),
+                                  ),
+                                )
+                              ],
+                            ),
+                          )),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          if (_formKey.currentState!.validate()) {
+                            if (_numberEditingController.text.toLowerCase() ==
+                                    "md001" &&
+                                _passwordEditingController.text.toLowerCase() ==
+                                    "1234") {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => const HomePage()));
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    backgroundColor: Colors.red,
+                                    content:
+                                        Text('Incorect username or password')),
+                              );
+                            }
+                          } else {}
+                        },
+                        child: FadeAnimation(
+                            delay: 2,
+                            childWidget: Container(
+                              height: 50,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  gradient: const LinearGradient(colors: [
+                                    Color.fromARGB(255, 74, 194, 202),
+                                    Color.fromARGB(153, 117, 236, 245),
+                                  ])),
+                              child: const Center(
+                                child: Text(
+                                  "Login",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            )),
+                      ),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      const FadeAnimation(
+                          delay: 1.5,
+                          childWidget: Text(
+                            "Forgot Password?",
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 79, 203, 219)),
+                          )),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ));
   }
 }

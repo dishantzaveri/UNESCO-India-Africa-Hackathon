@@ -29,7 +29,7 @@ class SplashScreenState extends State<AnimatedLoaderScreen>
     if (_authProvider.isAuthenticated) {
       Navigator.of(context).pushReplacementNamed(homePageRouteAndroid);
     } else {
-      Navigator.of(context).pushReplacementNamed(loginPageRouteAndroid);
+      Navigator.of(context).pushReplacementNamed(onboardingPageRoute);
     }
   }
 

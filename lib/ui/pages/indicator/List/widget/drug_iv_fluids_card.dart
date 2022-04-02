@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:partograph/model/drug_iv_fluids.dart';
 import 'package:partograph/model/mother.dart';
-import 'package:partograph/model/temperature.dart';
 import 'package:partograph/ui/pages/indicator/forms/drugs_iv_fluid_form.dart';
-import 'package:partograph/ui/pages/indicator/forms/temperature_form.dart';
 import 'package:partograph/ui/widgets/titled_header_button.dart';
 
 class DrugsIvFluidCard extends StatelessWidget {

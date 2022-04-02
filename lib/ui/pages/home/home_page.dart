@@ -1,7 +1,9 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:partograph/ui/pages/drawer/drawer_page.dart';
 import 'package:partograph/ui/pages/home/tabs/history_tab.dart';
 import 'package:partograph/ui/pages/home/tabs/home_tab.dart';
+import 'package:partograph/ui/pages/home/tabs/profile_tab.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -21,13 +23,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _screens = [
-      const HomeTab(),
-      const HistoryTab(),
-      const Center(
-        child: Text("midwife's profile"),
-      )
-    ];
+    _screens = [const HomeTab(), const HistoryTab(), const ProfileTab()];
   }
 
   @override
@@ -72,6 +68,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
+        endDrawer: _selectedIndex == 2 ? const DrawerPage() : Container(),
       ),
     );
   }

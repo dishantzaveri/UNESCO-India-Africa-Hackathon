@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:partograph/provider/auth_provider.dart';
+import 'package:partograph/constants/enum.dart';
 import 'package:partograph/provider/mother_provider.dart';
+import 'package:partograph/ui/pages/category/category_page.dart';
 import 'package:partograph/ui/pages/patient/patient_page.dart';
 import 'package:partograph/ui/widgets/category.dart';
 import 'package:partograph/ui/widgets/patient_card.dart';
@@ -18,7 +19,6 @@ class HomeTab extends StatefulWidget {
 class _HomeTabState extends State<HomeTab> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    final _authProvider = Provider.of<AuthProvider>(context);
     final _motherProvider = Provider.of<MotherProvider>(context);
     return CustomScrollView(
       slivers: <Widget>[
@@ -40,10 +40,10 @@ class _HomeTabState extends State<HomeTab> with SingleTickerProviderStateMixin {
                 ),
               ],
             ),
-            // background: Image.asset(
-            //   'assets/headers/header4.jpeg',
-            //   fit: BoxFit.fill,
-            // ),
+            background: Image.asset(
+              'assets/images/header1.jpg',
+              fit: BoxFit.fill,
+            ),
             titlePadding: const EdgeInsets.only(left: 10, bottom: 10),
           ),
           leading: const SizedBox(),
@@ -54,7 +54,7 @@ class _HomeTabState extends State<HomeTab> with SingleTickerProviderStateMixin {
               decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(10))),
-              child: Image.network('${_authProvider.authenicatedUser?.avatar}'),
+              child: Image.asset('assets/images/profile.jpg'),
             ),
             const SizedBox(
               width: 10,
@@ -72,32 +72,67 @@ class _HomeTabState extends State<HomeTab> with SingleTickerProviderStateMixin {
             height: 100.0,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: const [
+              children: [
                 Category(
                   backgroungColor: Colors.pinkAccent,
                   iconColor: Colors.red,
                   subtitle: '5 Patients',
                   title: 'Critical',
                   icon: Icons.heart_broken,
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => const CategoryPage(
+                                title: 'Critical',
+                                caseCategory: CaseCategory.critical)));
+                  },
                 ),
                 Category(
-                    backgroungColor: Colors.blue,
-                    iconColor: Colors.red,
-                    subtitle: '4 Patients',
-                    title: 'Active Phase',
-                    icon: Icons.local_hospital),
+                  backgroungColor: Colors.blue,
+                  iconColor: Colors.red,
+                  subtitle: '4 Patients',
+                  title: 'Active Phase',
+                  icon: Icons.local_hospital,
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => const CategoryPage(
+                                title: 'Active Phase',
+                                caseCategory: CaseCategory.active)));
+                  },
+                ),
                 Category(
-                    backgroungColor: Colors.cyan,
-                    iconColor: Colors.red,
-                    subtitle: '9 Patients',
-                    title: 'Latent Phase',
-                    icon: Icons.favorite),
+                  backgroungColor: Colors.cyan,
+                  iconColor: Colors.red,
+                  subtitle: '9 Patients',
+                  title: 'Latent Phase',
+                  icon: Icons.favorite,
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => const CategoryPage(
+                                title: 'Latent Phase',
+                                caseCategory: CaseCategory.latent)));
+                  },
+                ),
                 Category(
-                    backgroungColor: Colors.orange,
-                    iconColor: Colors.red,
-                    subtitle: '12 Patients',
-                    title: 'Incoming',
-                    icon: Icons.access_alarm)
+                  backgroungColor: Colors.orange,
+                  iconColor: Colors.red,
+                  subtitle: '12 Patients',
+                  title: 'Incoming',
+                  icon: Icons.access_alarm,
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => const CategoryPage(
+                                title: 'Incoming',
+                                caseCategory: CaseCategory.incoming)));
+                  },
+                )
               ],
             ),
           ),
@@ -128,21 +163,26 @@ class _HomeTabState extends State<HomeTab> with SingleTickerProviderStateMixin {
           )
         ])),
         SliverList(
-            delegate:
-                SliverChildBuilderDelegate((BuildContext context, int index) {
+            delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
           return PatientCard(
             color: Colors.pink,
-            mother: _motherProvider.motherList[index],
+            mother: _motherProvider.currentPatients(
+                caseCategory: CaseCategory.done)[index],
             onTap: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (_) => PatientPage(
-                            mother: _motherProvider.motherList[index],
+                            mother: _motherProvider.currentPatients(
+                                caseCategory: CaseCategory.done)[index],
                           )));
             },
           );
-        }, childCount: _motherProvider.motherList.length)),
+        },
+                childCount: _motherProvider
+                    .currentPatients(caseCategory: CaseCategory.done)
+                    .length)),
       ],
     );
   }

@@ -57,7 +57,7 @@ class FetalHeartRateForm extends StatelessWidget {
                           mother);
                       Navigator.pop(context);
                     } else {
-                      print("ERROR");
+                      
                     }
                   },
                   child: const Text(

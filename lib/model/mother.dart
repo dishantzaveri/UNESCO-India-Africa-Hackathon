@@ -1,3 +1,4 @@
+import 'package:partograph/constants/enum.dart';
 import 'package:partograph/model/partogram_recording.dart';
 
 class Mother {
@@ -6,6 +7,7 @@ class Mother {
   String gestationPeriod;
   DateTime admissionDate;
   DateTime membraneRaptureTime;
+  CaseCategory caseCategory;
   String history;
   int age;
   int parity;
@@ -20,7 +22,8 @@ class Mother {
       required this.age,
       required this.history,
       required this.membraneRaptureTime,
-      required this.partogramRecording});
+      required this.partogramRecording,
+      required this.caseCategory});
 
   Map<dynamic, dynamic> toMap() {
     var map = <String, dynamic>{
@@ -36,21 +39,5 @@ class Mother {
     };
 
     return map;
-  }
-
-  factory Mother.fromMap(Map<String, dynamic> data) {
-    return Mother(
-      id: data["id"],
-      fullname: data["fullname"],
-      age: data["age"],
-      gestationPeriod: data["gestationPeriod"],
-      admissionDate: data["admissionDate"],
-      history: data["history"],
-      membraneRaptureTime: data["membraneRaptureTime"],
-      parity: data["parity"],
-      partogramRecording: (data['partogramRecording']
-          .map<PartogramRecording>((i) => PartogramRecording.fromMap(i))
-          .toList()),
-    );
   }
 }
