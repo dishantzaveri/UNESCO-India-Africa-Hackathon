@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:partograph/model/amniotic_fluid.dart';
 import 'package:partograph/model/blood_pressure.dart';
 import 'package:partograph/model/descent.dart';
@@ -11,9 +12,16 @@ import 'package:partograph/model/temperature.dart';
 import 'package:partograph/model/urine.dart';
 import 'package:partograph/model/uterine_contractions.dart';
 
-class PartogramRecording {
+class Partograph {
   int id;
-  DateTime dateCreeation;
+  String healthFacility;
+  String namePatient;
+  String gravidaPara;
+  String status;
+  DateTime date;
+  TimeOfDay startsAt;
+  TimeOfDay endsAt;
+  int admissionInformationId;
   List<AmnioticFluid> amnioticFluid;
   List<HeartRate> heartRate;
   List<MouldingFetal> mouldingFetal;
@@ -27,8 +35,16 @@ class PartogramRecording {
   List<Pulse> pulse;
   List<Oxytocin> oxytocin;
 
-  PartogramRecording(
+  Partograph(
       {required this.id,
+      required this.healthFacility,
+      required this.namePatient,
+      required this.gravidaPara,
+      required this.status,
+      required this.date,
+      required this.startsAt,
+      required this.endsAt,
+      required this.admissionInformationId,
       required this.amnioticFluid,
       required this.heartRate,
       required this.mouldingFetal,
@@ -40,13 +56,19 @@ class PartogramRecording {
       required this.uterineContractions,
       required this.temperature,
       required this.pulse,
-      required this.dateCreeation,
       required this.oxytocin});
 
   Map<dynamic, dynamic> toMap() {
     var map = <String, dynamic>{
       'id': id,
-      'dateCreeation': dateCreeation,
+      'health_facility': healthFacility,
+      'name_patient': namePatient,
+      'gravida_para': gravidaPara,
+      'status': status,
+      'date': date,
+      'starts_at': startsAt,
+      'ends_at': endsAt,
+      'admission_information_id': admissionInformationId,
       'amnioticFluid': amnioticFluid.map((e) => e.toMap()).toList(),
       'heartRate': heartRate.map((e) => e.toMap()).toList(),
       'mouldingFetal': mouldingFetal.map((e) => e.toMap()).toList(),
@@ -64,9 +86,17 @@ class PartogramRecording {
     return map;
   }
 
-  factory PartogramRecording.fromMap(Map<String, dynamic> data) {
-    return PartogramRecording(
+  factory Partograph.fromMap(Map<String, dynamic> data) {
+    return Partograph(
       id: data["id"],
+      healthFacility: data['health_facility'],
+      namePatient: data['name_patient'],
+      gravidaPara: data['gravida_para'],
+      status: data['status'],
+      date: DateTime.parse(data['date']),
+      startsAt: TimeOfDay.fromDateTime(DateTime.parse(data['starts_at'])),
+      endsAt: TimeOfDay.fromDateTime(DateTime.parse(data['ends_at'])),
+      admissionInformationId: data['admission_information_id'],
       amnioticFluid: (data['amnioticFluid']
           .map<AmnioticFluid>((i) => AmnioticFluid.fromMap(i))
           .toList()),
@@ -97,7 +127,6 @@ class PartogramRecording {
       uterineContractions: (data['uterineContractions']
           .map<UterineContraction>((i) => UterineContraction.fromMap(i))
           .toList()),
-      dateCreeation: data['dateCreeation'],
     );
   }
 }

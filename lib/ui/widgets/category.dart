@@ -5,6 +5,7 @@ class Category extends StatelessWidget {
       {Key? key,
       required this.backgroungColor,
       required this.iconColor,
+       required this.textColor,
       required this.title,
       required this.subtitle,
       required this.icon,
@@ -12,6 +13,7 @@ class Category extends StatelessWidget {
       : super(key: key);
   final Color backgroungColor;
   final Color iconColor;
+   final Color textColor;
   final String title;
   final String subtitle;
   final IconData icon;
@@ -51,15 +53,15 @@ class Category extends StatelessWidget {
                 title,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold),
+                style:   TextStyle(
+                    color: textColor, fontWeight: FontWeight.bold),
               ),
               Text(
                 subtitle,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  color: Colors.white,
+                style:   TextStyle(
+                  color: textColor,
                 ),
               )
             ],

@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 child: CircleAvatar(
                     backgroundColor: _selectedIndex == 2
-                        ? Colors.cyan
+                        ? const Color.fromRGBO(248, 54, 119, 1)
                         : Colors.grey.shade400,
                     radius: 14,
                     child: const Icon(

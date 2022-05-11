@@ -9,11 +9,14 @@ class PatientHistoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 10, top: 10, right: 10,),
+      margin: const EdgeInsets.only(
+        left: 10,
+        top: 10,
+        right: 10,
+      ),
       padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
-     
       decoration: const BoxDecoration(
-          color: Colors.cyan,
+          color: Color.fromRGBO(248, 54, 119, 1),
           borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,11 +30,12 @@ class PatientHistoryCard extends StatelessWidget {
             children: [
               const Text(
                 'Fullname: ',
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
               Expanded(
                 child: Text(
-                  mother.fullname,
+                  mother.surname + " " + mother.otherNames,
                   softWrap: true,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -44,11 +48,12 @@ class PatientHistoryCard extends StatelessWidget {
             children: [
               const Text(
                 'AGE: ',
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
               Expanded(
                 child: Text(
-                  "${mother.age}",
+                  "${mother.dateOfBirth}",
                   softWrap: true,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -60,12 +65,13 @@ class PatientHistoryCard extends StatelessWidget {
           Row(
             children: [
               const Text(
-                'Parity/Gravida: ',
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                'Residence: ',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
               Expanded(
                 child: Text(
-                  '${mother.parity}',
+                  mother.residence,
                   softWrap: true,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -77,12 +83,13 @@ class PatientHistoryCard extends StatelessWidget {
           Row(
             children: [
               const Text(
-                'Gestational period: ',
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                'Husband/Partner name: ',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
               Expanded(
                 child: Text(
-                  mother.gestationPeriod,
+                  mother.husbandPartnerName,
                   softWrap: true,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -94,12 +101,13 @@ class PatientHistoryCard extends StatelessWidget {
           Row(
             children: [
               const Text(
-                'Date/time of admission: ',
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                'Permanent address: ',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
               Expanded(
                 child: Text(
-                  "${mother.admissionDate}",
+                  mother.permanentAddress,
                   softWrap: true,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -111,12 +119,13 @@ class PatientHistoryCard extends StatelessWidget {
           Row(
             children: [
               const Text(
-                'Time of rupture membrane: ',
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                'Next of kin: ',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
               Expanded(
                 child: Text(
-                  "${mother.membraneRaptureTime}",
+                  mother.nextOfKin,
                   softWrap: true,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -128,12 +137,13 @@ class PatientHistoryCard extends StatelessWidget {
           Row(
             children: [
               const Text(
-                'Short antenatal history: ',
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                'Cell phone: ',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
               Expanded(
                 child: Text(
-                  mother.history,
+                  mother.cellPhone,
                   softWrap: true,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,

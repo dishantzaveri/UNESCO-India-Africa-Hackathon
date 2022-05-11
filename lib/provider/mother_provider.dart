@@ -8,323 +8,14 @@ import 'package:partograph/model/drug_iv_fluids.dart';
 import 'package:partograph/model/heart_rate.dart';
 import 'package:partograph/model/mother.dart';
 import 'package:partograph/model/moulding_fetal.dart';
-import 'package:partograph/model/oxytocin.dart';
-import 'package:partograph/model/partogram_recording.dart';
+import 'package:partograph/model/oxytocin.dart'; 
 import 'package:partograph/model/pulse.dart';
 import 'package:partograph/model/temperature.dart';
 import 'package:partograph/model/urine.dart';
 import 'package:partograph/model/uterine_contractions.dart';
 
 class MotherProvider with ChangeNotifier {
-  final List<Mother> _motherList = [
-    Mother(
-        id: 1,
-        fullname: 'Mariam Kemmy',
-        age: 19,
-        parity: 3,
-        admissionDate: DateTime.now(),
-        gestationPeriod: '9 month',
-        history: 'HP, BP, Malar',
-        membraneRaptureTime: DateTime.now(),
-        caseCategory: CaseCategory.active,
-        partogramRecording: [
-          PartogramRecording(
-              id: 1,
-              amnioticFluid: [],
-              heartRate: [],
-              mouldingFetal: [],
-              descent: [],
-              dilatation: [],
-              bloodPressure: [],
-              drugIvFluid: [],
-              urine: [],
-              uterineContractions: [],
-              pulse: [],
-              temperature: [],
-              oxytocin: [],
-              dateCreeation: DateTime.now())
-        ]),
-    Mother(
-        id: 2,
-        fullname: 'Lusia Masai',
-        age: 20,
-        parity: 3,
-        admissionDate: DateTime.now(),
-        gestationPeriod: '9 month',
-        caseCategory: CaseCategory.critical,
-        history:
-            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
-        membraneRaptureTime: DateTime.now(),
-        partogramRecording: [
-          PartogramRecording(
-              id: 2,
-              amnioticFluid: [],
-              heartRate: [],
-              mouldingFetal: [],
-              descent: [],
-              dilatation: [],
-              bloodPressure: [],
-              drugIvFluid: [],
-              urine: [],
-              uterineContractions: [],
-              pulse: [],
-              temperature: [],
-              oxytocin: [],
-              dateCreeation: DateTime.now())
-        ]),
-    Mother(
-        id: 3,
-        fullname: 'Maria Tressa',
-        age: 20,
-        parity: 3,
-        admissionDate: DateTime.now(),
-        gestationPeriod: '9 month',
-        caseCategory: CaseCategory.critical,
-        history:
-            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
-        membraneRaptureTime: DateTime.now(),
-        partogramRecording: [
-          PartogramRecording(
-              id: 3,
-              amnioticFluid: [],
-              heartRate: [],
-              mouldingFetal: [],
-              descent: [],
-              dilatation: [],
-              bloodPressure: [],
-              drugIvFluid: [],
-              urine: [],
-              uterineContractions: [],
-              pulse: [],
-              temperature: [],
-              oxytocin: [],
-              dateCreeation: DateTime.now())
-        ]),
-    Mother(
-        id: 4,
-        fullname: 'Silivia Matata',
-        age: 32,
-        parity: 2,
-        admissionDate: DateTime.now(),
-        gestationPeriod: '9 month',
-        caseCategory: CaseCategory.incoming,
-        history:
-            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
-        membraneRaptureTime: DateTime.now(),
-        partogramRecording: [
-          PartogramRecording(
-              id: 3,
-              amnioticFluid: [],
-              heartRate: [],
-              mouldingFetal: [],
-              descent: [],
-              dilatation: [],
-              bloodPressure: [],
-              drugIvFluid: [],
-              urine: [],
-              uterineContractions: [],
-              pulse: [],
-              temperature: [],
-              oxytocin: [],
-              dateCreeation: DateTime.now())
-        ]),
-    Mother(
-        id: 5,
-        fullname: 'Marry Kimei',
-        age: 24,
-        parity: 1,
-        admissionDate: DateTime.now(),
-        gestationPeriod: '9 month',
-        caseCategory: CaseCategory.incoming,
-        history:
-            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
-        membraneRaptureTime: DateTime.now(),
-        partogramRecording: [
-          PartogramRecording(
-              id: 5,
-              amnioticFluid: [],
-              heartRate: [],
-              mouldingFetal: [],
-              descent: [],
-              dilatation: [],
-              bloodPressure: [],
-              drugIvFluid: [],
-              urine: [],
-              uterineContractions: [],
-              pulse: [],
-              temperature: [],
-              oxytocin: [],
-              dateCreeation: DateTime.now())
-        ]),
-    Mother(
-        id: 6,
-        fullname: 'Cake Innocent',
-        age: 24,
-        parity: 1,
-        admissionDate: DateTime.now(),
-        gestationPeriod: '9 month',
-        caseCategory: CaseCategory.incoming,
-        history:
-            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
-        membraneRaptureTime: DateTime.now(),
-        partogramRecording: [
-          PartogramRecording(
-              id: 5,
-              amnioticFluid: [],
-              heartRate: [],
-              mouldingFetal: [],
-              descent: [],
-              dilatation: [],
-              bloodPressure: [],
-              drugIvFluid: [],
-              urine: [],
-              uterineContractions: [],
-              pulse: [],
-              temperature: [],
-              oxytocin: [],
-              dateCreeation: DateTime.now())
-        ]),
-    Mother(
-        id: 7,
-        fullname: 'Angel Mike',
-        age: 24,
-        parity: 1,
-        admissionDate: DateTime.now(),
-        gestationPeriod: '9 month',
-        caseCategory: CaseCategory.latent,
-        history:
-            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
-        membraneRaptureTime: DateTime.now(),
-        partogramRecording: [
-          PartogramRecording(
-              id: 5,
-              amnioticFluid: [],
-              heartRate: [],
-              mouldingFetal: [],
-              descent: [],
-              dilatation: [],
-              bloodPressure: [],
-              drugIvFluid: [],
-              urine: [],
-              uterineContractions: [],
-              pulse: [],
-              temperature: [],
-              oxytocin: [],
-              dateCreeation: DateTime.now())
-        ]),
-    Mother(
-        id: 7,
-        fullname: 'Paula Kamira',
-        age: 24,
-        parity: 1,
-        admissionDate: DateTime.now(),
-        gestationPeriod: '9 month',
-        caseCategory: CaseCategory.latent,
-        history:
-            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
-        membraneRaptureTime: DateTime.now(),
-        partogramRecording: [
-          PartogramRecording(
-              id: 5,
-              amnioticFluid: [],
-              heartRate: [],
-              mouldingFetal: [],
-              descent: [],
-              dilatation: [],
-              bloodPressure: [],
-              drugIvFluid: [],
-              urine: [],
-              uterineContractions: [],
-              pulse: [],
-              temperature: [],
-              oxytocin: [],
-              dateCreeation: DateTime.now())
-        ]),
-    Mother(
-        id: 8,
-        fullname: 'Silivia Matata',
-        age: 24,
-        parity: 1,
-        admissionDate: DateTime.now(),
-        gestationPeriod: '9 month',
-        caseCategory: CaseCategory.done,
-        history:
-            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
-        membraneRaptureTime: DateTime.now(),
-        partogramRecording: [
-          PartogramRecording(
-              id: 5,
-              amnioticFluid: [],
-              heartRate: [],
-              mouldingFetal: [],
-              descent: [],
-              dilatation: [],
-              bloodPressure: [],
-              drugIvFluid: [],
-              urine: [],
-              uterineContractions: [],
-              pulse: [],
-              temperature: [],
-              oxytocin: [],
-              dateCreeation: DateTime.now())
-        ]),
-    Mother(
-        id: 7,
-        fullname: 'Silivia Matata',
-        age: 24,
-        parity: 1,
-        admissionDate: DateTime.now(),
-        gestationPeriod: '9 month',
-        caseCategory: CaseCategory.done,
-        history:
-            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
-        membraneRaptureTime: DateTime.now(),
-        partogramRecording: [
-          PartogramRecording(
-              id: 5,
-              amnioticFluid: [],
-              heartRate: [],
-              mouldingFetal: [],
-              descent: [],
-              dilatation: [],
-              bloodPressure: [],
-              drugIvFluid: [],
-              urine: [],
-              uterineContractions: [],
-              pulse: [],
-              temperature: [],
-              oxytocin: [],
-              dateCreeation: DateTime.now())
-        ]),
-    Mother(
-        id: 9,
-        fullname: 'Silivia Matata',
-        age: 24,
-        parity: 1,
-        admissionDate: DateTime.now(),
-        gestationPeriod: '9 month',
-        caseCategory: CaseCategory.done,
-        history:
-            'HP, BP, Malar hjsd hjsdh hdsjkhd jsdkhjk jkshdk jsk skdf jkdshfj jksdfh jkdfhj',
-        membraneRaptureTime: DateTime.now(),
-        partogramRecording: [
-          PartogramRecording(
-              id: 5,
-              amnioticFluid: [],
-              heartRate: [],
-              mouldingFetal: [],
-              descent: [],
-              dilatation: [],
-              bloodPressure: [],
-              drugIvFluid: [],
-              urine: [],
-              uterineContractions: [],
-              pulse: [],
-              temperature: [],
-              oxytocin: [],
-              dateCreeation: DateTime.now())
-        ]),
-  ];
+  final List<Mother> _motherList = [];
 
   ///Constructor users
   MotherProvider();
@@ -349,8 +40,8 @@ class MotherProvider with ChangeNotifier {
   postHeartRate(HeartRate heartRate, Mother mother) async {
     _motherList
         .firstWhere((element) => element == mother)
-        .partogramRecording
-        .last
+        .admissionInformations
+        .last.partograph
         .heartRate
         .add(heartRate);
     notifyListeners();
@@ -359,8 +50,8 @@ class MotherProvider with ChangeNotifier {
   postAmniotiFluid(AmnioticFluid amnioticFluid, Mother mother) async {
     _motherList
         .firstWhere((element) => element == mother)
-        .partogramRecording
-        .last
+        .admissionInformations
+        .last.partograph
         .amnioticFluid
         .add(amnioticFluid);
     notifyListeners();
@@ -369,8 +60,8 @@ class MotherProvider with ChangeNotifier {
   postMoulding(MouldingFetal mouldingFetal, Mother mother) async {
     _motherList
         .firstWhere((element) => element == mother)
-        .partogramRecording
-        .last
+        .admissionInformations
+        .last.partograph
         .mouldingFetal
         .add(mouldingFetal);
     notifyListeners();
@@ -379,8 +70,8 @@ class MotherProvider with ChangeNotifier {
   postDilatation(Dilatation dilatation, Mother mother) async {
     _motherList
         .firstWhere((element) => element == mother)
-        .partogramRecording
-        .last
+         .admissionInformations
+        .last.partograph
         .dilatation
         .add(dilatation);
     notifyListeners();
@@ -389,8 +80,8 @@ class MotherProvider with ChangeNotifier {
   postDescent(Descent descent, Mother mother) async {
     _motherList
         .firstWhere((element) => element == mother)
-        .partogramRecording
-        .last
+        .admissionInformations
+        .last.partograph
         .descent
         .add(descent);
     notifyListeners();
@@ -400,8 +91,8 @@ class MotherProvider with ChangeNotifier {
       UterineContraction uterineContraction, Mother mother) async {
     _motherList
         .firstWhere((element) => element == mother)
-        .partogramRecording
-        .last
+       .admissionInformations
+        .last.partograph
         .uterineContractions
         .add(uterineContraction);
     notifyListeners();
@@ -410,8 +101,8 @@ class MotherProvider with ChangeNotifier {
   postBloodPressure(BloodPressure bloodPressure, Mother mother) async {
     _motherList
         .firstWhere((element) => element == mother)
-        .partogramRecording
-        .last
+        .admissionInformations
+        .last.partograph
         .bloodPressure
         .add(bloodPressure);
     notifyListeners();
@@ -420,8 +111,8 @@ class MotherProvider with ChangeNotifier {
   postPulse(Pulse pulse, Mother mother) async {
     _motherList
         .firstWhere((element) => element == mother)
-        .partogramRecording
-        .last
+        .admissionInformations
+        .last.partograph
         .pulse
         .add(pulse);
     notifyListeners();
@@ -430,8 +121,8 @@ class MotherProvider with ChangeNotifier {
   postTemperature(Temperature temperature, Mother mother) async {
     _motherList
         .firstWhere((element) => element == mother)
-        .partogramRecording
-        .last
+         .admissionInformations
+        .last.partograph
         .temperature
         .add(temperature);
     notifyListeners();
@@ -440,8 +131,8 @@ class MotherProvider with ChangeNotifier {
   postUrine(Urine urine, Mother mother) async {
     _motherList
         .firstWhere((element) => element == mother)
-        .partogramRecording
-        .last
+        .admissionInformations
+        .last.partograph
         .urine
         .add(urine);
     notifyListeners();
@@ -450,8 +141,8 @@ class MotherProvider with ChangeNotifier {
   postOxytocin(Oxytocin oxytocin, Mother mother) async {
     _motherList
         .firstWhere((element) => element == mother)
-        .partogramRecording
-        .last
+       .admissionInformations
+        .last.partograph
         .oxytocin
         .add(oxytocin);
     notifyListeners();
@@ -460,8 +151,8 @@ class MotherProvider with ChangeNotifier {
   postDrugIvFluids(DrugIvFluid drugIvFluid, Mother mother) async {
     _motherList
         .firstWhere((element) => element == mother)
-        .partogramRecording
-        .last
+        .admissionInformations
+        .last.partograph
         .drugIvFluid
         .add(drugIvFluid);
     notifyListeners();

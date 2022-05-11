@@ -96,7 +96,7 @@ class LoginPage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(10),
                                 boxShadow: const [
                                   BoxShadow(
-                                      color: Color.fromARGB(51, 143, 226, 251),
+                                      color: Color.fromRGBO(248, 54, 119, 1),
                                       blurRadius: 20.0,
                                       offset: Offset(0, 10))
                                 ]),
@@ -120,7 +120,7 @@ class LoginPage extends StatelessWidget {
                                     controller: _numberEditingController,
                                     decoration: InputDecoration(
                                         border: InputBorder.none,
-                                        hintText: "Midwife Number",
+                                        hintText: "Username",
                                         hintStyle:
                                             TextStyle(color: Colors.grey[400])),
                                   ),
@@ -179,8 +179,8 @@ class LoginPage extends StatelessWidget {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   gradient: const LinearGradient(colors: [
-                                    Color.fromARGB(255, 74, 194, 202),
-                                    Color.fromARGB(153, 117, 236, 245),
+                                    Color.fromRGBO(248, 54, 119, 1),
+                                    Color.fromARGB(255, 228, 118, 155),
                                   ])),
                               child: const Center(
                                 child: Text(
@@ -200,7 +200,8 @@ class LoginPage extends StatelessWidget {
                           childWidget: Text(
                             "Forgot Password?",
                             style: TextStyle(
-                                color: Color.fromARGB(255, 79, 203, 219)),
+                                color: Color.fromRGBO(248, 54, 119, 1)
+                                ),
                           )),
                     ],
                   ),

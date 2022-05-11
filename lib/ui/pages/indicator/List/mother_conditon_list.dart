@@ -20,44 +20,50 @@ class MotherConditionList extends StatelessWidget {
         OxytocinCard(
             oxytocin: _motherProvider.motherList
                 .firstWhere((element) => element == mother)
-                .partogramRecording
+                .admissionInformations
                 .last
+                .partograph
                 .oxytocin,
             mother: mother),
         DrugsIvFluidCard(
             drugIvFluid: _motherProvider.motherList
                 .firstWhere((element) => element == mother)
-                .partogramRecording
+                .admissionInformations
                 .last
+                .partograph
                 .drugIvFluid,
             mother: mother),
         BloodPresureCard(
             bloodPressure: _motherProvider.motherList
                 .firstWhere((element) => element == mother)
-                .partogramRecording
+                .admissionInformations
                 .last
+                .partograph
                 .bloodPressure,
             mother: mother),
         PulseCard(
           mother: mother,
           pulses: _motherProvider.motherList
               .firstWhere((element) => element == mother)
-              .partogramRecording
+              .admissionInformations
               .last
+              .partograph
               .pulse,
         ),
         TemperatureCard(
             temperature: _motherProvider.motherList
                 .firstWhere((element) => element == mother)
-                .partogramRecording
+                .admissionInformations
                 .last
+                .partograph
                 .temperature,
             mother: mother),
         UrineCard(
             urine: _motherProvider.motherList
                 .firstWhere((element) => element == mother)
-                .partogramRecording
+                .admissionInformations
                 .last
+                .partograph
                 .urine,
             mother: mother)
       ],

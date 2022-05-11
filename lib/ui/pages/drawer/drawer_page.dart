@@ -11,7 +11,7 @@ class DrawerPage extends StatelessWidget {
           child: Column(
         children:   [
           const UserAccountsDrawerHeader(
-            decoration: BoxDecoration(color: Colors.cyan),
+            decoration: BoxDecoration(color: Color.fromRGBO(248, 54, 119, 1)),
             accountName: Text("Hilda Mshana"),
             accountEmail: Text("P000A1"),
             currentAccountPicture: CircleAvatar(

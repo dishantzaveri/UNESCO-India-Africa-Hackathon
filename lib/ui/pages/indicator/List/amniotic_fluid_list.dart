@@ -72,8 +72,9 @@ class AmnioticFuildList extends StatelessWidget {
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: _motherProvider.motherList
                           .firstWhere((element) => element == mother)
-                          .partogramRecording
+                          .admissionInformations
                           .last
+                          .partograph
                           .amnioticFluid
                           .length,
                       itemBuilder: (_, index) {
@@ -83,13 +84,14 @@ class AmnioticFuildList extends StatelessWidget {
                             Expanded(
                                 child: Text(_motherProvider.motherList
                                     .firstWhere((element) => element == mother)
-                                    .partogramRecording
+                                    .admissionInformations
                                     .last
+                                    .partograph
                                     .amnioticFluid[index]
                                     .value)),
                             Expanded(
                                 child: Text(
-                              '${_motherProvider.motherList.firstWhere((element) => element == mother).partogramRecording.last.amnioticFluid[index].time}',
+                              '${_motherProvider.motherList.firstWhere((element) => element == mother)..admissionInformations.last.partograph.amnioticFluid[index].time}',
                               textAlign: TextAlign.end,
                             ))
                           ],
@@ -162,8 +164,9 @@ class AmnioticFuildList extends StatelessWidget {
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: _motherProvider.motherList
                           .firstWhere((element) => element == mother)
-                          .partogramRecording
+                          .admissionInformations
                           .last
+                          .partograph
                           .mouldingFetal
                           .length,
                       itemBuilder: (_, index) {
@@ -173,13 +176,14 @@ class AmnioticFuildList extends StatelessWidget {
                             Expanded(
                                 child: Text(_motherProvider.motherList
                                     .firstWhere((element) => element == mother)
-                                    .partogramRecording
+                                    .admissionInformations
                                     .last
+                                    .partograph
                                     .mouldingFetal[index]
                                     .value)),
                             Expanded(
                                 child: Text(
-                              '${_motherProvider.motherList.firstWhere((element) => element == mother).partogramRecording.last.mouldingFetal[index].time}',
+                              '${_motherProvider.motherList.firstWhere((element) => element == mother)..admissionInformations.last.partograph.mouldingFetal[index].time}',
                               textAlign: TextAlign.end,
                             ))
                           ],

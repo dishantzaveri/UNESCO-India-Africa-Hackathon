@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:partograph/constants/enum.dart';
 import 'package:partograph/provider/mother_provider.dart';
-import 'package:partograph/ui/pages/category/category_page.dart';
 import 'package:partograph/ui/pages/patient/patient_page.dart';
 import 'package:partograph/ui/widgets/category.dart';
 import 'package:partograph/ui/widgets/patient_card.dart';
@@ -76,62 +75,47 @@ class _HomeTabState extends State<HomeTab> with SingleTickerProviderStateMixin {
                 Category(
                   backgroungColor: Colors.pinkAccent,
                   iconColor: Colors.red,
-                  subtitle: '5 Patients',
-                  title: 'Critical',
-                  icon: Icons.heart_broken,
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => const CategoryPage(
-                                title: 'Critical',
-                                caseCategory: CaseCategory.critical)));
-                  },
+                  textColor: Colors.white,
+                  subtitle: '20 Patients',
+                  title: 'All',
+                  icon: Icons.local_hospital,
+                  onTap: () {},
                 ),
                 Category(
-                  backgroungColor: Colors.blue,
+                  backgroungColor: Colors.black12,
                   iconColor: Colors.red,
+                  subtitle: '5 Patients',
+                  textColor: Colors.black,
+                  title: 'Critical',
+                  icon: Icons.heart_broken,
+                  onTap: () {},
+                ),
+                Category(
+                  backgroungColor: Colors.black12,
+                  iconColor: Colors.red,
+                   textColor: Colors.black,
                   subtitle: '4 Patients',
                   title: 'Active Phase',
                   icon: Icons.local_hospital,
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => const CategoryPage(
-                                title: 'Active Phase',
-                                caseCategory: CaseCategory.active)));
-                  },
+                  onTap: () {},
                 ),
                 Category(
-                  backgroungColor: Colors.cyan,
+                  backgroungColor: Colors.black12,
                   iconColor: Colors.red,
+                   textColor: Colors.black,
                   subtitle: '9 Patients',
                   title: 'Latent Phase',
                   icon: Icons.favorite,
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => const CategoryPage(
-                                title: 'Latent Phase',
-                                caseCategory: CaseCategory.latent)));
-                  },
+                  onTap: () {},
                 ),
                 Category(
-                  backgroungColor: Colors.orange,
+                  backgroungColor: Colors.black12,
                   iconColor: Colors.red,
+                   textColor: Colors.black,
                   subtitle: '12 Patients',
                   title: 'Incoming',
                   icon: Icons.access_alarm,
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => const CategoryPage(
-                                title: 'Incoming',
-                                caseCategory: CaseCategory.incoming)));
-                  },
+                  onTap: () {},
                 )
               ],
             ),
@@ -154,7 +138,7 @@ class _HomeTabState extends State<HomeTab> with SingleTickerProviderStateMixin {
                 SizedBox(
                   width: 10,
                 ),
-                Text('ALL')
+                Text('Search...')
               ],
             ),
           ),
@@ -166,7 +150,7 @@ class _HomeTabState extends State<HomeTab> with SingleTickerProviderStateMixin {
             delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
           return PatientCard(
-            color: Colors.pink,
+            color: const Color.fromRGBO(248, 54, 119, 1),
             mother: _motherProvider.currentPatients(
                 caseCategory: CaseCategory.done)[index],
             onTap: () {

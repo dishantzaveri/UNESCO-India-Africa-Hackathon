@@ -12,7 +12,7 @@ class IndicatorCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-            color: indicator.isSelected ? Colors.cyan : Colors.white,
+            color: indicator.isSelected ? const Color.fromARGB(255, 253, 93, 146) : Colors.white,
             borderRadius: const BorderRadius.all(Radius.circular(5.0))),
         alignment: Alignment.center,
         child: Column(

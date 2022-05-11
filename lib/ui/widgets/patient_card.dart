@@ -46,13 +46,13 @@ class PatientCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  mother.fullname,
+                  mother.surname + " " + mother.otherNames,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
-                Text(
-                  "Ward No ${mother.age}",
+                const Text(
+                  "Ward No  #",
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 )

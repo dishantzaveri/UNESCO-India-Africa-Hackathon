@@ -33,7 +33,7 @@ class DateCard extends StatelessWidget {
         height: 70,
         width: 50,
         decoration: BoxDecoration(
-            color: dateSchedule.isSelected ? Colors.cyan : Colors.white,
+            color: dateSchedule.isSelected ? const Color.fromRGBO(248, 54, 119, 1) : Colors.white,
             borderRadius: const BorderRadius.all(Radius.circular(10))),
       ),
     );

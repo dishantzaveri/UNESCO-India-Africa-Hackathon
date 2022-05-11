@@ -28,7 +28,7 @@ class TimeAtWorkCard extends StatelessWidget {
         ],
       ),
       decoration: const BoxDecoration(
-          color: Colors.cyan,
+          color: Color.fromRGBO(248, 54, 119, 1),
           borderRadius: BorderRadius.all(Radius.circular(10))),
     );
   }

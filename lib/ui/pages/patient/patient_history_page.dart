@@ -17,16 +17,14 @@ class PatientHistoryPage extends StatelessWidget {
             expandedHeight: MediaQuery.of(context).size.height * 0.2,
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
-                mother.fullname,
+                mother.surname + " " + mother.otherNames,
               ),
               titlePadding: const EdgeInsets.only(left: 10, bottom: 10),
-            
-               background: Image.asset(
-              'assets/images/header5.jpg',
-              fit: BoxFit.fill,
+              background: Image.asset(
+                'assets/images/header5.jpg',
+                fit: BoxFit.fill,
+              ),
             ),
-            ),
-            
           ),
           SliverList(
               delegate: SliverChildListDelegate([

@@ -30,7 +30,7 @@ class App extends StatelessWidget {
       child: MaterialApp(
           title: 'Partograph',
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(primarySwatch: Colors.cyan),
+          theme: ThemeData(primarySwatch: Colors.pink),
           home: const AnimatedLoaderScreen(),
           routes: {
             homePageRouteAndroid: (context) => const HomePage(),

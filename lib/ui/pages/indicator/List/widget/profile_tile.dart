@@ -23,7 +23,7 @@ class ProfileTile extends StatelessWidget {
           height: 100,
           width: 100,
           decoration: const BoxDecoration(
-              color: Colors.cyan,
+              color: Color.fromRGBO(248, 54, 119, 1),
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20),
                   bottomLeft: Radius.circular(20))),
