@@ -54,7 +54,7 @@ class _DilatationFormState extends State<DilatationForm> {
                   onPressed: () {
                     _motherProvider.postDilatation(
                         Dilatation(
-                          time: TimeOfDay.now(),
+                          time:TimeOfDay.now().toString(),
                           id: 0,
                           value: _dilatation,
                         ),

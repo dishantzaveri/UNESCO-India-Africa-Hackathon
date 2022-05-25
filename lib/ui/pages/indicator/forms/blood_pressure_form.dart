@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:partograph/model/blood_pressure.dart';
 import 'package:partograph/model/mother.dart';
 import 'package:partograph/provider/mother_provider.dart';
-import 'package:partograph/ui/widgets/bp_text.dart';
+import 'package:partograph/ui/widgets/text_fields/bp_text.dart';
 import 'package:provider/provider.dart';
 
 class BloodPressureForm extends StatefulWidget {
@@ -51,7 +51,7 @@ class _BloodPressureFormState extends State<BloodPressureForm> {
                     if (_formKeyBP.currentState!.validate()) {
                       _motherProvider.postBloodPressure(
                           BloodPressure(
-                            time: TimeOfDay.now(),
+                            time: TimeOfDay.now().toString(),
                             id: 0,
                             systolic:
                                 int.parse(_systolicTextEditingController.text),

@@ -22,7 +22,7 @@ class MotherConditionList extends StatelessWidget {
                 .firstWhere((element) => element == mother)
                 .admissionInformations
                 .last
-                .partograph
+                .partograph!
                 .oxytocin,
             mother: mother),
         DrugsIvFluidCard(
@@ -30,7 +30,7 @@ class MotherConditionList extends StatelessWidget {
                 .firstWhere((element) => element == mother)
                 .admissionInformations
                 .last
-                .partograph
+                .partograph!
                 .drugIvFluid,
             mother: mother),
         BloodPresureCard(
@@ -38,7 +38,7 @@ class MotherConditionList extends StatelessWidget {
                 .firstWhere((element) => element == mother)
                 .admissionInformations
                 .last
-                .partograph
+                .partograph!
                 .bloodPressure,
             mother: mother),
         PulseCard(
@@ -47,7 +47,7 @@ class MotherConditionList extends StatelessWidget {
               .firstWhere((element) => element == mother)
               .admissionInformations
               .last
-              .partograph
+              .partograph!
               .pulse,
         ),
         TemperatureCard(
@@ -55,7 +55,7 @@ class MotherConditionList extends StatelessWidget {
                 .firstWhere((element) => element == mother)
                 .admissionInformations
                 .last
-                .partograph
+                .partograph!
                 .temperature,
             mother: mother),
         UrineCard(
@@ -63,7 +63,7 @@ class MotherConditionList extends StatelessWidget {
                 .firstWhere((element) => element == mother)
                 .admissionInformations
                 .last
-                .partograph
+                .partograph!
                 .urine,
             mother: mother)
       ],

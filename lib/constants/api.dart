@@ -1,2 +1,2 @@
- const partographServerAPI = "http://192.168.43.125:8000/api/v1/";
+ const partographServerAPI = "http://192.168.43.125:8000/api/";
  

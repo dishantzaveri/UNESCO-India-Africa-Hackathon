@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
 
 class Temperature {
-  TimeOfDay time;
+  String time;
   int id;
   double value;
 

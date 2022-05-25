@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-
+ 
 class MouldingFetal {
-  TimeOfDay time;
+  String time;
   int id;
   String value;
 

@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
 
 class Oxytocin {
-  TimeOfDay time;
+  String time;
   int id;
   int drops;
   double amount;

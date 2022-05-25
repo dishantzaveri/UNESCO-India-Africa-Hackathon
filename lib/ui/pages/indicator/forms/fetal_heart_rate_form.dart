@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:partograph/model/heart_rate.dart';
 import 'package:partograph/model/mother.dart';
 import 'package:partograph/provider/mother_provider.dart';
-import 'package:partograph/ui/widgets/custom_text.dart';
+import 'package:partograph/ui/widgets/text_fields/custom_text.dart';
 import 'package:provider/provider.dart';
 
 class FetalHeartRateForm extends StatelessWidget {
@@ -49,7 +49,7 @@ class FetalHeartRateForm extends StatelessWidget {
                     if (_formKey.currentState!.validate()) {
                       _motherProvider.postHeartRate(
                           HeartRate(
-                            time: TimeOfDay.now(),
+                            time:DateTime.now().toString(),
                             id: 0,
                             value: double.parse(
                                 _fetalHeartRateTextEditingController.text),

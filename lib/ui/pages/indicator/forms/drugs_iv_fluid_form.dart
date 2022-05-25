@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:partograph/model/drug_iv_fluids.dart';
 import 'package:partograph/model/mother.dart';
 import 'package:partograph/provider/mother_provider.dart';
-import 'package:partograph/ui/widgets/custom_text.dart';
+import 'package:partograph/ui/widgets/text_fields/custom_text.dart';
 import 'package:provider/provider.dart';
 
 class DrugsIvFluidForm extends StatefulWidget {
@@ -64,7 +64,7 @@ class _DrugsIvFluidFormState extends State<DrugsIvFluidForm> {
                       if (_formKeyOxytocin.currentState!.validate()) {
                         _motherProvider.postDrugIvFluids(
                             DrugIvFluid(
-                              time: TimeOfDay.now(),
+                              time:TimeOfDay.now().toString(),
                               id: 0,
                               value: _descriptionTextEditingController.text,
                             ),

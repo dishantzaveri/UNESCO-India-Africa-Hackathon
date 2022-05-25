@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-
+ 
 class BloodPressure {
-  TimeOfDay time;
+  String time;
   int id;
   int systolic;
   int diastolic;

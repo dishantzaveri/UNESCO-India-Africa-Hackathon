@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-
+ 
 class DrugIvFluid {
-  TimeOfDay time;
+  String time;
   int id;
   String value;
 

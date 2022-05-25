@@ -49,7 +49,7 @@ class _ModulingFormState extends State<ModulingForm> {
                   onPressed: () {
                     _motherProvider.postMoulding(
                         MouldingFetal(
-                          time: TimeOfDay.now(),
+                          time:TimeOfDay.now().toString(),
                           id: 0,
                           value: _moulding!.value,
                         ),

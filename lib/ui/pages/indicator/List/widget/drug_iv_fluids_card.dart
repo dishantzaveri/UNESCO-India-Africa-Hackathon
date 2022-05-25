@@ -76,7 +76,7 @@ class DrugsIvFluidCard extends StatelessWidget {
                         Expanded(child: Text(drugIvFluid[index].value)),
                         Expanded(
                             child: Text(
-                          '${drugIvFluid[index].time}',
+                          drugIvFluid[index].time,
                           textAlign: TextAlign.end,
                         ))
                       ],

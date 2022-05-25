@@ -54,7 +54,7 @@ class _DescentFormState extends State<DescentForm> {
                   onPressed: () {
                     _motherProvider.postDescent(
                         Descent(
-                          time: TimeOfDay.now(),
+                          time:TimeOfDay.now().toString(),
                           id: 0,
                           value: _descent,
                         ),

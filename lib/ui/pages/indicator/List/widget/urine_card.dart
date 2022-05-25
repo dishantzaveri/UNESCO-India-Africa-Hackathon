@@ -76,7 +76,7 @@ class UrineCard extends StatelessWidget {
                             const Expanded(child: Text('Time')),
                             Expanded(
                                 child: Text(
-                              '${urine[index].time}',
+                              urine[index].time,
                               textAlign: TextAlign.end,
                             ))
                           ],

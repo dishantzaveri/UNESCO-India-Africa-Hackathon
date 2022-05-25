@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:partograph/model/mother.dart';
 import 'package:partograph/model/temperature.dart';
 import 'package:partograph/provider/mother_provider.dart';
-import 'package:partograph/ui/widgets/custom_text.dart';
+import 'package:partograph/ui/widgets/text_fields/custom_text.dart';
 import 'package:provider/provider.dart';
 
 class TemperatureForm extends StatefulWidget {
@@ -57,7 +57,7 @@ class _TemperatureFormState extends State<TemperatureForm> {
                     if (_formKeyTemp.currentState!.validate()) {
                       _motherProvider.postTemperature(
                           Temperature(
-                            time: TimeOfDay.now(),
+                            time:TimeOfDay.now().toString(),
                             id: 0,
                             value:
                                 double.parse(_tempTextEditingController.text),

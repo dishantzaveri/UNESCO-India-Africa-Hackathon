@@ -3,7 +3,7 @@ import 'package:partograph/model/character.dart';
 import 'package:partograph/model/mother.dart';
 import 'package:partograph/model/urine.dart';
 import 'package:partograph/provider/mother_provider.dart';
-import 'package:partograph/ui/widgets/custom_text.dart';
+import 'package:partograph/ui/widgets/text_fields/custom_text.dart';
 import 'package:provider/provider.dart';
 
 class UrineForm extends StatefulWidget {
@@ -117,7 +117,7 @@ class _UrineFormState extends State<UrineForm> {
                       if (_formKeyUrine.currentState!.validate()) {
                         _motherProvider.postUrine(
                             Urine(
-                              time: TimeOfDay.now(),
+                              time:TimeOfDay.now().toString(),
                               id: 0,
                               volume: double.parse(
                                   _urineTextEditingController.text),

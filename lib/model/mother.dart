@@ -5,7 +5,7 @@ class Mother {
   int id;
   String surname;
   String otherNames;
-  DateTime dateOfBirth;
+  String dateOfBirth;
   String husbandPartnerName;
   String residence;
   String permanentAddress;
@@ -30,7 +30,7 @@ class Mother {
   });
 
   Map<dynamic, dynamic> toMap() {
-    var map = <String, dynamic>{
+    var map = <dynamic, dynamic>{
       'id': id,
       'surname': surname,
       'other_names': otherNames,
@@ -40,8 +40,9 @@ class Mother {
       'permanent_address': permanentAddress,
       'next_of_kin': nextOfKin,
       'cell_phone': cellPhone,
-      'case_category': caseCategory,
-      'admission_informations': admissionInformations.map((e) => e.toMap())
+      'case_category': caseCategory.toString().replaceAll("CaseCategory.", ""),
+      // 'admission_informations': admissionInformations.map((e) => e.toMap() 
+      // )
     };
 
     return map;

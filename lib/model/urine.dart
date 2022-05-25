@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-
+ 
 class Urine {
-  TimeOfDay time;
+  String time;
   int id;
   String protein;
   String acetone;
@@ -32,7 +31,7 @@ class Urine {
       id: data["id"],
       protein: data["protein"],
       acetone: data["acetone"],
-      volume:data["volume"]
+      volume: double.parse(data["volume"].toString())
     );
   }
 }

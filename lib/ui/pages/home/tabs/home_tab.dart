@@ -1,8 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:partograph/constants/enum.dart';
 import 'package:partograph/provider/mother_provider.dart';
 import 'package:partograph/ui/pages/patient/patient_page.dart';
 import 'package:partograph/ui/widgets/category.dart';
+import 'package:partograph/ui/widgets/loader.dart';
+import 'package:partograph/ui/widgets/tiles/no_item_tile.dart';
 import 'package:partograph/ui/widgets/patient_card.dart';
 import 'package:partograph/ui/widgets/titled_header.dart';
 
@@ -15,11 +18,16 @@ class HomeTab extends StatefulWidget {
   _HomeTabState createState() => _HomeTabState();
 }
 
+CaseCategory? _caseCategory;
+
 class _HomeTabState extends State<HomeTab> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final _motherProvider = Provider.of<MotherProvider>(context);
+
     return CustomScrollView(
+      physics:
+          const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
       slivers: <Widget>[
         SliverAppBar(
           pinned: true,
@@ -60,6 +68,11 @@ class _HomeTabState extends State<HomeTab> with SingleTickerProviderStateMixin {
             )
           ],
         ),
+        CupertinoSliverRefreshControl(
+          onRefresh: () async {
+            await _motherProvider.loadMothers();
+          },
+        ),
         SliverList(
             delegate: SliverChildListDelegate([
           const TitledHeader(
@@ -73,49 +86,93 @@ class _HomeTabState extends State<HomeTab> with SingleTickerProviderStateMixin {
               scrollDirection: Axis.horizontal,
               children: [
                 Category(
-                  backgroungColor: Colors.pinkAccent,
+                  backgroungColor: _caseCategory == null
+                      ? Colors.pinkAccent
+                      : Colors.black12,
                   iconColor: Colors.red,
-                  textColor: Colors.white,
-                  subtitle: '20 Patients',
+                  textColor:
+                      _caseCategory == null ? Colors.white : Colors.black,
+                  subtitle:
+                      '${_motherProvider.currentPatients().length}  Patients',
                   title: 'All',
                   icon: Icons.local_hospital,
-                  onTap: () {},
+                  onTap: () {
+                    setState(() {
+                      _caseCategory = null;
+                    });
+                  },
                 ),
                 Category(
-                  backgroungColor: Colors.black12,
+                  backgroungColor: _caseCategory == CaseCategory.critical
+                      ? Colors.pinkAccent
+                      : Colors.black12,
                   iconColor: Colors.red,
-                  subtitle: '5 Patients',
-                  textColor: Colors.black,
+                  subtitle:
+                      '${_motherProvider.currentPatients(caseCategory: CaseCategory.critical).length} Patients',
+                  textColor: _caseCategory == CaseCategory.critical
+                      ? Colors.white
+                      : Colors.black,
                   title: 'Critical',
                   icon: Icons.heart_broken,
-                  onTap: () {},
+                  onTap: () {
+                    setState(() {
+                      _caseCategory = CaseCategory.critical;
+                    });
+                  },
                 ),
                 Category(
-                  backgroungColor: Colors.black12,
+                  backgroungColor: _caseCategory == CaseCategory.active
+                      ? Colors.pinkAccent
+                      : Colors.black12,
                   iconColor: Colors.red,
-                   textColor: Colors.black,
-                  subtitle: '4 Patients',
+                  textColor: _caseCategory == CaseCategory.active
+                      ? Colors.white
+                      : Colors.black,
+                  subtitle:
+                      '${_motherProvider.currentPatients(caseCategory: CaseCategory.active).length} Patients',
                   title: 'Active Phase',
                   icon: Icons.local_hospital,
-                  onTap: () {},
+                  onTap: () {
+                    setState(() {
+                      _caseCategory = CaseCategory.active;
+                    });
+                  },
                 ),
                 Category(
-                  backgroungColor: Colors.black12,
+                  backgroungColor: _caseCategory == CaseCategory.latent
+                      ? Colors.pinkAccent
+                      : Colors.black12,
                   iconColor: Colors.red,
-                   textColor: Colors.black,
-                  subtitle: '9 Patients',
+                  textColor: _caseCategory == CaseCategory.latent
+                      ? Colors.white
+                      : Colors.black,
+                  subtitle:
+                      '${_motherProvider.currentPatients(caseCategory: CaseCategory.latent).length} Patients',
                   title: 'Latent Phase',
                   icon: Icons.favorite,
-                  onTap: () {},
+                  onTap: () {
+                    setState(() {
+                      _caseCategory = CaseCategory.latent;
+                    });
+                  },
                 ),
                 Category(
-                  backgroungColor: Colors.black12,
+                  backgroungColor: _caseCategory == CaseCategory.incoming
+                      ? Colors.pinkAccent
+                      : Colors.black12,
                   iconColor: Colors.red,
-                   textColor: Colors.black,
-                  subtitle: '12 Patients',
+                  textColor: _caseCategory == CaseCategory.incoming
+                      ? Colors.white
+                      : Colors.black,
+                  subtitle:
+                      '${_motherProvider.currentPatients(caseCategory: CaseCategory.incoming).length} Patients',
                   title: 'Incoming',
                   icon: Icons.access_alarm,
-                  onTap: () {},
+                  onTap: () {
+                    setState(() {
+                      _caseCategory = CaseCategory.incoming;
+                    });
+                  },
                 )
               ],
             ),
@@ -133,12 +190,15 @@ class _HomeTabState extends State<HomeTab> with SingleTickerProviderStateMixin {
                     topLeft: Radius.circular(20),
                     bottomLeft: Radius.circular(20))),
             child: Row(
-              children: const [
-                Icon(Icons.search_sharp),
-                SizedBox(
+              children: [
+                const Icon(Icons.search_sharp),
+                const SizedBox(
                   width: 10,
                 ),
-                Text('Search...')
+                Expanded(
+                    child: TextFormField(
+                  decoration: const InputDecoration(hintText: 'Search', border: InputBorder.none),
+                ))
               ],
             ),
           ),
@@ -146,27 +206,44 @@ class _HomeTabState extends State<HomeTab> with SingleTickerProviderStateMixin {
             title: "Patients",
           )
         ])),
-        SliverList(
-            delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-          return PatientCard(
-            color: const Color.fromRGBO(248, 54, 119, 1),
-            mother: _motherProvider.currentPatients(
-                caseCategory: CaseCategory.done)[index],
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (_) => PatientPage(
-                            mother: _motherProvider.currentPatients(
-                                caseCategory: CaseCategory.done)[index],
-                          )));
-            },
-          );
-        },
-                childCount: _motherProvider
-                    .currentPatients(caseCategory: CaseCategory.done)
-                    .length)),
+        _motherProvider.isLoadingMotherData
+            ? SliverList(delegate: SliverChildListDelegate([const Loader()]))
+            : SliverList(
+                delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                if (_motherProvider
+                    .currentPatients(caseCategory: _caseCategory)
+                    .isEmpty) {
+                  return NoItemTile(
+                    color: Colors.pinkAccent,
+                    icon: Icons.people,
+                    title:
+                        'No ${_caseCategory != null ? _caseCategory.toString().replaceAll("CaseCategory.", "") : ''} patients',
+                  );
+                } else {
+                  return PatientCard(
+                    color: const Color.fromRGBO(248, 54, 119, 1),
+                    mother: _motherProvider.currentPatients(
+                        caseCategory: _caseCategory)[index],
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => PatientPage(
+                                    mother: _motherProvider.currentPatients(
+                                        caseCategory: _caseCategory)[index],
+                                  )));
+                    },
+                  );
+                }
+              },
+                    childCount: _motherProvider
+                            .currentPatients(caseCategory: _caseCategory)
+                            .isEmpty
+                        ? 1
+                        : _motherProvider
+                            .currentPatients(caseCategory: _caseCategory)
+                            .length)),
       ],
     );
   }

@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
-
 class HeartRate {
-  TimeOfDay time;
+  String time;
   int id;
   double value;
 
@@ -21,7 +19,7 @@ class HeartRate {
     return HeartRate(
       time: data["time"],
       id: data["id"],
-      value: data["value"],
+      value: double.parse(data["value"].toString()),
     );
   }
 }

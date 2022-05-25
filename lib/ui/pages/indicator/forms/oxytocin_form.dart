@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:partograph/model/mother.dart';
 import 'package:partograph/model/oxytocin.dart';
 import 'package:partograph/provider/mother_provider.dart';
-import 'package:partograph/ui/widgets/custom_text.dart';
+import 'package:partograph/ui/widgets/text_fields/custom_text.dart';
 import 'package:provider/provider.dart';
 
 class OxytocinForm extends StatefulWidget {
@@ -86,7 +86,7 @@ class _OxytocinFormState extends State<OxytocinForm> {
                       if (_formKeyOxytocin.currentState!.validate()) {
                         _motherProvider.postOxytocin(
                             Oxytocin(
-                              time: TimeOfDay.now(),
+                              time:TimeOfDay.now().toString(),
                               id: 0,
                               amount: double.parse(
                                   _amountTextEditingController.text),

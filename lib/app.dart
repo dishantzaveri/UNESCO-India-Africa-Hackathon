@@ -22,9 +22,9 @@ class App extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
             create: (_) => AuthProvider()..autoAuthenticate()),
+        ChangeNotifierProvider(create: (_) => MotherProvider()..loadMothers()),
         ChangeNotifierProvider(create: (_) => UtilityProvider()),
         ChangeNotifierProvider(create: (_) => HeartRateProvider()),
-        ChangeNotifierProvider(create: (_) => MotherProvider()),
         ChangeNotifierProvider(create: (_) => DateScheduleProvider()),
       ],
       child: MaterialApp(
@@ -34,7 +34,7 @@ class App extends StatelessWidget {
           home: const AnimatedLoaderScreen(),
           routes: {
             homePageRouteAndroid: (context) => const HomePage(),
-            loginPageRouteAndroid: (context) =>   LoginPage(),
+            loginPageRouteAndroid: (context) => LoginPage(),
             onboardingPageRoute: (context) => const OnBoardingPage()
           }),
     );

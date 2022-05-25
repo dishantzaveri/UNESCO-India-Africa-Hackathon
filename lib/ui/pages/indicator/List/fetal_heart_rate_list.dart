@@ -75,7 +75,7 @@ class FetalHeartRateList extends StatelessWidget {
                       .firstWhere((element) => element == mother)
                       .admissionInformations
                       .last
-                      .partograph
+                      .partograph!
                       .heartRate
                       .length,
                   itemBuilder: (_, index) {
@@ -84,10 +84,10 @@ class FetalHeartRateList extends StatelessWidget {
                       children: [
                         Expanded(
                             child: Text(
-                                '${_motherProvider.motherList.firstWhere((element) => element == mother)..admissionInformations.last.partograph.heartRate[index].value}')),
+                                '${_motherProvider.motherList.firstWhere((element) => element == mother).admissionInformations.last.partograph!.heartRate[index].value} ')),
                         Expanded(
                             child: Text(
-                          '${_motherProvider.motherList.firstWhere((element) => element == mother)..admissionInformations.last.partograph.heartRate[index].time}',
+                          _motherProvider.motherList.firstWhere((element) => element == mother).admissionInformations.last.partograph!.heartRate[index].time,
                           textAlign: TextAlign.end,
                         ))
                       ],

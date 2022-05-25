@@ -1,11 +1,9 @@
- 
 import 'dart:convert';
 
+import 'package:partograph/model/admission_informations.dart';
 import 'package:partograph/model/mother.dart';
 import 'package:partograph/service/base/api_base_helper.dart';
 import 'package:partograph/service/responses/mother_response.dart';
-
- 
 
 class MotherServer {
   final ApiBaseHelper _helper = ApiBaseHelper();
@@ -16,7 +14,15 @@ class MotherServer {
   }
 
   Future<void> postMother({required Mother mother}) async {
-    await _helper.postData(data: jsonEncode(mother.toMap()), url: "mothers");
+    await _helper.postData(data: jsonEncode(mother.toMap()), url: "mother");
+  }
+
+  Future<void> postAdmissionInformation(
+      {required AdmissionInformation admissionInformation,
+      required int motherId}) async {
+    await _helper.postData(
+        data: jsonEncode(admissionInformation.toMap()),
+        url: "admissionInformation/{$motherId}");
   }
   //   Future<void> postMother({required Mother mother}) async {
   //   Map<String, String> _headers = {"Content-Type": "application/json"};
@@ -26,8 +32,8 @@ class MotherServer {
   //   } catch (e) {
   //     print(e);
   //   }
-  // } 
-  
+  // }
+
 }
 
 MotherServer motherServer = MotherServer();

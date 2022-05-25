@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:partograph/model/user.dart';
 import 'package:partograph/provider/auth_provider.dart'; 
 import 'package:partograph/ui/pages/home/home_page.dart';
-import 'package:partograph/ui/widgets/mobile_text_field.dart';
-import 'package:partograph/ui/widgets/password_text_field.dart';
+import 'package:partograph/ui/widgets/text_fields/mobile_text_field.dart';
+import 'package:partograph/ui/widgets/text_fields/password_text_field.dart';
 import 'package:provider/provider.dart';
 
 class LoginForm extends StatefulWidget {

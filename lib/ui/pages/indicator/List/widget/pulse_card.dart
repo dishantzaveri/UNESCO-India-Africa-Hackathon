@@ -75,7 +75,7 @@ class PulseCard extends StatelessWidget {
                         Expanded(child: Text('${pulses[index].value}')),
                         Expanded(
                             child: Text(
-                          '${pulses[index].time}',
+                          pulses[index].time,
                           textAlign: TextAlign.end,
                         ))
                       ],

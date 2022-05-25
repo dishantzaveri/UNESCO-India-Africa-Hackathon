@@ -65,7 +65,7 @@ class OxytocinCard extends StatelessWidget {
                             const Expanded(child: Text('Time')),
                             Expanded(
                                 child: Text(
-                              '${oxytocin[index].time}',
+                              oxytocin[index].time,
                               textAlign: TextAlign.end,
                             ))
                           ],

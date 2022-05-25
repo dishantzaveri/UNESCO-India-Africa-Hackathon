@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:partograph/model/character.dart';
-import 'package:partograph/ui/widgets/bp_text.dart';
-import 'package:partograph/ui/widgets/custom_text.dart';
+import 'package:partograph/ui/widgets/text_fields/bp_text.dart';
+import 'package:partograph/ui/widgets/text_fields/custom_text.dart';
 import 'package:partograph/ui/widgets/titled_header.dart';
 
 class MotherConditionForm extends StatefulWidget {

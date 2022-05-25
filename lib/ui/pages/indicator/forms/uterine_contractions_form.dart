@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:partograph/model/mother.dart';
 import 'package:partograph/model/uterine_contractions.dart';
 import 'package:partograph/provider/mother_provider.dart';
-import 'package:partograph/ui/widgets/custom_text.dart';
+import 'package:partograph/ui/widgets/text_fields/custom_text.dart';
 import 'package:provider/provider.dart';
 
 class UterineContractionsForm extends StatelessWidget {
@@ -49,7 +49,7 @@ class UterineContractionsForm extends StatelessWidget {
                     if (_formKey.currentState!.validate()) {
                       _motherProvider.postUterineContractions(
                           UterineContraction(
-                            time: TimeOfDay.now(),
+                            time:TimeOfDay.now().toString(),
                             id: 0,
                             value: int.parse(
                                 _uterineContractionsTextEditingController.text),

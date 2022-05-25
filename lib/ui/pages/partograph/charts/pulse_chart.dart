@@ -56,7 +56,7 @@ class _PulseChartGraphState extends State<PulseChartGraph> {
           ChartSampleData(x: '5', y: 9, yValue: 17),
           ChartSampleData(x: '6', y: 12, yValue: 20),
         ],
-        xValueMapper: (ChartSampleData sales, _) => sales.x as String,
+        xValueMapper: (ChartSampleData sales, _) => sales.x,
         lowValueMapper: (ChartSampleData sales, _) => sales.y,
         highValueMapper: (ChartSampleData sales, _) => sales.yValue,
         dataLabelSettings: const DataLabelSettings(

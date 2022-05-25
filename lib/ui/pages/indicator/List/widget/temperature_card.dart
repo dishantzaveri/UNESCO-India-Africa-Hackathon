@@ -76,7 +76,7 @@ class TemperatureCard extends StatelessWidget {
                         Expanded(child: Text('${temperature[index].value}')),
                         Expanded(
                             child: Text(
-                          '${temperature[index].time}',
+                          temperature[index].time,
                           textAlign: TextAlign.end,
                         ))
                       ],

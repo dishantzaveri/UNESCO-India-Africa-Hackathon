@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+ 
 import 'package:partograph/model/amniotic_fluid.dart';
 import 'package:partograph/model/blood_pressure.dart';
 import 'package:partograph/model/descent.dart';
@@ -18,9 +18,9 @@ class Partograph {
   String namePatient;
   String gravidaPara;
   String status;
-  DateTime date;
-  TimeOfDay startsAt;
-  TimeOfDay endsAt;
+  String date;
+  String startsAt;
+  String endsAt;
   int admissionInformationId;
   List<AmnioticFluid> amnioticFluid;
   List<HeartRate> heartRate;
@@ -93,38 +93,38 @@ class Partograph {
       namePatient: data['name_patient'],
       gravidaPara: data['gravida_para'],
       status: data['status'],
-      date: DateTime.parse(data['date']),
-      startsAt: TimeOfDay.fromDateTime(DateTime.parse(data['starts_at'])),
-      endsAt: TimeOfDay.fromDateTime(DateTime.parse(data['ends_at'])),
-      admissionInformationId: data['admission_information_id'],
-      amnioticFluid: (data['amnioticFluid']
+      date: data['date'],
+      startsAt: data['starts_at'],
+      endsAt: data['ends_at'],
+      admissionInformationId: int.parse(data['admission_information_id']),
+      amnioticFluid: (data['amniotic_fluids']
           .map<AmnioticFluid>((i) => AmnioticFluid.fromMap(i))
           .toList()),
-      heartRate: (data['heartRate']
+      heartRate: (data['heart_rates']
           .map<HeartRate>((i) => HeartRate.fromMap(i))
           .toList()),
-      mouldingFetal: (data['mouldingFetal']
+      mouldingFetal: (data['moulding_fetals']
           .map<MouldingFetal>((i) => MouldingFetal.fromMap(i))
           .toList()),
-      dilatation: (data['dilatation']
+      dilatation: (data['dilatations']
           .map<Dilatation>((i) => Dilatation.fromMap(i))
           .toList()),
       descent:
-          (data['descent'].map<Descent>((i) => Descent.fromMap(i)).toList()),
-      bloodPressure: (data['bloodPressure']
+          (data['descents'].map<Descent>((i) => Descent.fromMap(i)).toList()),
+      bloodPressure: (data['blood_pressures']
           .map<BloodPressure>((i) => BloodPressure.fromMap(i))
           .toList()),
-      drugIvFluid: (data['drugIvFluid']
+      drugIvFluid: (data['drug_iv_fluids']
           .map<DrugIvFluid>((i) => DrugIvFluid.fromMap(i))
           .toList()),
-      urine: (data['urine'].map<Urine>((i) => Urine.fromMap(i)).toList()),
-      temperature: (data['temperature']
+      urine: (data['urines'].map<Urine>((i) => Urine.fromMap(i)).toList()),
+      temperature: (data['temperatures']
           .map<Temperature>((i) => Temperature.fromMap(i))
           .toList()),
-      pulse: (data['pulse'].map<Pulse>((i) => Pulse.fromMap(i)).toList()),
+      pulse: (data['pulses'].map<Pulse>((i) => Pulse.fromMap(i)).toList()),
       oxytocin:
-          (data['oxytocin'].map<Oxytocin>((i) => Oxytocin.fromMap(i)).toList()),
-      uterineContractions: (data['uterineContractions']
+          (data['oxytocins'].map<Oxytocin>((i) => Oxytocin.fromMap(i)).toList()),
+      uterineContractions: (data['uterine_contractions']
           .map<UterineContraction>((i) => UterineContraction.fromMap(i))
           .toList()),
     );

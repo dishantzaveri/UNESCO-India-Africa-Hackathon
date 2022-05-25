@@ -78,7 +78,7 @@ class BloodPresureCard extends StatelessWidget {
                                 '${bloodPressure[index].systolic} / ${bloodPressure[index].diastolic}')),
                         Expanded(
                             child: Text(
-                          '${bloodPressure[index].time}',
+                          bloodPressure[index].time,
                           textAlign: TextAlign.end,
                         ))
                       ],

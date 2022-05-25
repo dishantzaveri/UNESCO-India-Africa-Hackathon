@@ -75,7 +75,7 @@ class LabourProcessList extends StatelessWidget {
                           .firstWhere((element) => element == mother)
                           .admissionInformations
                           .last
-                          .partograph
+                          .partograph!
                           .dilatation
                           .length,
                       itemBuilder: (_, index) {
@@ -84,10 +84,10 @@ class LabourProcessList extends StatelessWidget {
                           children: [
                             Expanded(
                                 child: Text(
-                                    '${_motherProvider.motherList.firstWhere((element) => element == mother)..admissionInformations.last.partograph.dilatation[index].value}')),
+                                    '${_motherProvider.motherList.firstWhere((element) => element == mother)..admissionInformations.last.partograph!.dilatation[index].value}')),
                             Expanded(
                                 child: Text(
-                              '${_motherProvider.motherList.firstWhere((element) => element == mother)..admissionInformations.last.partograph.dilatation[index].time}',
+                              '${_motherProvider.motherList.firstWhere((element) => element == mother)..admissionInformations.last.partograph!.dilatation[index].time}',
                               textAlign: TextAlign.end,
                             ))
                           ],
@@ -162,7 +162,7 @@ class LabourProcessList extends StatelessWidget {
                           .firstWhere((element) => element == mother)
                           .admissionInformations
                           .last
-                          .partograph
+                          .partograph!
                           .descent
                           .length,
                       itemBuilder: (_, index) {
@@ -171,10 +171,10 @@ class LabourProcessList extends StatelessWidget {
                           children: [
                             Expanded(
                                 child: Text(
-                                    '${_motherProvider.motherList.firstWhere((element) => element == mother)..admissionInformations.last.partograph.descent[index].value}')),
+                                    '${_motherProvider.motherList.firstWhere((element) => element == mother)..admissionInformations.last.partograph!.descent[index].value}')),
                             Expanded(
                                 child: Text(
-                              '${_motherProvider.motherList.firstWhere((element) => element == mother)..admissionInformations.last.partograph.descent[index].time}',
+                              '${_motherProvider.motherList.firstWhere((element) => element == mother)..admissionInformations.last.partograph!.descent[index].time}',
                               textAlign: TextAlign.end,
                             ))
                           ],
@@ -249,7 +249,7 @@ class LabourProcessList extends StatelessWidget {
                           .firstWhere((element) => element == mother)
                           .admissionInformations
                           .last
-                          .partograph
+                          .partograph!
                           .uterineContractions
                           .length,
                       itemBuilder: (_, index) {
@@ -258,10 +258,10 @@ class LabourProcessList extends StatelessWidget {
                           children: [
                             Expanded(
                                 child: Text(
-                                    '${_motherProvider.motherList.firstWhere((element) => element == mother)..admissionInformations.last.partograph.uterineContractions[index].value}')),
+                                    '${_motherProvider.motherList.firstWhere((element) => element == mother)..admissionInformations.last.partograph!.uterineContractions[index].value}')),
                             Expanded(
                                 child: Text(
-                              '${_motherProvider.motherList.firstWhere((element) => element == mother)..admissionInformations.last.partograph.uterineContractions[index].time}',
+                              '${_motherProvider.motherList.firstWhere((element) => element == mother)..admissionInformations.last.partograph!.uterineContractions[index].time}',
                               textAlign: TextAlign.end,
                             ))
                           ],

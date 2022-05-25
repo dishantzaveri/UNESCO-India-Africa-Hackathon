@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-
+ 
 class Descent {
-  TimeOfDay time;
+  String time;
   int id;
   int value;
 

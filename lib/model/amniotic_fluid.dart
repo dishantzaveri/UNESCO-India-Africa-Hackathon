@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-
+ 
 class AmnioticFluid {
-  TimeOfDay time;
+  String time;
   int id;
   String value;
 

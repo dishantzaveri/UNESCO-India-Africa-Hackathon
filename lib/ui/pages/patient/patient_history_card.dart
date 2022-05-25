@@ -53,7 +53,7 @@ class PatientHistoryCard extends StatelessWidget {
               ),
               Expanded(
                 child: Text(
-                  "${mother.dateOfBirth}",
+                  mother.dateOfBirth,
                   softWrap: true,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,

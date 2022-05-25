@@ -55,7 +55,7 @@ class _AmnioticFuildFormState extends State<AmnioticFuildForm> {
                     onPressed: () {
                       _motherProvider.postAmniotiFluid(
                           AmnioticFluid(
-                            time: TimeOfDay.now(),
+                            time:TimeOfDay.now().toString(),
                             id: 0,
                             value: _liquior!.value,
                           ),
