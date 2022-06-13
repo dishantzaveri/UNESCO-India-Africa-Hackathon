@@ -36,7 +36,7 @@ class SplashScreenState extends State<AnimatedLoaderScreen>
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _authProvider = Provider.of<AuthProvider>(context, listen: false);
     });
 

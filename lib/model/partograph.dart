@@ -96,7 +96,7 @@ class Partograph {
       date: data['date'],
       startsAt: data['starts_at'],
       endsAt: data['ends_at'],
-      admissionInformationId: int.parse(data['admission_information_id']),
+      admissionInformationId: data['admission_information_id'],
       amnioticFluid: (data['amniotic_fluids']
           .map<AmnioticFluid>((i) => AmnioticFluid.fromMap(i))
           .toList()),

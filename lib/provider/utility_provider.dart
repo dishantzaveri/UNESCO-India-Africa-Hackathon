@@ -7,23 +7,46 @@ class UtilityProvider with ChangeNotifier {
   UtilityProvider();
   List<Indicator> get indicatorList => _indicatorList;
   Country? _country = Country.tryParse("Tanzania");
+  int _currentIndex = 0;
 
+  int _admissionInfoId = 0;
+
+  final _controller = PageController();
+
+//getters
+  PageController get controller => _controller;
+  int get admissionInfoId => _admissionInfoId;
+
+  Country? get selectedCountry => _country;
+  int get currentIndex => _currentIndex;
 
 //setters
   set selectCountry(Country country) {
     _country = country;
     notifyListeners();
   }
-  
-//getters
- Country? get selectedCountry => _country;
+
+  set setAdmissionInfoId(int id) {
+    _admissionInfoId = id;
+    notifyListeners();
+  }
+
+  set setCurrentPageIndex(int index) {
+    _controller.jumpToPage(index);
+    notifyListeners();
+  }
+
+  set currentIndex(int index) {
+    _currentIndex = index;
+    notifyListeners();
+  }
+
   selectIndicator(Indicator indicator) {
     for (var element in _indicatorList) {
       {
         element.isSelected = false;
       }
     }
-
     _indicatorList.firstWhere(((element) => element == indicator)).isSelected =
         true;
     notifyListeners();

@@ -36,8 +36,7 @@ class AdmissionInformation {
       'admitting_nurse_doctor_name': admittingNurseDoctorName,
       'reason_for_referral_or_management_received':
           reasonForReferralOrManagementReceived,
-      'danger_signs_and_risk_factors': dangerSignsAndRiskFactors,
-      'partographs': partograph!.toMap()
+      'danger_signs_and_risk_factors': dangerSignsAndRiskFactors
     };
 
     return map;
@@ -48,14 +47,16 @@ class AdmissionInformation {
       id: data["id"],
       time: data["time"],
       nameOfHealthFacility: data["name_of_health_facility"],
-      hospitalRegNo: data["hospital_reg_no"],
+      hospitalRegNo: data["hospital_reg_no"].toString(),
       dateOfAdmission: data["date_of_admission"],
       adimittedFrom: data["adimitted_from"],
       admittingNurseDoctorName: data["admitting_nurse_doctor_name"],
       reasonForReferralOrManagementReceived:
           data["reason_for_referral_or_management_received"],
       dangerSignsAndRiskFactors: data["danger_signs_and_risk_factors"],
-      partograph: Partograph.fromMap(data['partograph']),
+      partograph: data['partograph'] == null
+          ? null
+          : Partograph.fromMap(data['partograph']),
     );
   }
 }

@@ -9,6 +9,7 @@ import 'package:partograph/model/drug_iv_fluids.dart';
 import 'package:partograph/model/heart_rate.dart';
 import 'package:partograph/model/mother.dart';
 import 'package:partograph/model/moulding_fetal.dart';
+import 'package:partograph/model/obstetric_history.dart';
 import 'package:partograph/model/oxytocin.dart';
 import 'package:partograph/model/pulse.dart';
 import 'package:partograph/model/temperature.dart';
@@ -23,6 +24,7 @@ class MotherProvider with ChangeNotifier {
   bool _postingHeartRateData = false;
   bool _postingMotherData = false;
   bool _postingAdmissionInformationData = false;
+  bool _postingObstericHistoryData = false;
 
 //getters
   List<Mother> get motherList => _motherList;
@@ -30,6 +32,7 @@ class MotherProvider with ChangeNotifier {
   bool get postingHeartRateData => _postingHeartRateData;
   bool get postingMotherData => _postingMotherData;
   bool get postingAdmissionInformationData => _postingAdmissionInformationData;
+  bool get postingObstericHistoryData => _postingObstericHistoryData;
 
   ///Constructor users
   MotherProvider();
@@ -231,22 +234,49 @@ class MotherProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<bool> postAdmissionInformation(
+//create a new admission
+  Future<AdmissionInformation?> postAdmissionInformation(
       AdmissionInformation admissionInformation, int motherId) async {
     _postingAdmissionInformationData = true;
-    bool _hasError = true;
+
     notifyListeners();
+    AdmissionInformation? _admissionInformation;
 
     try {
-      await motherServer.postAdmissionInformation(
-          admissionInformation: admissionInformation, motherId:motherId);
-      _hasError = false;
-    } catch (e) {
-      _hasError = true;
+      await motherServer
+          .postAdmissionInformation(
+              admissionInformation: admissionInformation, motherId: motherId)
+          .then((value) {
+        _admissionInformation = value;
+      });
     } finally {
       _postingAdmissionInformationData = false;
       notifyListeners();
     }
-    return _hasError;
+    return _admissionInformation;
+  }
+
+  //create obstetric history
+
+  Future<ObstetricHistory?> postObstetricHistory(
+      ObstetricHistory obstetricHistory, int admissionInformationId) async {
+    _postingObstericHistoryData = true;
+
+    notifyListeners();
+    ObstetricHistory? _obstetricHistory;
+
+    try {
+      await motherServer
+          .postObstetricHistory(
+              obstetricHistory: obstetricHistory,
+              admissionInformationId: admissionInformationId)
+          .then((value) {
+        _obstetricHistory = value;
+      });
+    } finally {
+      _postingObstericHistoryData = false;
+      notifyListeners();
+    }
+    return _obstetricHistory;
   }
 }

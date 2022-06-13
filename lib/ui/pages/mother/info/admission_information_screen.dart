@@ -67,12 +67,12 @@ class _AdmissionInformationScreenState
           adimittedFrom: _adimittedFrom,
           reasonForReferralOrManagementReceived:
               _reasonForReferralOrManagementReceivedTextEditingController.text,
-          time: '',
+          time: _timeOfAdmissionTextEditingController.text,
         );
         _mother
             .postAdmissionInformation(_admissionInformation, widget.mother.id)
             .then((value) {
-          if (!value) {
+          if (value != null) {
             _dateOfAdmissionTextEditingController.clear();
             _dangerSignsAndRiskFactorsTextEditingController.clear();
             _reasonForReferralOrManagementReceivedTextEditingController.clear();
@@ -85,12 +85,15 @@ class _AdmissionInformationScreenState
                 icon: Icons.check_circle,
                 scaffoldKey: _createPersonalInfoScaffoldKey,
                 title: 'Mother information created sucessfully');
-            Navigator.pop(context);
+
+            _utilityProvider.currentIndex = 1;
+            _utilityProvider.setCurrentPageIndex = 1;
+            _utilityProvider.setAdmissionInfoId = value.id;
           } else {
             //show the snackbar
             _utilityProvider.showInSnackBar(
                 color: Colors.red,
-                backgroundColor: Colors.white,
+                backgroundColor: Colors.black,
                 context: context,
                 icon: Icons.error,
                 scaffoldKey: _createPersonalInfoScaffoldKey,

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:partograph/constants/enum.dart';
 import 'package:partograph/provider/mother_provider.dart';
-import 'package:partograph/ui/pages/mother/admission_page.dart';
+import 'package:partograph/ui/pages/mother/partograph_info_page.dart';
 import 'package:partograph/ui/pages/mother/create_mother_page.dart';
 import 'package:partograph/ui/widgets/loader.dart';
 import 'package:partograph/ui/widgets/tiles/no_item_tile.dart';
@@ -90,7 +90,7 @@ class _PatientListState extends State<PatientList>
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (_) => AdmissionPage(
+                                  builder: (_) => PartographInfoPage(
                                         mother: _motherProvider.currentPatients(
                                             caseCategory: _caseCategory,
                                             reverse: true)[index],
