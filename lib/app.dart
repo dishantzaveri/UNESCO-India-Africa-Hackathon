@@ -36,7 +36,8 @@ class App extends StatelessWidget {
             homePageRouteAndroid: (context) => const HomePage(),
             loginPageRouteAndroid: (context) => LoginPage(),
             onboardingPageRoute: (context) => const OnBoardingPage()
-          }),
+          }
+          ),
     );
   }
 }

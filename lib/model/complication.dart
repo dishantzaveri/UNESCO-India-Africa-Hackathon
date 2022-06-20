@@ -1,14 +1,14 @@
 class Complication {
   int id;
   int year;
-  String complications;
+  String complication;
   String method;
   String alive;
 
   Complication({
     required this.id,
     required this.year,
-    required this.complications,
+    required this.complication,
     required this.method,
     required this.alive,
   });
@@ -17,7 +17,7 @@ class Complication {
     var map = <String, dynamic>{
       'id': id,
       'year': year,
-      'complications': complications,
+      'complication': complication,
       'method': method,
       'alive': alive
     };
@@ -29,11 +29,11 @@ class Complication {
     return Complication(
       id: data["id"],
       year: data["year"],
-      complications: data["complications"],
+      complication: data["complication"],
       method: data["method"],
       alive: data["alive"],
     );
   }
 }
 
-List<Complication> complicationsList = [];
+ 

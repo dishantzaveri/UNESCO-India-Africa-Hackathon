@@ -1,10 +1,13 @@
 import 'dart:convert';
 
 import 'package:partograph/model/admission_informations.dart';
+import 'package:partograph/model/complication.dart';
 import 'package:partograph/model/mother.dart';
 import 'package:partograph/model/obstetric_history.dart';
 import 'package:partograph/service/base/api_base_helper.dart';
 import 'package:partograph/service/responses/admin_info_response.dart';
+import 'package:partograph/service/responses/complication_response.dart';
+import 'package:partograph/service/responses/message_response.dart';
 import 'package:partograph/service/responses/mother_response.dart';
 import 'package:partograph/service/responses/obstetric_history_response.dart';
 
@@ -52,16 +55,36 @@ class MotherServer {
 
     return _obstetricHistory;
   }
-  //   Future<void> postMother({required Mother mother}) async {
-  //   Map<String, String> _headers = {"Content-Type": "application/json"};
-  //   try {
-  //     Response result = await post(Uri.parse(gumbaServerAPI + "mothers"),
-  //         body: jsonEncode(mother.toMap()), headers: _headers);
-  //   } catch (e) {
-  //     print(e);
-  //   }
-  // }
 
+  Future<Complication?> postComplication(
+      {required Complication complication,
+      required int obstetricHistoryId}) async {
+    Complication? _complication;
+
+    try {
+      final response = await _helper.postDataWithReturns(
+          data: jsonEncode(complication.toMap()),
+          url: "complication/" + obstetricHistoryId.toString());
+
+      _complication = ComplicationResponse.fromJson(response).complication;
+    } finally {}
+
+    return _complication;
+  }
+
+  Future<String> deleteComplication({required int complicationId}) async {
+    String _message = "";
+    try {
+      final response =
+          await _helper.deleteData("complication/" + complicationId.toString());
+
+      _message = MessageResponse.fromJson(response).message;
+    } catch (e) {
+      _message = e.toString();
+    } finally {}
+
+    return _message;
+  }
 }
 
 MotherServer motherServer = MotherServer();

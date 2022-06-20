@@ -69,6 +69,9 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
+         
+         
+         
           endDrawer: _selectedIndex == 2 ? const DrawerPage() : Container(),
           floatingActionButton: _selectedIndex == 0
               ? FloatingActionButton(

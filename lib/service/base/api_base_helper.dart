@@ -18,6 +18,17 @@ class ApiBaseHelper {
     return responseJson;
   }
 
+    Future<dynamic> deleteData(String url) async {
+    dynamic responseJson;
+    try {
+      Response response = await delete(Uri.parse(partographServerAPI + url));
+      responseJson = _returnResponse(response);
+    } on SocketException {
+      throw FetchDataException('No Internet connection');
+    }
+    return responseJson;
+  }
+
   Future<void> postData({required String data, required String url}) async {
     Map<String, String> _headers = {"Content-Type": "application/json"};
     try {

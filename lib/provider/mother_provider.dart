@@ -3,6 +3,7 @@ import 'package:partograph/constants/enum.dart';
 import 'package:partograph/model/admission_informations.dart';
 import 'package:partograph/model/amniotic_fluid.dart';
 import 'package:partograph/model/blood_pressure.dart';
+import 'package:partograph/model/complication.dart';
 import 'package:partograph/model/descent.dart';
 import 'package:partograph/model/dilatation.dart';
 import 'package:partograph/model/drug_iv_fluids.dart';
@@ -20,19 +21,27 @@ import 'package:partograph/service/mother_service.dart';
 
 class MotherProvider with ChangeNotifier {
   List<Mother> _motherList = [];
+  final List<Complication> _complicationList = [];
   bool _loadingMotherData = false;
   bool _postingHeartRateData = false;
   bool _postingMotherData = false;
   bool _postingAdmissionInformationData = false;
+  bool _postingComplicationData = false;
   bool _postingObstericHistoryData = false;
+
+  bool _deletingComplication = false;
 
 //getters
   List<Mother> get motherList => _motherList;
+  List<Complication> get complicationList => _complicationList;
+
   bool get isLoadingMotherData => _loadingMotherData;
   bool get postingHeartRateData => _postingHeartRateData;
   bool get postingMotherData => _postingMotherData;
   bool get postingAdmissionInformationData => _postingAdmissionInformationData;
   bool get postingObstericHistoryData => _postingObstericHistoryData;
+  bool get postingComplicationData => _postingComplicationData;
+  bool get deletingComplication => _deletingComplication;
 
   ///Constructor users
   MotherProvider();
@@ -278,5 +287,50 @@ class MotherProvider with ChangeNotifier {
       notifyListeners();
     }
     return _obstetricHistory;
+  }
+
+  Future<Complication?> postComplication(
+      Complication complication, int obstetricHistoryId) async {
+    _postingComplicationData = true;
+
+    notifyListeners();
+    Complication? _complication;
+
+    try {
+      await motherServer
+          .postComplication(
+              complication: complication,
+              obstetricHistoryId: obstetricHistoryId)
+          .then((value) {
+        _complication = value;
+
+        _complicationList.add(value!);
+      });
+    } finally {
+      _postingComplicationData = false;
+      notifyListeners();
+    }
+    return _complication;
+  }
+
+  //clear data..
+  clearComplications() {
+    _complicationList.clear();
+    notifyListeners();
+  }
+
+  Future<void> deleteComplication({required int id}) async {
+    _deletingComplication = true;
+
+    notifyListeners();
+
+    try {
+      await motherServer.deleteComplication(complicationId: id).then((value) {
+        _complicationList.removeWhere((element) => element.id == id);
+      });
+    } finally {
+      _deletingComplication = false;
+      notifyListeners();
+    }
   }
 }

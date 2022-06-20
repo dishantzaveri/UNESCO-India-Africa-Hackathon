@@ -3,7 +3,8 @@ import 'package:partograph/model/complication.dart';
 
 class ComplicationCard extends StatelessWidget {
   final Complication complication;
-  const ComplicationCard({Key? key, required this.complication})
+  final Function() onTap;
+  const ComplicationCard({Key? key, required this.complication, required this.onTap})
       : super(key: key);
 
   @override
@@ -38,7 +39,7 @@ class ComplicationCard extends StatelessWidget {
                     "COMPLICATION:\t",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  Expanded(child: Text(complication.complications))
+                  Expanded(child: Text(complication.complication))
                 ],
               ),
               const Divider(),
@@ -63,8 +64,8 @@ class ComplicationCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children:  [
-                const  Text(
+                children: [
+                  const Text(
                     "ALIVE:\t",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
@@ -76,7 +77,7 @@ class ComplicationCard extends StatelessWidget {
                 children: [
                   ElevatedButton.icon(
                       icon: const Icon(Icons.delete),
-                      onPressed: () {},
+                      onPressed: onTap,
                       label: const Text("DELETE"))
                 ],
               )

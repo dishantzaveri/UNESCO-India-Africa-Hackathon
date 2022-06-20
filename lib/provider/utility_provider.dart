@@ -1,6 +1,7 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:partograph/model/indicator.dart';
+import 'package:partograph/model/obstetric_history.dart';
 
 class UtilityProvider with ChangeNotifier {
   ///Constructor users
@@ -10,13 +11,14 @@ class UtilityProvider with ChangeNotifier {
   int _currentIndex = 0;
 
   int _admissionInfoId = 0;
+  int _obstetricHistoryId = 0;
 
   final _controller = PageController();
 
 //getters
   PageController get controller => _controller;
   int get admissionInfoId => _admissionInfoId;
-
+  int get obstetricHistoryId => _obstetricHistoryId;
   Country? get selectedCountry => _country;
   int get currentIndex => _currentIndex;
 
@@ -28,6 +30,11 @@ class UtilityProvider with ChangeNotifier {
 
   set setAdmissionInfoId(int id) {
     _admissionInfoId = id;
+    notifyListeners();
+  }
+
+  set setObstetricHistoryId(int id) {
+    _obstetricHistoryId = id;
     notifyListeners();
   }
 

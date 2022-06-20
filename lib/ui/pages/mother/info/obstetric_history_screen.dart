@@ -7,6 +7,7 @@ import 'package:partograph/model/obstetric_history.dart';
 import 'package:partograph/provider/mother_provider.dart';
 import 'package:partograph/provider/utility_provider.dart';
 import 'package:partograph/ui/widgets/buttons/custom_int_dropdown.dart';
+import 'package:partograph/ui/widgets/buttons/custom_string_dropdown.dart';
 import 'package:partograph/ui/widgets/complication_card.dart';
 import 'package:partograph/ui/widgets/text_fields/label_text_field.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +23,11 @@ class ObstetricHistoryScreen extends StatefulWidget {
 
 class _ObstetricHistoryScreenState extends State<ObstetricHistoryScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _complicationFormKey = GlobalKey<FormState>();
+
+//private variables;
+  String _method = "NORMAL";
+  String _alive = "YES";
 
 //private variables;
 
@@ -94,6 +100,12 @@ class _ObstetricHistoryScreenState extends State<ObstetricHistoryScreen> {
     60
   ];
 
+  ///complication..
+  final TextEditingController _yearTextEditingController =
+      TextEditingController();
+  final TextEditingController _complicationTextEditingController =
+      TextEditingController();
+
   /// Text Editing Controller
   final TextEditingController _eddTextEditingController =
       TextEditingController();
@@ -144,6 +156,7 @@ class _ObstetricHistoryScreenState extends State<ObstetricHistoryScreen> {
                 title: 'Mother information created sucessfully');
 
             // _utilityProvider.currentIndex = 1;
+            _utilityProvider.setObstetricHistoryId = value.id;
             setState(() {
               _addComplications = true;
             });
@@ -161,6 +174,131 @@ class _ObstetricHistoryScreenState extends State<ObstetricHistoryScreen> {
       }
     }
 
+    _displayDialog(BuildContext context) async {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Expanded(
+            child: AlertDialog(
+              title: const Text('Add Complication'),
+              content: StatefulBuilder(
+                  builder: (BuildContext context, StateSetter setState) {
+                return SingleChildScrollView(
+                  child: Form(
+                    key: _complicationFormKey,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: LabelTextfield(
+                            prefixIcon: Icons.calendar_month,
+                            message: 'Year is required',
+                            maxLines: 1,
+                            hitText: 'eg. 2022',
+                            labelText: 'YEAR',
+                            focusNode: FocusNode(),
+                            textEditingController: _yearTextEditingController,
+                            keyboardType: TextInputType.number,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: LabelTextfield(
+                            prefixIcon: Icons.warehouse_sharp,
+                            message: 'complication is required',
+                            maxLines: 1,
+                            hitText: 'complication',
+                            labelText: 'Complication',
+                            focusNode: FocusNode(),
+                            textEditingController:
+                                _complicationTextEditingController,
+                            keyboardType: TextInputType.text,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: CustomStringDropdown(
+                            items: const ["NORMAL", "OPERATION"],
+                            onChange: (value) {
+                              setState(() {
+                                _method = value!;
+                              });
+                            },
+                            value: _method,
+                            title: 'Method',
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: CustomStringDropdown(
+                            items: const ["YES", "NO"],
+                            onChange: (value) {
+                              setState(() {
+                                _alive = value!;
+                              });
+                            },
+                            value: _alive,
+                            title: 'ALIVE',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    if (_complicationFormKey.currentState!.validate()) {
+                      final _complication = Complication(
+                        id: 0,
+                        year: int.parse(_yearTextEditingController.text),
+                        complication: _complicationTextEditingController.text,
+                        method: _method,
+                        alive: _alive,
+                      );
+                      _mother
+                          .postComplication(_complication,
+                              _utilityProvider.obstetricHistoryId)
+                          .then((value) {
+                        if (value != null) {
+                          _complicationTextEditingController.clear();
+
+                          //show the snackbar
+                          print("Success");
+                          // _utilityProvider.currentIndex = 1;
+                          setState(() {
+                            _addComplications = true;
+                          });
+                          Navigator.pop(context);
+                        } else {
+                          //show the snackbar
+                          print("ERROR");
+                        }
+                      });
+                    }
+                  },
+                  child: const Text(
+                    'SAVE',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text(
+                    'CANCEL',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+    }
+
     return SingleChildScrollView(
       child: _addComplications
           ? Column(
@@ -169,14 +307,19 @@ class _ObstetricHistoryScreenState extends State<ObstetricHistoryScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          _displayDialog(context);
+                        },
                         child: const Text("Add Complication")),
                     const SizedBox(
                       width: 50,
                     ),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(primary: Colors.green),
-                        onPressed: () {},
+                        onPressed: () {
+                          _utilityProvider.currentIndex = 2;
+                          _mother.clearComplications();
+                        },
                         child: const Text("\t\t\tContinue\t\t\t")),
                   ],
                 ),
@@ -185,13 +328,17 @@ class _ObstetricHistoryScreenState extends State<ObstetricHistoryScreen> {
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       return ComplicationCard(
-                        complication: complicationsList[index],
+                        onTap: () {
+                          _mother.deleteComplication(id:
+                              _mother.complicationList[index].id);
+                        },
+                        complication: _mother.complicationList[index],
                       );
                     },
                     separatorBuilder: (BuildContext context, int index) {
                       return const Divider();
                     },
-                    itemCount: complicationsList.length)
+                    itemCount: _mother.complicationList.length)
               ],
             )
           : Form(
