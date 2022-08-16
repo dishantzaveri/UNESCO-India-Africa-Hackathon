@@ -54,11 +54,11 @@ class Mother {
         surname: data["surname"],
         otherNames: data["other_names"],
         dateOfBirth: data["date_of_birth"],
-        husbandPartnerName: data["husband_partner_name"] ?? [],
+        husbandPartnerName: data["husband_partner_name"] ?? '',
         residence: data["residence"],
         permanentAddress: data["permanent_address"],
-        nextOfKin: data["next_of_kin"],
-        cellPhone: data["cell_phone"],
+        nextOfKin: data["next_of_kin"] ?? '',
+        cellPhone: data["cell_phone"] ?? '',
         caseCategory: data["case_category"] == "critical"
             ? CaseCategory.critical
             : (data["case_category"] == "active"
