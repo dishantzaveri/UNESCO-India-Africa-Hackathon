@@ -152,25 +152,30 @@ class LoginPage extends StatelessWidget {
                         height: 30,
                       ),
                       InkWell(
+                        // onTap: () {
+                        //   if (_formKey.currentState!.validate()) {
+                        //     if (_numberEditingController.text.toLowerCase() ==
+                        //             "md001" &&
+                        //         _passwordEditingController.text.toLowerCase() ==
+                        //             "1234") {
+                        //       Navigator.push(
+                        //           context,
+                        //           MaterialPageRoute(
+                        //               builder: (_) => const HomePage()));
+                        //     } else {
+                        //       Navigator.push(
+                        //           context,
+                        //           MaterialPageRoute(
+                        //               builder: (_) => const HomePage()));
+                        //     }
+                        //   }
+                        //   //  else {}
+                        // },
                         onTap: () {
-                          if (_formKey.currentState!.validate()) {
-                            if (_numberEditingController.text.toLowerCase() ==
-                                    "md001" &&
-                                _passwordEditingController.text.toLowerCase() ==
-                                    "1234") {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => const HomePage()));
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    backgroundColor: Colors.red,
-                                    content:
-                                        Text('Incorect username or password')),
-                              );
-                            }
-                          } else {}
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const HomePage()));
                         },
                         child: FadeAnimation(
                             delay: 2,
@@ -200,8 +205,7 @@ class LoginPage extends StatelessWidget {
                           childWidget: Text(
                             "Forgot Password?",
                             style: TextStyle(
-                                color: Color.fromRGBO(248, 54, 119, 1)
-                                ),
+                                color: Color.fromRGBO(248, 54, 119, 1)),
                           )),
                     ],
                   ),

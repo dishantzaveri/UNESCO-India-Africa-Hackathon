@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
@@ -329,8 +331,8 @@ class _ObstetricHistoryScreenState extends State<ObstetricHistoryScreen> {
                     itemBuilder: (context, index) {
                       return ComplicationCard(
                         onTap: () {
-                          _mother.deleteComplication(id:
-                              _mother.complicationList[index].id);
+                          _mother.deleteComplication(
+                              id: _mother.complicationList[index].id);
                         },
                         complication: _mother.complicationList[index],
                       );
