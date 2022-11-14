@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:partograph/model/mother.dart';
 import 'package:partograph/ui/widgets/titled_header.dart';
 
+import '../resources/constants.dart';
+
 class PatientHistoryCard extends StatelessWidget {
   const PatientHistoryCard({Key? key, required this.mother}) : super(key: key);
   final Mother mother;
@@ -16,14 +18,14 @@ class PatientHistoryCard extends StatelessWidget {
       ),
       padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
       decoration: const BoxDecoration(
-          color: Color.fromRGBO(248, 54, 119, 1),
+          gradient: MY_GRADIENT,
           borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const TitledHeader(
             title: "Patient Information",
-            color: Colors.white,
+            color: Colors.black,
           ),
           const Divider(),
           Row(
@@ -31,7 +33,7 @@ class PatientHistoryCard extends StatelessWidget {
               const Text(
                 'Fullname: ',
                 style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               Expanded(
                 child: Text(
@@ -39,7 +41,7 @@ class PatientHistoryCard extends StatelessWidget {
                   softWrap: true,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.black),
                 ),
               ),
             ],
@@ -49,7 +51,7 @@ class PatientHistoryCard extends StatelessWidget {
               const Text(
                 'AGE: ',
                 style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               Expanded(
                 child: Text(
@@ -57,7 +59,7 @@ class PatientHistoryCard extends StatelessWidget {
                   softWrap: true,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.black),
                 ),
               ),
             ],
@@ -67,7 +69,7 @@ class PatientHistoryCard extends StatelessWidget {
               const Text(
                 'Residence: ',
                 style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               Expanded(
                 child: Text(
@@ -75,7 +77,7 @@ class PatientHistoryCard extends StatelessWidget {
                   softWrap: true,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.black),
                 ),
               ),
             ],
@@ -85,7 +87,7 @@ class PatientHistoryCard extends StatelessWidget {
               const Text(
                 'Husband/Partner name: ',
                 style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               Expanded(
                 child: Text(
@@ -93,7 +95,7 @@ class PatientHistoryCard extends StatelessWidget {
                   softWrap: true,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.black),
                 ),
               ),
             ],
@@ -103,7 +105,7 @@ class PatientHistoryCard extends StatelessWidget {
               const Text(
                 'Permanent address: ',
                 style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               Expanded(
                 child: Text(
@@ -111,7 +113,7 @@ class PatientHistoryCard extends StatelessWidget {
                   softWrap: true,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.black),
                 ),
               ),
             ],
@@ -121,7 +123,7 @@ class PatientHistoryCard extends StatelessWidget {
               const Text(
                 'Next of kin: ',
                 style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               Expanded(
                 child: Text(
@@ -129,7 +131,7 @@ class PatientHistoryCard extends StatelessWidget {
                   softWrap: true,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.black),
                 ),
               ),
             ],
@@ -139,7 +141,7 @@ class PatientHistoryCard extends StatelessWidget {
               const Text(
                 'Cell phone: ',
                 style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               Expanded(
                 child: Text(
@@ -147,7 +149,7 @@ class PatientHistoryCard extends StatelessWidget {
                   softWrap: true,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.black),
                 ),
               ),
             ],

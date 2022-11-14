@@ -37,7 +37,7 @@ class SplashScreenState extends State<AnimatedLoaderScreen>
   void initState() {
     super.initState();
     // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      _authProvider = Provider.of<AuthProvider>(context, listen: false);
+    _authProvider = Provider.of<AuthProvider>(context, listen: false);
     // });
 
     animationController =
@@ -64,7 +64,7 @@ class SplashScreenState extends State<AnimatedLoaderScreen>
             mainAxisAlignment: MainAxisAlignment.end,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              const Text('partograph FROM PATA PROJECT'),
+              const Text('UIA UNESCO HACKATHON'),
               Padding(
                   padding: const EdgeInsets.only(bottom: 30.0),
                   child: Image.asset(

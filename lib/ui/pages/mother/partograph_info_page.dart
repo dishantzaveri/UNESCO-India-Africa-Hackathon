@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:partograph/model/mother.dart';
 import 'package:partograph/provider/utility_provider.dart';

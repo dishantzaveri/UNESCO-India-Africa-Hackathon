@@ -9,38 +9,35 @@ class DrawerPage extends StatelessWidget {
     return Drawer(
       child: SingleChildScrollView(
           child: Column(
-        children:   [
+        children: [
           const UserAccountsDrawerHeader(
             decoration: BoxDecoration(color: Color.fromRGBO(248, 54, 119, 1)),
-            accountName: Text("Hilda Mshana"),
-            accountEmail: Text("P000A1"),
+            accountName: Text("Dishant Zaveri"),
+            accountEmail: Text("zaveridishant@gmail.com"),
             currentAccountPicture: CircleAvatar(
                 backgroundImage: AssetImage('assets/images/profile.jpg')),
           ),
           ListTile(
             leading: const Icon(Icons.person),
             title: const Text('Profile'),
-            onTap: (){},
+            onTap: () {},
           ),
           ListTile(
-            leading:const Icon(Icons.settings),
-            title:const Text('Settings'),
-                onTap: (){},
+            leading: const Icon(Icons.settings),
+            title: const Text('Settings'),
+            onTap: () {},
           ),
           ListTile(
-            leading:const Icon(Icons.security),
-            title:const Text('Privacy'),
-                onTap: (){},
+            leading: const Icon(Icons.security),
+            title: const Text('Privacy'),
+            onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.exit_to_app),
-            title:const Text('Log out'),
-            onTap: (){
-                 Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) =>    LoginPage()));
-                  
+            title: const Text('Log out'),
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => LoginPage()));
             },
           )
         ],

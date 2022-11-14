@@ -5,6 +5,7 @@ import 'package:partograph/ui/pages/home/tabs/history_tab.dart';
 import 'package:partograph/ui/pages/home/tabs/home_tab.dart';
 import 'package:partograph/ui/pages/home/tabs/profile_tab.dart';
 import 'package:partograph/ui/pages/mother/patient_page.dart';
+import 'package:partograph/ui/pages/resources/resources_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -24,7 +25,12 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _screens = [const HomeTab(), const HistoryTab(), const ProfileTab()];
+    _screens = [
+      const HomeTab(),
+      const ResList(),
+      // const HistoryTab(),
+      const ProfileTab()
+    ];
   }
 
   @override
@@ -47,7 +53,9 @@ class _HomePageState extends State<HomePage> {
               const BottomNavigationBarItem(
                   icon: Icon(Icons.home), label: "Home"),
               const BottomNavigationBarItem(
-                  icon: Icon(Icons.explore), label: "History"),
+                  icon: Icon(Icons.explore), label: "Resources"),
+              // const BottomNavigationBarItem(
+              //     icon: Icon(Icons.explore), label: "History"),
               BottomNavigationBarItem(
                 icon: Badge(
                   showBadge: false,
@@ -69,23 +77,16 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-         
-         
-         
           endDrawer: _selectedIndex == 2 ? const DrawerPage() : Container(),
           floatingActionButton: _selectedIndex == 0
               ? FloatingActionButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => const PatientList()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => const PatientList()));
                   },
                   child: const Icon(Icons.add),
                 )
-              : Container()
-              )
-              ,
+              : Container()),
     );
   }
 }

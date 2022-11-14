@@ -132,7 +132,7 @@ class LoginPage extends StatelessWidget {
                                     obscureText: true,
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
-                                        return "password is required";
+                                        return "Password is required";
                                       } else {
                                         return null;
                                       }
