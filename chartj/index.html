@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChartJS</title>
+  </head>
+  <body>
+    <canvas id="chartcanvas"></canvas>
+
+    <!-- javascript -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/Chart.min.js"></script>
+
+    <script type="text/javascript">
+      var ctx = $("#chartcanvas");
+
+      var chart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: ["", "", "", "", "", "", "", "", "", "", ""],
+          datasets: [
+            {
+              label: "TeamA score",
+              data: [10, 40, 25, 50, 40],
+              backgroundColor: "blue",
+              borderColor: "lightblue",
+              fill: false,
+              lineTension: 0,
+              pointRadius: 5,
+            },
+            {
+              label: "TeamB score",
+              data: [25, 35, 40, 60, 50],
+              backgroundColor: "green",
+              borderColor: "lightgreen",
+              fill: false,
+              lineTension: 0,
+              pointRadius: 5,
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>
