@@ -5,9 +5,9 @@ var validateEmail = function (email) {
   return re.test(email);
 };
 
-var patientSchema = new man.Schema(
+var refcenSchema = new man.Schema(
   {
-    idpatient: man.ObjectId,
+    idrefcen: man.ObjectId,
     username: { type: String, required: true },
     email: {
       type: String,
@@ -26,5 +26,5 @@ var patientSchema = new man.Schema(
   { timestamps: true }
 );
 
-var patientModel = man.model("patient", patientSchema);
-module.exports = patientModel;
+var refcenModel = man.model("refcen", refcenSchema);
+module.exports = refcenModel;

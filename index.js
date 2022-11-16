@@ -6,6 +6,8 @@ const cors = require("cors");
 const methodOverride = require("method-override");
 var path = require("path");
 const bodyParser = require("body-parser");
+const patientAuth = require("./routes/patientAuth");
+const refcenAuth = require("./routes/refcenAuth");
 dotenv.config();
 
 // MIDDLEWARE;
@@ -30,6 +32,8 @@ mongoose.connect(
 );
 
 //ROUTES MIDDLEWARE
+app.use("/", patientAuth);
+app.use("/", refcenAuth);
 app.listen(process.env.PORT || 3000, () =>
   console.log("Server Up and running")
 );
