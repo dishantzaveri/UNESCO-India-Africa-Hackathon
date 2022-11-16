@@ -156,8 +156,5 @@ include("includes/db.php");
       header($url);
 
     }
-
-
-
-    }
+      }
 ?>
