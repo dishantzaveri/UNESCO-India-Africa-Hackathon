@@ -8,7 +8,8 @@
     <script type="text/javascript">
       var ctxx = $("#chartcanvas");
 
-      var chart = new Chart(ctxx, {
+      var chart = new Chart(ctxx,
+       {
         type: "line",
         data: {
           labels: ["", "", "", "", "", "", "", "", "", "", ""],
