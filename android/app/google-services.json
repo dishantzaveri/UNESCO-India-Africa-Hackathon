@@ -1,42 +1,41 @@
 {
   "project_info": {
-    "project_number": "616361179202",
-    "firebase_url": "https://asiri-hospital-tour.firebaseio.com",
-    "project_id": "asiri-hospital-tour",
-    "storage_bucket": "asiri-hospital-tour.appspot.com"
+    "project_number": "621026350127",
+    "project_id": "partograph-1436f",
+    "storage_bucket": "partograph-1436f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:616361179202:android:cefb1153a1feb3e54355db",
+        "mobilesdk_app_id": "1:621026350127:android:5d0d76f7613bb6672e22da",
         "android_client_info": {
-          "package_name": "com.burbs.motherbaby"
+          "package_name": "com.company.partograph"
         }
       },
       "oauth_client": [
         {
-          "client_id": "616361179202-beidujv5kbp7hnfmlev0sjddm4ojrflr.apps.googleusercontent.com",
+          "client_id": "621026350127-o0pg8gsmro71olg7shrms9nrj631sisu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.burbs.motherbaby",
-            "certificate_hash": "0226e70c400731a503e6552b4051025c74222e1c"
+            "package_name": "com.company.partograph",
+            "certificate_hash": "fe9f7b282a9b8547bb5bc11b45e588c35699e0a9"
           }
         },
         {
-          "client_id": "616361179202-pp98d0l630dhh432mfv670ks0pl97dse.apps.googleusercontent.com",
+          "client_id": "621026350127-q6gvibpau0isavidm5a7d87t3n46q0is.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyATf_7dw8zZS1R8_gNqNgPOA5OafAqkvlI"
+          "current_key": "AIzaSyCVifW9Yz7n95dfwTtceXAxwlXIVatnLc0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "616361179202-pp98d0l630dhh432mfv670ks0pl97dse.apps.googleusercontent.com",
+              "client_id": "621026350127-q6gvibpau0isavidm5a7d87t3n46q0is.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

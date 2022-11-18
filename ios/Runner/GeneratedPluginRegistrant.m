@@ -2,6 +2,8 @@
 //  Generated file. Do not edit.
 //
 
+// clang-format off
+
 #import "GeneratedPluginRegistrant.h"
 
 #if __has_include(<awesome_notifications/AwesomeNotificationsPlugin.h>)
@@ -34,28 +36,28 @@
 @import firebase_storage;
 #endif
 
-#if __has_include(<google_sign_in/FLTGoogleSignInPlugin.h>)
-#import <google_sign_in/FLTGoogleSignInPlugin.h>
+#if __has_include(<google_sign_in_ios/FLTGoogleSignInPlugin.h>)
+#import <google_sign_in_ios/FLTGoogleSignInPlugin.h>
 #else
-@import google_sign_in;
+@import google_sign_in_ios;
 #endif
 
-#if __has_include(<shared_preferences/FLTSharedPreferencesPlugin.h>)
-#import <shared_preferences/FLTSharedPreferencesPlugin.h>
+#if __has_include(<shared_preferences_ios/FLTSharedPreferencesPlugin.h>)
+#import <shared_preferences_ios/FLTSharedPreferencesPlugin.h>
 #else
-@import shared_preferences;
+@import shared_preferences_ios;
 #endif
 
-#if __has_include(<url_launcher/FLTURLLauncherPlugin.h>)
-#import <url_launcher/FLTURLLauncherPlugin.h>
+#if __has_include(<url_launcher_ios/FLTURLLauncherPlugin.h>)
+#import <url_launcher_ios/FLTURLLauncherPlugin.h>
 #else
-@import url_launcher;
+@import url_launcher_ios;
 #endif
 
-#if __has_include(<video_player/FLTVideoPlayerPlugin.h>)
-#import <video_player/FLTVideoPlayerPlugin.h>
+#if __has_include(<video_player_avfoundation/FLTVideoPlayerPlugin.h>)
+#import <video_player_avfoundation/FLTVideoPlayerPlugin.h>
 #else
-@import video_player;
+@import video_player_avfoundation;
 #endif
 
 #if __has_include(<wakelock/WakelockPlugin.h>)

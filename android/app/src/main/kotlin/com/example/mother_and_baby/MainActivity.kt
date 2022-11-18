@@ -1,4 +1,4 @@
-package com.burbs.motherbaby
+package com.company.partograph
 
 import io.flutter.embedding.android.FlutterActivity
 
