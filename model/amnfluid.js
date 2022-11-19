@@ -4,5 +4,4 @@ var amnfluidSchema = new man.Schema({
   fluid: { type: String, required: true },
 });
 
-var amnfluidModel = man.model("amnfluid", amnfluidSchema);
-module.exports = amnfluidModel;
+module.exports = man.model("amnfluid", amnfluidSchema);

@@ -26,5 +26,4 @@ var refcenSchema = new man.Schema(
   { timestamps: true }
 );
 
-var refcenModel = man.model("refcen", refcenSchema);
-module.exports = refcenModel;
+module.exports = man.model("refcen", refcenSchema);

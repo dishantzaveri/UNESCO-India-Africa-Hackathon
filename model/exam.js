@@ -11,13 +11,13 @@ var examSchema = new man.Schema({
       // PresentationLevel: { type: Number, required: true },
       // Heartbeat: { type: Number, required: true },
       type: man.Schema.Types.ObjectId,
-      ref: "fetusModel",
+      ref: "fetus",
     },
   ],
   amnfluid: [
     {
       type: man.Schema.Types.ObjectId,
-      ref: "amnfluidModel",
+      ref: "amnfluid",
     },
   ],
 
@@ -35,7 +35,7 @@ var examSchema = new man.Schema({
       // dilation: { type: String, required: true },
       // hours: { type: String, required: true },
       type: man.Schema.Types.ObjectId,
-      ref: "labourModel",
+      ref: "labour",
     },
   ],
   uterinecontraction: [{ type: Number, required: true }],
@@ -45,7 +45,7 @@ var examSchema = new man.Schema({
       // time: { type: String, required: true },
       // route: { type: String, required: true },
       type: man.Schema.Types.ObjectId,
-      ref: "interventionsModel",
+      ref: "interventions",
     },
   ],
   mother: [
@@ -57,10 +57,13 @@ var examSchema = new man.Schema({
       // temperature: { type: Number, required: true },
       // pulse: { type: Number, required: true },
       type: man.Schema.Types.ObjectId,
-      ref: "motherModel",
+      ref: "mother",
     },
   ],
+  partogram: {
+    type: man.Schema.Types.ObjectId,
+    ref: "partogram",
+  },
 });
 
-var examModel = man.model("exam", examSchema);
-module.exports = examModel;
+module.exports = man.model("exam", examSchema);

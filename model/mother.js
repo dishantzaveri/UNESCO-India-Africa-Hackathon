@@ -7,5 +7,4 @@ var motherSchema = new man.Schema({
   pulse: { type: Number, required: true },
 });
 
-var motherModel = man.model("mother", motherSchema);
-module.exports = motherModel;
+module.exports = man.model("mother", motherSchema);

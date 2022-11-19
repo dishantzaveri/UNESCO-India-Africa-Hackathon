@@ -7,17 +7,21 @@ var partogramSchema = new man.Schema(
     // HospitalId: { type: String, required: true },
     // AdmissionDateTime: { type: Date, required: true },
     // TriggerMode: { type: String, required: true },
-    MemRupTime: { type: Time, required: true },
-    MarriedName: { type: String, required: true },
-    Maiden: { type: String, required: true },
-    FirstName: { type: String, required: true },
-    Age: { type: String, required: true },
-    Parity: { type: String, required: true },
-    Weight: { type: Number, required: true },
+    // memRupTime: { type: String, required: true },
+    marriedName: { type: String, required: true },
+    // email: { type: String, required: true },
+    // maiden: { type: String, required: true },
+    firstName: { type: String, required: true },
+    age: { type: String, required: true },
+    parity: { type: Number, required: true },
+    weight: { type: Number, required: true },
     size: { type: Number, required: true },
+    exam: {
+      type: man.Schema.Types.ObjectId,
+      ref: "exam",
+    },
   },
   { timestamps: true }
 );
 
-var partogramModel = man.model("partogram", partogramSchema);
-module.exports = partogramModel;
+module.exports = man.model("partogram", partogramSchema);

@@ -6,5 +6,4 @@ var interventionsSchema = new man.Schema({
   route: { type: String, required: true },
 });
 
-var interventionsModel = man.model("interventions", interventionsSchema);
-module.exports = interventionsModel;
+module.exports = man.model("interventions", interventionsSchema);

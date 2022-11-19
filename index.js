@@ -8,6 +8,7 @@ var path = require("path");
 const bodyParser = require("body-parser");
 const patientAuth = require("./routes/patientAuth");
 const refcenAuth = require("./routes/refcenAuth");
+const partogramR = require("./routes/partogramR");
 dotenv.config();
 
 // MIDDLEWARE;
@@ -34,6 +35,7 @@ mongoose.connect(
 //ROUTES MIDDLEWARE
 app.use("/", patientAuth);
 app.use("/", refcenAuth);
+app.use("/", partogramR);
 app.listen(process.env.PORT || 3000, () =>
   console.log("Server Up and running")
 );

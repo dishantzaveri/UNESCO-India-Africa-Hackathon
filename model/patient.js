@@ -26,5 +26,4 @@ var patientSchema = new man.Schema(
   { timestamps: true }
 );
 
-var patientModel = man.model("patient", patientSchema);
-module.exports = patientModel;
+module.exports = man.model("patient", patientSchema);

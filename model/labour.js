@@ -5,5 +5,4 @@ var labourSchema = new man.Schema({
   hours: { type: String, required: true },
 });
 
-var labourModel = man.model("labour", labourSchema);
-module.exports = labourModel;
+module.exports = man.model("labour", labourSchema);
