@@ -1,5 +1,8 @@
+// @dart=2.9
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/screens/reminders/addDoctorReminder.dart';
 import 'package:mother_and_baby/screens/reminders/addVaccineReminder.dart';
@@ -23,8 +26,7 @@ class _ReminderScreenState extends State<ReminderScreen> {
   String userId;
 
   @override
-  void initState() {
-  }
+  void initState() {}
 
   loadReminders() {
     getAllNotifications().then((value) => print(value.length));
@@ -59,19 +61,22 @@ class _ReminderScreenState extends State<ReminderScreen> {
       floatingActionButton: FloatingActionButton(
           shape: StadiumBorder(),
           onPressed: () {
-            if(widget.reminderType == ReminderType.MEDICINE) {
+            if (widget.reminderType == ReminderType.MEDICINE) {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => AddReminderScreen(userId: userId,)));
-            } else if(widget.reminderType == ReminderType.DOCTOR) {
+                  builder: (BuildContext context) => AddReminderScreen(
+                        userId: userId,
+                      )));
+            } else if (widget.reminderType == ReminderType.DOCTOR) {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => AddDoctorReminder(userId: userId,)));
-            } else if(widget.reminderType == ReminderType.VACCINE) {
+                  builder: (BuildContext context) => AddDoctorReminder(
+                        userId: userId,
+                      )));
+            } else if (widget.reminderType == ReminderType.VACCINE) {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => AddVaccineReminder(userId: userId,)));
-            } else {
-
-            }
-
+                  builder: (BuildContext context) => AddVaccineReminder(
+                        userId: userId,
+                      )));
+            } else {}
           },
           backgroundColor: Colors.blue,
           child: Icon(
@@ -79,62 +84,66 @@ class _ReminderScreenState extends State<ReminderScreen> {
             size: 20.0,
           )),
       drawer: NavDrawer(),
-      body: userId != null ? Container(
-        constraints:
-            BoxConstraints(minHeight: MediaQuery.of(context).size.height),
-        decoration: BoxDecoration(
-            color: Colors.white,
-            image: DecorationImage(
-                image: AssetImage("assets/images/diary/bg.png"),
-                fit: BoxFit.cover)),
-        child: Builder(builder: (BuildContext context) {
-          var mainContainerMargin =
-              EdgeInsets.only(top: 10, left: 25, right: 25);
-          return SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+      body: userId != null
+          ? Container(
+              constraints:
+                  BoxConstraints(minHeight: MediaQuery.of(context).size.height),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/diary/bg.png"),
+                      fit: BoxFit.cover)),
+              child: Builder(builder: (BuildContext context) {
+                var mainContainerMargin =
+                    EdgeInsets.only(top: 10, left: 25, right: 25);
+                return SingleChildScrollView(
+                  child: Column(
                     children: [
-                      InkWell(
-                        onTap: () {
-                          // Scaffold.of(context).openDrawer();
-                          Navigator.of(context).pop();
-                        },
-                        child: Container(
-                          margin: EdgeInsets.only(right: 15),
-                          width: 30,
-                          child: Icon(
-                            Icons.arrow_back_rounded,
-                            size: 25,
-                            color: Color.fromRGBO(161, 129, 239, 1),
-                          ),
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                // Scaffold.of(context).openDrawer();
+                                Navigator.of(context).pop();
+                              },
+                              child: Container(
+                                margin: EdgeInsets.only(right: 15),
+                                width: 30,
+                                child: Icon(
+                                  Icons.arrow_back_rounded,
+                                  size: 25,
+                                  color: Color.fromRGBO(161, 129, 239, 1),
+                                ),
+                              ),
+                            ),
+                            Text(
+                              getTitle(),
+                              style: new TextStyle(
+                                  fontSize: 20,
+                                  color: Color.fromRGBO(161, 129, 239, 1)),
+                            ),
+                          ],
                         ),
                       ),
-                      Text(
-                        getTitle(),
-                        style: new TextStyle(
-                            fontSize: 20,
-                            color: Color.fromRGBO(161, 129, 239, 1)),
+                      SizedBox(
+                        height: 20,
                       ),
+                      Container(
+                        margin: mainContainerMargin,
+                        child: ReminderStreamWidget(
+                          reminderType: widget.reminderType,
+                          userId: userId,
+                        ),
+                      )
                     ],
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  margin: mainContainerMargin,
-                  child:
-                      ReminderStreamWidget(reminderType: widget.reminderType, userId: userId,),
-                )
-              ],
-            ),
-          );
-        }),
-      ) : CircularProgressIndicator(),
+                );
+              }),
+            )
+          : CircularProgressIndicator(),
     );
   }
 }

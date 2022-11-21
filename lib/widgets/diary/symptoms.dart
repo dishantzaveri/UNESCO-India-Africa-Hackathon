@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/lan/Languages.dart';
 import 'package:mother_and_baby/widgets/diary/symptomsRecorder.dart';
@@ -5,7 +6,8 @@ import 'package:mother_and_baby/widgets/diary/symptomsRecorder.dart';
 class SymptomsWidget extends StatefulWidget {
   final String selectedDate;
   final String userId;
-  const SymptomsWidget({Key key, this.selectedDate, this.userId}) : super(key: key);
+  const SymptomsWidget({Key key, this.selectedDate, this.userId})
+      : super(key: key);
   @override
   _SymptomsWidgetState createState() => _SymptomsWidgetState();
 }
@@ -17,8 +19,7 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
       decoration: new BoxDecoration(
           color: Color.fromRGBO(255, 164, 179, 1),
           borderRadius: BorderRadius.all(Radius.circular(10))),
-      padding:
-      EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+      padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
       margin: EdgeInsets.only(left: 10, right: 10, top: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,7 +49,7 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width*0.25,
+                      width: MediaQuery.of(context).size.width * 0.25,
                       margin: EdgeInsets.only(top: 10, bottom: 10),
                       child: InkWell(
                         onTap: () {
@@ -73,8 +74,8 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                                 margin: EdgeInsets.all(5),
                                 child: Text(
                                   "Nausca",
-                                  style:
-                                  TextStyle(color: Colors.white, fontSize: 15),
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 15),
                                 )),
                           ],
                         ),
@@ -84,7 +85,7 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                      * Vomiting
                      */
                     Container(
-                      width: MediaQuery.of(context).size.width*0.25,
+                      width: MediaQuery.of(context).size.width * 0.25,
                       margin: EdgeInsets.only(top: 10, bottom: 10),
                       child: InkWell(
                         onTap: () {
@@ -110,7 +111,8 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                                 margin: EdgeInsets.all(5),
                                 child: Text(
                                   "Vomiting",
-                                  style: TextStyle(color: Colors.white, fontSize: 15),
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 15),
                                 )),
                           ],
                         ),
@@ -120,7 +122,7 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                      * Urinating
                      */
                     Container(
-                      width: MediaQuery.of(context).size.width*0.25,
+                      width: MediaQuery.of(context).size.width * 0.25,
                       margin: EdgeInsets.only(top: 10, bottom: 10),
                       child: InkWell(
                         onTap: () {
@@ -146,7 +148,8 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                                 margin: EdgeInsets.all(5),
                                 child: Text(
                                   "Urinating",
-                                  style: TextStyle(color: Colors.white, fontSize: 15),
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 15),
                                 )),
                           ],
                         ),
@@ -165,7 +168,7 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width*0.25,
+                      width: MediaQuery.of(context).size.width * 0.25,
                       margin: EdgeInsets.only(top: 10, bottom: 10),
                       child: InkWell(
                         onTap: () {
@@ -176,7 +179,8 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                                     userId: widget.userId,
                                     selectedDate: widget.selectedDate,
                                     title: "Breast Sensitivity",
-                                    iconData: Icons.sentiment_satisfied_outlined,
+                                    iconData:
+                                        Icons.sentiment_satisfied_outlined,
                                     symptomIconName: "breast",
                                     iconsColor: Colors.amber);
                               });
@@ -188,12 +192,15 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                               height: 45,
                             ),
                             Container(
-                                margin: EdgeInsets.only(top: 5,left: 5, right: 5),
+                                margin:
+                                    EdgeInsets.only(top: 5, left: 5, right: 5),
                                 child: Text(
                                   "Breast",
                                   textAlign: TextAlign.center,
-                                  style:
-                                  TextStyle(color: Colors.white, fontSize: 15,),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  ),
                                 )),
                             Container(
                                 margin: EdgeInsets.only(bottom: 5),
@@ -202,8 +209,10 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                                 child: Text(
                                   "Sensitivity",
                                   textAlign: TextAlign.center,
-                                  style:
-                                  TextStyle(color: Colors.white, fontSize: 15,),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  ),
                                 )),
                           ],
                         ),
@@ -213,7 +222,7 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                      * Headache
                      */
                     Container(
-                      width: MediaQuery.of(context).size.width*0.25,
+                      width: MediaQuery.of(context).size.width * 0.25,
                       margin: EdgeInsets.only(top: 10, bottom: 10),
                       child: InkWell(
                         onTap: () {
@@ -224,7 +233,8 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                                     userId: widget.userId,
                                     selectedDate: widget.selectedDate,
                                     title: "Headache",
-                                    iconData: Icons.sentiment_very_dissatisfied_outlined,
+                                    iconData: Icons
+                                        .sentiment_very_dissatisfied_outlined,
                                     symptomIconName: "headache",
                                     iconsColor: Colors.orange);
                               });
@@ -239,7 +249,8 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                                 margin: EdgeInsets.all(5),
                                 child: Text(
                                   "Headache",
-                                  style: TextStyle(color: Colors.white, fontSize: 15),
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 15),
                                 )),
                           ],
                         ),
@@ -249,7 +260,7 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                      * Hunger
                      */
                     Container(
-                      width: MediaQuery.of(context).size.width*0.25,
+                      width: MediaQuery.of(context).size.width * 0.25,
                       margin: EdgeInsets.only(top: 10, bottom: 10),
                       child: InkWell(
                         onTap: () {
@@ -275,7 +286,8 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                                 margin: EdgeInsets.all(5),
                                 child: Text(
                                   "Hunger",
-                                  style: TextStyle(color: Colors.white, fontSize: 15),
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 15),
                                 )),
                           ],
                         ),
@@ -293,7 +305,7 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width*0.25,
+                      width: MediaQuery.of(context).size.width * 0.25,
                       margin: EdgeInsets.only(top: 10, bottom: 10),
                       child: InkWell(
                         onTap: () {
@@ -319,8 +331,8 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                                 margin: EdgeInsets.all(5),
                                 child: Text(
                                   "Cravings",
-                                  style:
-                                  TextStyle(color: Colors.white, fontSize: 15),
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 15),
                                 )),
                           ],
                         ),
@@ -330,7 +342,7 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                      * stress
                      */
                     Container(
-                      width: MediaQuery.of(context).size.width*0.25,
+                      width: MediaQuery.of(context).size.width * 0.25,
                       margin: EdgeInsets.only(top: 10, bottom: 10),
                       child: InkWell(
                         onTap: () {
@@ -341,7 +353,8 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                                     userId: widget.userId,
                                     selectedDate: widget.selectedDate,
                                     title: "Stress",
-                                    iconData: Icons.sentiment_very_dissatisfied_outlined,
+                                    iconData: Icons
+                                        .sentiment_very_dissatisfied_outlined,
                                     symptomIconName: "stress",
                                     iconsColor: Colors.amber);
                               });
@@ -356,7 +369,8 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                                 margin: EdgeInsets.all(5),
                                 child: Text(
                                   "Stress",
-                                  style: TextStyle(color: Colors.white, fontSize: 15),
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 15),
                                 )),
                           ],
                         ),
@@ -366,7 +380,7 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                      * tension
                      */
                     Container(
-                      width: MediaQuery.of(context).size.width*0.25,
+                      width: MediaQuery.of(context).size.width * 0.25,
                       margin: EdgeInsets.only(top: 10, bottom: 10),
                       child: InkWell(
                         onTap: () {
@@ -392,7 +406,8 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                                 margin: EdgeInsets.all(5),
                                 child: Text(
                                   "Tension",
-                                  style: TextStyle(color: Colors.white, fontSize: 15),
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 15),
                                 )),
                           ],
                         ),
@@ -410,7 +425,7 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width*0.25,
+                      width: MediaQuery.of(context).size.width * 0.25,
                       margin: EdgeInsets.only(top: 10, bottom: 10),
                       child: InkWell(
                         onTap: () {
@@ -436,8 +451,8 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
                                 margin: EdgeInsets.all(5),
                                 child: Text(
                                   "Gas",
-                                  style:
-                                  TextStyle(color: Colors.white, fontSize: 15),
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 15),
                                 )),
                           ],
                         ),
@@ -448,7 +463,6 @@ class _SymptomsWidgetState extends State<SymptomsWidget> {
               ),
             ],
           ),
-
         ],
       ),
     );

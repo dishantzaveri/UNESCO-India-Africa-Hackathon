@@ -1,4 +1,7 @@
+// @dart=2.9
+
 import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/models/asiriUser.dart';
 import 'package:mother_and_baby/services/user.service.dart';
@@ -17,7 +20,7 @@ class _KickCounterState extends State<KickCounter> {
   int kickCount = 0;
   @override
   void initState() {
-    if(widget.asiriUser == null || widget.asiriUser.userId == "" ) {
+    if (widget.asiriUser == null || widget.asiriUser.userId == "") {
       print("widget user is null");
       String uuid = Provider.of<User>(context).uid;
       Provider.of<UserService>(context).getUser(uuid).then((value) {
@@ -95,7 +98,7 @@ class _KickCounterState extends State<KickCounter> {
                   height: 20,
                 ),
                 Container(
-                  height: screenSize.height*0.8,
+                  height: screenSize.height * 0.8,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -103,12 +106,14 @@ class _KickCounterState extends State<KickCounter> {
                       Container(
                         child: Text(
                           "${kickCount.toString()}",
-                          style: new TextStyle(fontSize: 60, color: Colors.purple),
+                          style:
+                              new TextStyle(fontSize: 60, color: Colors.purple),
                         ),
                       ),
                       Text(
                         "Kicks 😍😍",
-                        style: new TextStyle(fontSize: 18, color: Colors.purple),
+                        style:
+                            new TextStyle(fontSize: 18, color: Colors.purple),
                       ),
                       SizedBox(
                         height: 10,

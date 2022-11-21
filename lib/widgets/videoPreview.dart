@@ -1,3 +1,5 @@
+// @dart=2.9
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/screens/videoPlayer.dart';
 
@@ -5,7 +7,8 @@ class VideoPreview extends StatelessWidget {
   final String iconName;
   final String text;
   final String url;
-  const VideoPreview({Key key, this.iconName, this.text, this.url}) : super(key: key);
+  const VideoPreview({Key key, this.iconName, this.text, this.url})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +17,10 @@ class VideoPreview extends StatelessWidget {
       margin: EdgeInsets.only(top: 15),
       child: InkWell(
         onTap: () => {
-        Navigator.of(context).push(MaterialPageRoute(
-        builder: (BuildContext context) => VideoApp(url: url,)))
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (BuildContext context) => VideoApp(
+                    url: url,
+                  )))
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

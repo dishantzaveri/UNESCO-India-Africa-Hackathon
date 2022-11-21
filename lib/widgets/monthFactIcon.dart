@@ -1,3 +1,6 @@
+// @dart=2.9
+
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mother_and_baby/lan/Languages.dart';
@@ -15,23 +18,24 @@ class MonthFactIcon extends StatefulWidget {
 
 class _MonthFactIconState extends State<MonthFactIcon> {
   void navigateToMonth(month) {
-    switch(month) {
+    switch (month) {
       case 'first':
         Navigator.of(context).pop();
         Navigator.of(context).push(MaterialPageRoute(
             builder: (BuildContext context) => HomePage(
-              title: "test s",
-            )));
+                  title: "test s",
+                )));
         break;
       case '2month':
         Navigator.of(context).pop();
         Navigator.of(context).push(MaterialPageRoute(
             builder: (BuildContext context) => HomePage(
-              title: "test s",
-            )));
+                  title: "test s",
+                )));
         break;
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(

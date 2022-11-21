@@ -1,9 +1,14 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 
 class MonthItemList extends StatelessWidget {
-  MonthItemList({
-    Key key, this.text, this.iconColor = Colors.pink, this.leadingIcon = Icons.favorite, this.fontColor = const Color.fromRGBO(45, 49, 127, 1.0)
-  }) : super(key: key);
+  MonthItemList(
+      {Key key,
+      this.text,
+      this.iconColor = Colors.pink,
+      this.leadingIcon = Icons.favorite,
+      this.fontColor = const Color.fromRGBO(45, 49, 127, 1.0)})
+      : super(key: key);
 
   final String text;
   Color iconColor;

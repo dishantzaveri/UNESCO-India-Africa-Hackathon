@@ -1,3 +1,5 @@
+// @dart=2.9
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/screens/months/eighthMonth.dart';
 import 'package:mother_and_baby/screens/months/fifthMonth.dart';
@@ -11,10 +13,13 @@ import 'package:mother_and_baby/screens/months/thirdMonth.dart';
 
 class MonthSliderWidget extends StatelessWidget {
   MonthSliderWidget({
-    Key key, @required this.selectedMonth, this.toggleNext, this.togglePrev,
+    Key key,
+    @required this.selectedMonth,
+    this.toggleNext,
+    this.togglePrev,
   }) : super(key: key);
 
-  final Color  lightBlue = Color.fromRGBO(59, 186, 234, 1.0);
+  final Color lightBlue = Color.fromRGBO(59, 186, 234, 1.0);
   final int selectedMonth;
   final VoidCallback toggleNext;
   final VoidCallback togglePrev;

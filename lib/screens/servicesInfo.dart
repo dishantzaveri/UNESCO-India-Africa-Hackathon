@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/widgets/NavDrawer.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -100,7 +101,6 @@ class ServicesInfo extends StatelessWidget {
                       url:
                           "https://www.asirihealth.com/asiri-group/our-locations/asiri-hospital-matara",
                     ),
-
                   ],
                 ),
               ),

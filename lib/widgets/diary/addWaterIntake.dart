@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:mother_and_baby/lan/Languages.dart';
@@ -8,7 +9,8 @@ class AddWaterIntake extends StatefulWidget {
   final String selectedDate;
   final String userId;
 
-  const AddWaterIntake({Key key, this.selectedDate, this.userId}) : super(key: key);
+  const AddWaterIntake({Key key, this.selectedDate, this.userId})
+      : super(key: key);
   @override
   _AddWaterIntakeState createState() => _AddWaterIntakeState();
 }

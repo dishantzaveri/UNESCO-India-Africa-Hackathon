@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
 export "FLUTTER_ROOT=C:\Users\DISHANT\flutterapps\flutter"
-export "FLUTTER_APPLICATION_PATH=D:\asiri-pregrency-mobile"
+export "FLUTTER_APPLICATION_PATH=C:\Users\DISHANT\Downloads\UNESCO-India-Africa-Hackathon"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_TARGET=lib\main.dart"
 export "FLUTTER_BUILD_DIR=build"

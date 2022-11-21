@@ -1,3 +1,5 @@
+// @dart=2.9
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/lan/Languages.dart';
 import 'package:mother_and_baby/screens/monthsFactHome.dart';
@@ -19,7 +21,7 @@ class MenuItem extends StatelessWidget {
           Navigator.of(context).push(MaterialPageRoute(
               builder: (BuildContext context) => MonthsFactsHome()));
           break;
-          case "icon_item2":
+        case "icon_item2":
           Navigator.of(context).push(MaterialPageRoute(
               builder: (BuildContext context) => SpecialistPage()));
           break;

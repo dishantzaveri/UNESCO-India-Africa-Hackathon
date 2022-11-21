@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mother_and_baby/lan/Languages.dart';
@@ -30,14 +31,14 @@ class MonthsFactsHome extends StatelessWidget {
                   ),
                   child: Text(
                     Languages.of(context).monthFactsTitle,
-                    style: new TextStyle(
-                        fontSize: 23.0, color: Color(0xFF571338)),
+                    style:
+                        new TextStyle(fontSize: 23.0, color: Color(0xFF571338)),
                   ),
                 ),
                 Container(
                   height: 200,
-                  child: Image.asset(
-                      "assets/images/factPage/woman_standing.png"),
+                  child:
+                      Image.asset("assets/images/factPage/woman_standing.png"),
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 20),
@@ -105,8 +106,7 @@ class MonthsFactsHome extends StatelessWidget {
                     children: [
                       Container(
                         margin: EdgeInsets.only(top: 20),
-                        child: Image.asset(
-                            "assets/images/factPage/2month.png"),
+                        child: Image.asset("assets/images/factPage/2month.png"),
                         height: 50,
                         width: 50,
                       )

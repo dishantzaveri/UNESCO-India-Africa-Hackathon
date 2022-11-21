@@ -1,3 +1,5 @@
+// @dart=2.9
+//
 class Medicine {
   final List<dynamic> notificationIDs;
   final String medicineName;

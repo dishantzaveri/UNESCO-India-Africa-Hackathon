@@ -1,8 +1,11 @@
+// @dart=2.9
+
 import 'dart:io';
 
 // import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/services/user.service.dart';
 import 'package:path/path.dart';
@@ -74,11 +77,13 @@ class _AddNoteAlertDialogState extends State<AddNoteAlertDialog> {
     }
     Note note = Note(titleController.text, descriptionController.text,
         widget.selectedDate, downloadUrls);
-    DiaryData diaryData = DiaryData(LIFE_EVENT, note.toJson(),);
+    DiaryData diaryData = DiaryData(
+      LIFE_EVENT,
+      note.toJson(),
+    );
     diaryData.userId = uuid;
     diaryData.section = "NOTE";
-    Provider.of<UserService>(context, listen: false)
-        .saveDiaryData(diaryData);
+    Provider.of<UserService>(context, listen: false).saveDiaryData(diaryData);
     setState(() {
       _selectedImages = [];
     });

@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/widgets/months/monthItemList.dart';
 import 'package:mother_and_baby/widgets/months/monthSlider.dart';
@@ -5,7 +6,8 @@ import 'package:mother_and_baby/widgets/months/monthVideoPreview.dart';
 import 'package:mother_and_baby/widgets/months/paragraph.dart';
 
 class EighthMonth extends StatelessWidget {
-  final String url = "https://firebasestorage.googleapis.com/v0/b/asiri-hospital-tour.appspot.com/o/videos%2F8th_Month_Maathota_1.mp4?alt=media&token=7aa03f8b-b61f-4fec-b294-81a5efe0ebc9";
+  final String url =
+      "https://firebasestorage.googleapis.com/v0/b/asiri-hospital-tour.appspot.com/o/videos%2F8th_Month_Maathota_1.mp4?alt=media&token=7aa03f8b-b61f-4fec-b294-81a5efe0ebc9";
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
@@ -60,7 +62,9 @@ class EighthMonth extends StatelessWidget {
                     ],
                   ),
 
-                  MonthSliderWidget(selectedMonth: 8,),
+                  MonthSliderWidget(
+                    selectedMonth: 8,
+                  ),
 
                   Container(
                     margin: EdgeInsets.only(top: 10),
@@ -140,7 +144,8 @@ class EighthMonth extends StatelessWidget {
                   ),
 
                   MonthItemList(
-                    text: "Shortness of breath - This is because the space in your abdomen tightens as your uterus grows.",
+                    text:
+                        "Shortness of breath - This is because the space in your abdomen tightens as your uterus grows.",
                     iconColor: Colors.purple,
                     fontColor: Colors.deepPurpleAccent,
                     leadingIcon: Icons.star_border,
@@ -182,7 +187,9 @@ class EighthMonth extends StatelessWidget {
                     leadingIcon: Icons.star_border,
                   ),
 
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
 
                   Container(
                     child: Column(
@@ -201,15 +208,14 @@ class EighthMonth extends StatelessWidget {
                     color: darkBlue,
                     text:
                         "  In addition to physical changes, you may also feel anxious about the end of your pregnancy. It's normal to feel that you are ready to meet your child. However you may feel afraid just thinking about future challenges and changes. At the end of the day or when you feel stressed, do some fun activities to relax your body and mind. Strategies to relax your mind are as simple as listening to music or reading a book. Or you can get your belly massaged. Yoga and meditation before childbirth are also very good activities. "
-                            "Always engage in activities which bring you happiness and calmness.",
+                        "Always engage in activities which bring you happiness and calmness.",
                   ),
                   Paragraph(
                     color: darkBlue,
                     text:
                         "  During this month or even during the previous month, you may experience labour pains at any time. Therefore you should be very careful. You do not have to be afraid. Even if your baby is born in the eighth month of the pregnancy, modern treatment is available to care for the baby in an "
-                            "incubator in the NICU until he is ready for the external environment.",
+                        "incubator in the NICU until he is ready for the external environment.",
                   ),
-
 
                   /// role of the father
                   Container(
@@ -231,7 +237,7 @@ class EighthMonth extends StatelessWidget {
                     color: Colors.pinkAccent,
                     text:
                         "  As discussed in the seventh month, give your support to your wife during this time as well. Keep her as happy as possible. Dedicate yourself to her mental as well as physical well-being. As mentioned earlier, make sure your child and wife have all the facilities they need, well in advance. Whenever possible you should rub her abdomen. Being close to her by providing her with the conditions she needs for a healthy delivery will "
-                            "undoubtedly help her mental level as well as a successful delivery.",
+                        "undoubtedly help her mental level as well as a successful delivery.",
                   ),
                 ],
               ),

@@ -1,4 +1,7 @@
+// @dart=2.9
+
 import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:flutter/material.dart';
 
 class ImageCarousel extends StatefulWidget {
@@ -17,21 +20,22 @@ class _ImageCarouselState extends State<ImageCarousel> {
   int _current = 0;
   @override
   Widget build(BuildContext context) {
-    return Container(child:  Column(
+    return Container(
+        child: Column(
       children: [
         CarouselSlider(
-          options: CarouselOptions(
-              onPageChanged: (index, reason) {
-                setState(() {
-                  _current = index;
-                });
-              }
-          ),
-          items: widget.imageList.map<Widget>((item) => Container(
-            child: Center(
-                child: Image.network(item, fit: BoxFit.cover, width: 1000)
-            ),
-          )).toList(),
+          options: CarouselOptions(onPageChanged: (index, reason) {
+            setState(() {
+              _current = index;
+            });
+          }),
+          items: widget.imageList
+              .map<Widget>((item) => Container(
+                    child: Center(
+                        child: Image.network(item,
+                            fit: BoxFit.cover, width: 1000)),
+                  ))
+              .toList(),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

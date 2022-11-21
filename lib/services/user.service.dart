@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mother_and_baby/models/asiriUser.dart';
 import 'package:mother_and_baby/models/communityPost.dart';
@@ -38,7 +39,7 @@ class UserService {
           .where("userId", isEqualTo: uuid)
           .limit(1)
           .get();
-      if(snapshot.docs.length < 1) {
+      if (snapshot.docs.length < 1) {
         return null;
       }
       var user = snapshot.docs.first.data();
@@ -102,14 +103,15 @@ class UserService {
   }
 
   Stream<QuerySnapshot<dynamic>> getDiaryData(String uuid, String date) {
-    print("date"+date);
+    print("date" + date);
     DateTime now = DateTime.now();
-    var beginningDate = DateTime(now.year, now.month, now.day).millisecondsSinceEpoch;
+    var beginningDate =
+        DateTime(now.year, now.month, now.day).millisecondsSinceEpoch;
     print(beginningDate);
     return _firestoreInstance
         .collection("diary_data")
         .where("userId", isEqualTo: uuid)
-        .where("date",isEqualTo: date)
+        .where("date", isEqualTo: date)
         // .where("createdAt", isGreaterThanOrEqualTo: beginningDate)
         .snapshots();
   }
@@ -132,7 +134,8 @@ class UserService {
   }
 
   /// Function to retrieve reminders on given type
-  Stream<QuerySnapshot<dynamic>> getRemindersBuType(String userId, ReminderType reminderType) {
+  Stream<QuerySnapshot<dynamic>> getRemindersBuType(
+      String userId, ReminderType reminderType) {
     return _firestoreInstance
         .collection("reminder_data")
         .where("userId", isEqualTo: userId)
@@ -160,20 +163,24 @@ class UserService {
   }
 
   Stream<QuerySnapshot<dynamic>> getCommunityPosts(int limit) {
-    return _firestoreInstance.collection(COMMUNITY_DB).orderBy("createdAt", descending: true).limit(limit).snapshots();
+    return _firestoreInstance
+        .collection(COMMUNITY_DB)
+        .orderBy("createdAt", descending: true)
+        .limit(limit)
+        .snapshots();
   }
 
   /// Save message
   Future<void> saveMessage(Message message) {
-    return _firestoreInstance
-        .collection(MESSAGE_DB)
-        .add(message.toJson());
+    return _firestoreInstance.collection(MESSAGE_DB).add(message.toJson());
   }
 
   Stream<QuerySnapshot<dynamic>> getMessages() {
-    return _firestoreInstance.collection(MESSAGE_DB)
+    return _firestoreInstance
+        .collection(MESSAGE_DB)
         .orderBy("createdAt")
-        .limit(100).snapshots();
+        .limit(100)
+        .snapshots();
   }
 }
 
@@ -239,7 +246,8 @@ class Reminder {
       this.reminderType,
       this.year,
       this.month,
-      this.date, this.userId);
+      this.date,
+      this.userId);
 
   Map<String, dynamic> toJson() => {
         'title': title,

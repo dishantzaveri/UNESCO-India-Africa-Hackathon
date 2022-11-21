@@ -1,4 +1,7 @@
+// @dart=2.9
+
 import 'package:firebase_auth/firebase_auth.dart';
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:mother_and_baby/screens/welcome.dart';
@@ -12,7 +15,7 @@ import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mother_and_baby/services/notificationHelper.dart';
 
-Future<void> main()  async{
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
@@ -67,7 +70,8 @@ class _MyHomePageState extends State<HomePage> {
           create: (_) => UserService(FirebaseFirestore.instance),
         ),
         StreamProvider(
-          create: (context) => context.read<AuthenticationService>().authStateChanges,
+          create: (context) =>
+              context.read<AuthenticationService>().authStateChanges,
         )
       ],
       child: MaterialApp(
@@ -81,15 +85,14 @@ class _MyHomePageState extends State<HomePage> {
                 child: WelcomeScreen(),
               ),
             ),
-
           ),
         ),
         builder: (context, navigator) {
           var lang = Localizations.localeOf(context).languageCode;
 
           return Theme(
-            data:
-                ThemeData(fontFamily: lang == 'en' ? 'RocknRollOne' : 'FM_Malit'),
+            data: ThemeData(
+                fontFamily: lang == 'en' ? 'RocknRollOne' : 'FM_Malit'),
             child: SafeArea(child: navigator),
           );
         },

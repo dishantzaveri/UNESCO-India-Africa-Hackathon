@@ -1,6 +1,8 @@
-import 'dart:async';
+// @dart=2.9
 
+import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/models/asiriUser.dart';
 import 'package:mother_and_baby/models/message.dart';
@@ -21,10 +23,8 @@ class _ChatPageState extends State<ChatPage> {
   var _form = GlobalKey<FormState>();
   final _controller = ScrollController();
 
-
   @override
-  void initState() {
-  }
+  void initState() {}
 
   void sendMessage() {
     final isValid = _form.currentState.validate();
@@ -45,7 +45,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
 
-    if(_controller.hasClients) {
+    if (_controller.hasClients) {
       print("jumping to bottom");
       _controller.jumpTo(_controller.position.maxScrollExtent);
     }
@@ -82,7 +82,6 @@ class _ChatPageState extends State<ChatPage> {
                 ],
               ),
             ),
-
             Container(
               child: Row(
                 children: [
@@ -122,7 +121,7 @@ class _ChatPageState extends State<ChatPage> {
                                     alignLabelWithHint: true,
                                     hintText: "Type your message...",
                                     contentPadding:
-                                    EdgeInsets.only(top: 2, bottom: 2),
+                                        EdgeInsets.only(top: 2, bottom: 2),
                                   )),
                             ],
                           ),
@@ -139,7 +138,6 @@ class _ChatPageState extends State<ChatPage> {
                 ],
               ),
             ),
-
             Expanded(
               flex: 1,
               child: SingleChildScrollView(
@@ -153,12 +151,12 @@ class _ChatPageState extends State<ChatPage> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: Container(
-                            constraints: BoxConstraints(maxWidth: 50, maxHeight: 50),
+                            constraints:
+                                BoxConstraints(maxWidth: 50, maxHeight: 50),
                             child: CircularProgressIndicator(),
                           ),
                         );
                       } else {
-
                         return Container(
                           child: Column(
                             children: [
@@ -174,8 +172,10 @@ class _ChatPageState extends State<ChatPage> {
                                     return Container(
                                       child: Column(
                                         children: [
-                                          message.userId == widget.asiriUser.userId
-                                              ? buildOwnMessage(screenSize, message)
+                                          message.userId ==
+                                                  widget.asiriUser.userId
+                                              ? buildOwnMessage(
+                                                  screenSize, message)
                                               : buildMessageFromSomeone(
                                                   screenSize, message),
                                         ],
@@ -191,7 +191,6 @@ class _ChatPageState extends State<ChatPage> {
                 ),
               ),
             ),
-
           ],
         ),
       ),

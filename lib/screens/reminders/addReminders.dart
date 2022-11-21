@@ -1,4 +1,6 @@
+// @dart=2.9
 import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/services/user.service.dart';
 import 'package:provider/provider.dart';
@@ -57,7 +59,8 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
         ReminderType.MEDICINE,
         0,
         0,
-        0, widget.userId);
+        0,
+        widget.userId);
 
     var idTmp = DateTime.now().millisecondsSinceEpoch ~/ 1000;
 
@@ -73,8 +76,7 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
       var idList = [idTmp, (idTmp + 1), (idTmp + 2)];
       reminder.reminderIds = idList;
       scheduleTriceDailyNotification(reminder);
-    } else {
-    }
+    } else {}
 
     Provider.of<UserService>(context, listen: false).saveReminder(reminder);
 

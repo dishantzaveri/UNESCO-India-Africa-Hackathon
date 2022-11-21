@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/widgets/months/factListItem.dart';
 import 'package:mother_and_baby/widgets/months/monthSlider.dart';
@@ -26,41 +27,43 @@ class FirstMonthScreen extends StatelessWidget {
               margin: const EdgeInsets.all(30.0),
               child: Column(
                 children: [
-                  Stack(children: [
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Container(
-                              margin: EdgeInsets.only(right: 15),
-                              width: 30,
-                              child: Icon(
-                                Icons.arrow_back_rounded,
-                                size: 25,
-                                color: Color.fromRGBO(161, 129, 239, 1),
+                  Stack(
+                    children: [
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Container(
+                                margin: EdgeInsets.only(right: 15),
+                                width: 30,
+                                child: Icon(
+                                  Icons.arrow_back_rounded,
+                                  size: 25,
+                                  color: Color.fromRGBO(161, 129, 239, 1),
+                                ),
                               ),
                             ),
-                          ),
-
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-
-                    Center(
-                      child: Text(
-                        "First Month",
-                        style: TextStyle(
-                            fontSize: 24, color: Color.fromRGBO(255, 61, 227, 1)),
+                      Center(
+                        child: Text(
+                          "First Month",
+                          style: TextStyle(
+                              fontSize: 24,
+                              color: Color.fromRGBO(255, 61, 227, 1)),
+                        ),
                       ),
-                    ),
-                  ],),
+                    ],
+                  ),
 
-                  MonthSliderWidget(selectedMonth: 1,),
-
+                  MonthSliderWidget(
+                    selectedMonth: 1,
+                  ),
 
                   // Padding(
                   //   padding: EdgeInsets.only(top: 10, bottom: 0),

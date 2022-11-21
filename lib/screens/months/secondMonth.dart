@@ -1,11 +1,12 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/widgets/months/factListItem.dart';
 import 'package:mother_and_baby/widgets/months/monthSlider.dart';
 import 'package:mother_and_baby/widgets/months/monthVideoPreview.dart';
 
 class SecondMonth extends StatelessWidget {
-
-  final String url = "https://firebasestorage.googleapis.com/v0/b/asiri-hospital-tour.appspot.com/o/videos%2F2nd_Month_Saantha.mp4?alt=media&token=d147cca3-0167-485e-acbf-284297d45b35";
+  final String url =
+      "https://firebasestorage.googleapis.com/v0/b/asiri-hospital-tour.appspot.com/o/videos%2F2nd_Month_Saantha.mp4?alt=media&token=d147cca3-0167-485e-acbf-284297d45b35";
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
@@ -26,40 +27,43 @@ class SecondMonth extends StatelessWidget {
               margin: const EdgeInsets.all(30.0),
               child: Column(
                 children: [
-                  Stack(children: [
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Container(
-                              margin: EdgeInsets.only(right: 15),
-                              width: 30,
-                              child: Icon(
-                                Icons.arrow_back_rounded,
-                                size: 25,
-                                color: Color.fromRGBO(161, 129, 239, 1),
+                  Stack(
+                    children: [
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Container(
+                                margin: EdgeInsets.only(right: 15),
+                                width: 30,
+                                child: Icon(
+                                  Icons.arrow_back_rounded,
+                                  size: 25,
+                                  color: Color.fromRGBO(161, 129, 239, 1),
+                                ),
                               ),
                             ),
-                          ),
-
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-
-                    Center(
-                      child: Text(
-                        "Second Month",
-                        style: TextStyle(
-                            fontSize: 24, color: Color.fromRGBO(255, 61, 227, 1)),
+                      Center(
+                        child: Text(
+                          "Second Month",
+                          style: TextStyle(
+                              fontSize: 24,
+                              color: Color.fromRGBO(255, 61, 227, 1)),
+                        ),
                       ),
-                    ),
-                  ],),
+                    ],
+                  ),
 
-                  MonthSliderWidget(selectedMonth: 2,),
+                  MonthSliderWidget(
+                    selectedMonth: 2,
+                  ),
 
                   Container(
                     padding: EdgeInsets.only(
@@ -67,10 +71,10 @@ class SecondMonth extends StatelessWidget {
                     ),
                     child: Text(
                       "    The physical and mental changes seen in the second month are very similar to "
-                          "the changes seen in the first month. In addition, it is important to participate "
-                          "in the monthly medical consultations. It is imperative to do so until the end of the second trimester. "
-                          "There you will be subjected to a number of tests."
-                          "For example, blood and urine tests.",
+                      "the changes seen in the first month. In addition, it is important to participate "
+                      "in the monthly medical consultations. It is imperative to do so until the end of the second trimester. "
+                      "There you will be subjected to a number of tests."
+                      "For example, blood and urine tests.",
                       style: TextStyle(color: darkBlue, fontSize: 16),
                     ),
                   ),
@@ -80,9 +84,9 @@ class SecondMonth extends StatelessWidget {
                       top: 10,
                     ),
                     child: Text(
-                          "    Bleeding in the vagina is one of the common symptoms during this month."
-                          "The features seen in this month are very similar to the changes seen in the first month."
-                          "But this period includes your first medical clinic and tests.",
+                      "    Bleeding in the vagina is one of the common symptoms during this month."
+                      "The features seen in this month are very similar to the changes seen in the first month."
+                      "But this period includes your first medical clinic and tests.",
                       style: TextStyle(color: darkBlue, fontSize: 16),
                     ),
                   ),
@@ -101,48 +105,47 @@ class SecondMonth extends StatelessWidget {
                         ),
                         FactListItem(
                           text:
-                          "As mentioned earlier, these changes are very similar to those of the first month. "
+                              "As mentioned earlier, these changes are very similar to those of the first month. "
                               "These include fatigue, nausea, dizziness, the need for frequent urination, and changes in appetite.",
                         ),
                         FactListItem(
                           text:
-                          "Also, if you use alcohol and drugs, your appetite will begin to drop."
+                              "Also, if you use alcohol and drugs, your appetite will begin to drop."
                               "This is a very important and good thing. Because, some of these toxins can harm the developing baby in the womb."
                               "(Actually, it's very positive because mothers in our country do not use such toxins.)",
                         ),
                         FactListItem(
                           text:
-                          "In addition, you will see a noticeable change in the size of your breasts and nipples.",
+                              "In addition, you will see a noticeable change in the size of your breasts and nipples.",
                         ),
                         FactListItem(
                           text:
-                          "Hormonal changes can cause a white discharge to come out of your vagina.",
+                              "Hormonal changes can cause a white discharge to come out of your vagina.",
                         ),
                         FactListItem(
                           text:
-                          "The softening of your gums takes place during this time. It is very important to pay more attention to dental health.",
+                              "The softening of your gums takes place during this time. It is very important to pay more attention to dental health.",
                         ),
                         FactListItem(
                           text:
-                          "During this time, your ovaries produce a hormone called progesterone.",
+                              "During this time, your ovaries produce a hormone called progesterone.",
                         ),
                         FactListItem(
                           text:
-                          "It also increases the amount of blood circulating. It is important for the development of the child.",
+                              "It also increases the amount of blood circulating. It is important for the development of the child.",
                         ),
                         FactListItem(
                           text:
-                          "The baby moves slowly in the womb. But that is not enough for you to feel.",
+                              "The baby moves slowly in the womb. But that is not enough for you to feel.",
                         ),
                         FactListItem(
                           text:
-                          "During this time, take all measures to prevent possible accidents.",
+                              "During this time, take all measures to prevent possible accidents.",
                         ),
                         FactListItem(
                           text:
-                          "In addition, get more healthy sleep. Also get enough exercise.",
+                              "In addition, get more healthy sleep. Also get enough exercise.",
                         ),
-
                       ],
                     ),
                   ),
@@ -151,7 +154,7 @@ class SecondMonth extends StatelessWidget {
 
                   Container(
                     padding:
-                    EdgeInsets.only(top: 8, bottom: 8, left: 15, right: 15),
+                        EdgeInsets.only(top: 8, bottom: 8, left: 15, right: 15),
                     margin: EdgeInsets.only(top: 20, bottom: 15),
                     decoration: BoxDecoration(
                         color: Colors.green,
@@ -166,9 +169,9 @@ class SecondMonth extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 8.0),
                     child: Text(
                       "    The mental changes seen during this period (first trimester) are very similar to the changes in the first month."
-                          "The changes in your mind with this new experience are pretty much normal."
-                          "If you have any doubts or fears, talk to a doctor or the midwife."
-                          "They will give you the advice you need.",
+                      "The changes in your mind with this new experience are pretty much normal."
+                      "If you have any doubts or fears, talk to a doctor or the midwife."
+                      "They will give you the advice you need.",
                       style: TextStyle(fontSize: 16, color: Colors.green),
                     ),
                   ),
@@ -176,11 +179,10 @@ class SecondMonth extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 15.0),
                     child: Text(
                       "    When you think about the experience you had in the last delivery, the fear you have about the baby, the way you prepare for the future, the mental level will be more chaotic than before."
-                          "As your daily routine changes and your attractiveness decreases, stress increases and it can develop into depression.",
+                      "As your daily routine changes and your attractiveness decreases, stress increases and it can develop into depression.",
                       style: TextStyle(fontSize: 16, color: Colors.green),
                     ),
                   ),
-
 
                   Container(
                     padding: const EdgeInsets.only(top: 14.0),
@@ -294,7 +296,7 @@ class SecondMonth extends StatelessWidget {
                     padding: EdgeInsets.only(top: 20),
                     child: Text(
                       "Overall, most women lovingly accept the noble pregnancy. "
-                          "They make this period the happiest chapter of their lives.",
+                      "They make this period the happiest chapter of their lives.",
                       style: TextStyle(color: Colors.pink, fontSize: 15),
                       textAlign: TextAlign.center,
                     ),
@@ -308,4 +310,3 @@ class SecondMonth extends StatelessWidget {
     );
   }
 }
-

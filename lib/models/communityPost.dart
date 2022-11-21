@@ -1,3 +1,5 @@
+// @dart=2.9
+//
 import 'package:mother_and_baby/models/asiriUser.dart';
 
 class CommunityPost {

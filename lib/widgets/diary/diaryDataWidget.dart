@@ -1,6 +1,8 @@
+// @dart=2.9
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:mother_and_baby/services/user.service.dart';
@@ -12,7 +14,9 @@ class DiaryDataWidget extends StatelessWidget {
   final String selectedDate;
 
   const DiaryDataWidget({
-    Key key, @required this.uuid, this.selectedDate,
+    Key key,
+    @required this.uuid,
+    this.selectedDate,
   }) : super(key: key);
 
   @override
@@ -29,7 +33,8 @@ class DiaryDataWidget extends StatelessWidget {
         children: [
           /// Life Style data
           StreamBuilder(
-              stream: Provider.of<UserService>(context).getDiaryData(uuid, selectedDate),
+              stream: Provider.of<UserService>(context)
+                  .getDiaryData(uuid, selectedDate),
               builder: (BuildContext context,
                   AsyncSnapshot<QuerySnapshot> snapshot) {
                 double temp = 0;
@@ -82,8 +87,12 @@ class DiaryDataWidget extends StatelessWidget {
                         ),
                         trailing: Icon(Icons.description),
                         children: [
-                          if(ds["data"]["description"].toString().isNotEmpty) Container(child: Text(ds["data"]["description"]),),
-                          if(imageList.length > 0) ImageCarousel(imageList: imageList)
+                          if (ds["data"]["description"].toString().isNotEmpty)
+                            Container(
+                              child: Text(ds["data"]["description"]),
+                            ),
+                          if (imageList.length > 0)
+                            ImageCarousel(imageList: imageList)
                         ],
                       ));
                     }

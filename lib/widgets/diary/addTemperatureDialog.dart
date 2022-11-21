@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/lan/Languages.dart';
 import 'package:mother_and_baby/services/user.service.dart';
@@ -7,7 +8,8 @@ class AddTemperatureDialog extends StatefulWidget {
   final String selectedDate;
   final String userId;
 
-  const AddTemperatureDialog({Key key, this.selectedDate, this.userId}) : super(key: key);
+  const AddTemperatureDialog({Key key, this.selectedDate, this.userId})
+      : super(key: key);
 
   @override
   _AddTemperatureDialogState createState() => _AddTemperatureDialogState();
@@ -27,7 +29,8 @@ class _AddTemperatureDialogState extends State<AddTemperatureDialog> {
     setState(() {
       showProgressBar = true;
     });
-    DiaryData diaryData = DiaryData(TEMPERATURE, { "date": widget.selectedDate, "temperature": _currentSliderValue});
+    DiaryData diaryData = DiaryData(TEMPERATURE,
+        {"date": widget.selectedDate, "temperature": _currentSliderValue});
     diaryData.userId = widget.userId;
     Provider.of<UserService>(context, listen: false)
         .saveDiaryData(diaryData)
@@ -74,19 +77,19 @@ class _AddTemperatureDialogState extends State<AddTemperatureDialog> {
                  */
             Container(
                 child: Container(
-                  child: Slider(
-                    value: _currentSliderValue,
-                    min: 0,
-                    max: 100,
-                    divisions: 100,
-                    label: _currentSliderValue.round().toString() + " *C",
-                    onChanged: (double value) {
-                      setState(() {
-                        _currentSliderValue = value;
-                      });
-                    },
-                  ),
-                )),
+              child: Slider(
+                value: _currentSliderValue,
+                min: 0,
+                max: 100,
+                divisions: 100,
+                label: _currentSliderValue.round().toString() + " *C",
+                onChanged: (double value) {
+                  setState(() {
+                    _currentSliderValue = value;
+                  });
+                },
+              ),
+            )),
             SizedBox(
               height: 20,
             ),

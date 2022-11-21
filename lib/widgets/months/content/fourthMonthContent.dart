@@ -1,3 +1,6 @@
+// @dart=2.9
+
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/models/asiriUser.dart';
 import 'package:mother_and_baby/widgets/months/factListItem.dart';
@@ -9,9 +12,13 @@ class FourthMonthContent extends StatelessWidget {
   final AsiriUser userDetails;
   // final int currentMonth;
 
-  final String url = "https://firebasestorage.googleapis.com/v0/b/asiri-hospital-tour.appspot.com/o/videos%2F4th_Month.mp4?alt=media&token=44295538-63ea-4ad1-b9c1-61ce11e11cf7";
+  final String url =
+      "https://firebasestorage.googleapis.com/v0/b/asiri-hospital-tour.appspot.com/o/videos%2F4th_Month.mp4?alt=media&token=44295538-63ea-4ad1-b9c1-61ce11e11cf7";
 
-  const FourthMonthContent({Key key, this.userDetails,}) : super(key: key);
+  const FourthMonthContent({
+    Key key,
+    this.userDetails,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,22 +38,21 @@ class FourthMonthContent extends StatelessWidget {
           margin: const EdgeInsets.all(30.0),
           child: Column(
             children: [
-
               Container(
                 padding: EdgeInsets.only(
                   top: 10,
                 ),
                 child: Text(
                   "    Now the child is developing gradually. The third month is over. The second trimester "
-                      "begins with that. During this month you can observe a lot of changes in the baby as well "
-                      "as the mother. Let's see one by one what these changes are…",
+                  "begins with that. During this month you can observe a lot of changes in the baby as well "
+                  "as the mother. Let's see one by one what these changes are…",
                   style: TextStyle(color: darkBlue, fontSize: 16),
                 ),
               ),
 
               Container(
                 padding:
-                EdgeInsets.only(top: 8, bottom: 8, left: 15, right: 15),
+                    EdgeInsets.only(top: 8, bottom: 8, left: 15, right: 15),
                 margin: EdgeInsets.only(top: 20, bottom: 15),
                 decoration: BoxDecoration(
                     color: lightBlue,
@@ -103,21 +109,33 @@ class FourthMonthContent extends StatelessWidget {
                         style: TextStyle(fontSize: 18, color: lightBlue),
                       ),
                     ),
-                    FactListItem(text: "Your skin will gradually become clearer than before and better looking. The "
-                        "little belly increasing in size and the bright face are pleasing to all who see you. This "
-                        "radiance on the skin is a common feature of mothers during this time. This condition brings "
-                        "happiness in spite of the previous discomfort felt in the body.",),
-                    FactListItem(text: "Hormonal changes during pregnancy can cause your nails to grow faster. Also the "
-                        "nails are brittle. This condition is very common during pregnancy. This gradually returns to normal "
-                        "after the baby is born. Pay maximum attention to your nutrition during this time because your nutrition "
-                        "determines the growth of your baby.  As mentioned earlier, avoid artificial foods as much as possible.",),
-                    FactListItem(text: "It's important to avoid gastritis with hormonal changes during this time. Avoid consuming "
-                        "alcohol and drugs. Such toxins directly affect the health of your unborn baby and will be an obstacle "
-                        "to have a healthy baby.",),
-                    FactListItem(text: "Another common complication during pregnancy is anemia. This is because of not "
-                        "consuming food containing sufficient iron. You are now a pregnant mother and the amount of nutrition "
-                        "you need is more than usual. Consult  a midwife or a doctor about your nutritional problems during this "
-                        "time. They will give you the advice you need.",),
+                    FactListItem(
+                      text:
+                          "Your skin will gradually become clearer than before and better looking. The "
+                          "little belly increasing in size and the bright face are pleasing to all who see you. This "
+                          "radiance on the skin is a common feature of mothers during this time. This condition brings "
+                          "happiness in spite of the previous discomfort felt in the body.",
+                    ),
+                    FactListItem(
+                      text:
+                          "Hormonal changes during pregnancy can cause your nails to grow faster. Also the "
+                          "nails are brittle. This condition is very common during pregnancy. This gradually returns to normal "
+                          "after the baby is born. Pay maximum attention to your nutrition during this time because your nutrition "
+                          "determines the growth of your baby.  As mentioned earlier, avoid artificial foods as much as possible.",
+                    ),
+                    FactListItem(
+                      text:
+                          "It's important to avoid gastritis with hormonal changes during this time. Avoid consuming "
+                          "alcohol and drugs. Such toxins directly affect the health of your unborn baby and will be an obstacle "
+                          "to have a healthy baby.",
+                    ),
+                    FactListItem(
+                      text:
+                          "Another common complication during pregnancy is anemia. This is because of not "
+                          "consuming food containing sufficient iron. You are now a pregnant mother and the amount of nutrition "
+                          "you need is more than usual. Consult  a midwife or a doctor about your nutritional problems during this "
+                          "time. They will give you the advice you need.",
+                    ),
                   ],
                 ),
               ),
@@ -126,7 +144,7 @@ class FourthMonthContent extends StatelessWidget {
 
               Container(
                 padding:
-                EdgeInsets.only(top: 8, bottom: 8, left: 15, right: 15),
+                    EdgeInsets.only(top: 8, bottom: 8, left: 15, right: 15),
                 margin: EdgeInsets.only(top: 20, bottom: 15),
                 decoration: BoxDecoration(
                     color: Colors.green,
@@ -141,13 +159,12 @@ class FourthMonthContent extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 8.0),
                 child: Text(
                   "    As mentioned earlier, your responsibilities during this period are immense. She receives the care, "
-                      "protection and love she needs from you. She expects that from you. Because you are her most trusted "
-                      "partner. Keep her happy as much possible throughout this period. Maintain a peaceful environment at home. "
-                      "The strong connection between the two of you will give birth to a good, healthy baby in the near future.",
+                  "protection and love she needs from you. She expects that from you. Because you are her most trusted "
+                  "partner. Keep her happy as much possible throughout this period. Maintain a peaceful environment at home. "
+                  "The strong connection between the two of you will give birth to a good, healthy baby in the near future.",
                   style: TextStyle(fontSize: 16, color: Colors.green),
                 ),
               ),
-
             ],
           ),
         ),

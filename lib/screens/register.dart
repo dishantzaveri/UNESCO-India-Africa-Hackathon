@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mother_and_baby/models/asiriUser.dart';
@@ -47,18 +48,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
       return null;
     }
     Provider.of<AuthenticationService>(context, listen: false)
-      .signUp(email: emailController.text, password: passwordController.text)
-      .then((result) {
-        if(result != null) {
-          uuid = result.user.uid;
-          socialRegister(context);
-        } else {
-          final snackBar = SnackBar(content: Text('Something occurred! please try again'), backgroundColor: Colors.red,);
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        }
+        .signUp(email: emailController.text, password: passwordController.text)
+        .then((result) {
+      if (result != null) {
+        uuid = result.user.uid;
+        socialRegister(context);
+      } else {
+        final snackBar = SnackBar(
+          content: Text('Something occurred! please try again'),
+          backgroundColor: Colors.red,
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      }
     }).catchError((e) {
-      String error = Provider.of<AuthenticationService>(context, listen: false).getMessageFromErrorCode(e);
-      final snackBar = SnackBar(content: Text(error), backgroundColor: Colors.red,);
+      String error = Provider.of<AuthenticationService>(context, listen: false)
+          .getMessageFromErrorCode(e);
+      final snackBar = SnackBar(
+        content: Text(error),
+        backgroundColor: Colors.red,
+      );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     });
   }
@@ -73,11 +81,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
     Provider.of<UserService>(context, listen: false)
         .saveUser(userDetails: userDetails)
         .then((doc) {
-      final snackBar = SnackBar(content: Text('Account created successfully!'), backgroundColor: Colors.green,);
+      final snackBar = SnackBar(
+        content: Text('Account created successfully!'),
+        backgroundColor: Colors.green,
+      );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (BuildContext context) => PregnantDateScreen()));
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (BuildContext context) => PregnantDateScreen()));
     });
 
     // Navigator.of(context).pushReplacement(
@@ -183,8 +194,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           ),
                           onPressed: () {
-                            Navigator.of(context).push(
-                                MaterialPageRoute(builder: (BuildContext context) => PregnantDateScreen()));
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    PregnantDateScreen()));
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -269,7 +281,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   obscureText: false,
                                   controller: emailController,
                                   validator: (text) {
-                                    bool isEmailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(text);
+                                    bool isEmailValid = RegExp(
+                                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                        .hasMatch(text);
                                     if (text.isEmpty || !isEmailValid)
                                       return "Please enter a valid email";
                                     else
@@ -297,7 +311,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   obscureText: false,
                                   controller: telephoneController,
                                   validator: (text) {
-                                    bool isTelephoneValid = RegExp(r"07(\d{8})").hasMatch(text);
+                                    bool isTelephoneValid =
+                                        RegExp(r"07(\d{8})").hasMatch(text);
                                     if (text.isEmpty || !isTelephoneValid)
                                       return "Please enter a valid telephone number";
                                     else
@@ -419,9 +434,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   TextStyle(fontSize: 15, color: Colors.grey)),
                           TextButton(
                               onPressed: () {
-                                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        LoginScreen()));
+                                Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            LoginScreen()));
                               },
                               child: Text(
                                 "SignIn",

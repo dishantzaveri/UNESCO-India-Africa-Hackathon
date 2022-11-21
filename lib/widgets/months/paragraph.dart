@@ -1,9 +1,13 @@
+// @dart=2.9
+
+// @dart=2.9
 import 'package:flutter/material.dart';
 
 class Paragraph extends StatelessWidget {
   const Paragraph({
     Key key,
-    @required this.color, this.text,
+    @required this.color,
+    this.text,
   }) : super(key: key);
 
   final Color color;

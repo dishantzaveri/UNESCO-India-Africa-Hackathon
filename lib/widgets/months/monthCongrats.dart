@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/models/asiriUser.dart';
 import 'package:intl/intl.dart';
@@ -6,7 +7,8 @@ class MonthCongratsWidget extends StatelessWidget {
   const MonthCongratsWidget({
     Key key,
     @required this.screenSize,
-    @required this.userDatails, this.currentMonth,
+    @required this.userDatails,
+    this.currentMonth,
   }) : super(key: key);
 
   final Size screenSize;
@@ -15,7 +17,6 @@ class MonthCongratsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     String getMonthCaption() {
       String caption = "first";
       switch (currentMonth) {
@@ -53,8 +54,7 @@ class MonthCongratsWidget extends StatelessWidget {
       padding: EdgeInsets.only(top: 20, bottom: 20, right: 15, left: 15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(50),
-            bottomRight: Radius.circular(50)),
+            bottomLeft: Radius.circular(50), bottomRight: Radius.circular(50)),
         color: Colors.purple,
       ),
       child: Column(
@@ -83,8 +83,8 @@ class MonthCongratsWidget extends StatelessWidget {
                       child: Center(
                         child: Text(
                           "Congratulations!",
-                          style: new TextStyle(
-                              fontSize: 18, color: Colors.white),
+                          style:
+                              new TextStyle(fontSize: 18, color: Colors.white),
                         ),
                       ),
                     ),

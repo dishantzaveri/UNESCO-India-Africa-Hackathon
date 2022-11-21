@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/screens/home.dart';
 import 'package:mother_and_baby/screens/register.dart';
@@ -18,10 +19,13 @@ class LoginScreen extends StatelessWidget {
         .signIn(email: email, password: password)
         .then((result) {
       if (result) {
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => HomeScreen()));
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (BuildContext context) => HomeScreen()));
       } else {
-        final snackBar = SnackBar(content: Text('User name or password is wrong! Please try again'), backgroundColor: Colors.red,);
+        final snackBar = SnackBar(
+          content: Text('User name or password is wrong! Please try again'),
+          backgroundColor: Colors.red,
+        );
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       }
     }).onError((error, stackTrace) {
@@ -33,8 +37,10 @@ class LoginScreen extends StatelessWidget {
     Provider.of<AuthenticationService>(context, listen: false)
         .signInWithGoogle()
         .then((result) {
-      Navigator.of(context).push(
-          MaterialPageRoute(builder: (BuildContext context) => HomeScreen(selectedIndex: 1,)));
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (BuildContext context) => HomeScreen(
+                selectedIndex: 1,
+              )));
     });
   }
 
@@ -91,7 +97,9 @@ class LoginScreen extends StatelessWidget {
                                   obscureText: false,
                                   controller: emailController,
                                   validator: (text) {
-                                    bool isEmailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(text);
+                                    bool isEmailValid = RegExp(
+                                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                        .hasMatch(text);
                                     if (text.isEmpty || !isEmailValid)
                                       return "Please enter a valid email";
                                     else
@@ -271,9 +279,10 @@ class LoginScreen extends StatelessWidget {
                                   TextStyle(fontSize: 15, color: Colors.grey)),
                           TextButton(
                               onPressed: () {
-                                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        RegisterScreen()));
+                                Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            RegisterScreen()));
                               },
                               child: Text(
                                 "Create Account",

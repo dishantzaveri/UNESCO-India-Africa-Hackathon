@@ -1,5 +1,8 @@
+// @dart=2.9
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/lan/Languages.dart';
 import 'package:mother_and_baby/main.dart';
@@ -25,11 +28,12 @@ class NavDrawer extends StatefulWidget {
 class _NavDrawerState extends State<NavDrawer> {
   AsiriUser asiriUser;
 
-
   @override
   Widget build(BuildContext context) {
     String uuid = Provider.of<User>(context).uid;
-    Provider.of<UserService>(context).getUser(uuid).then((value) => asiriUser = value);
+    Provider.of<UserService>(context)
+        .getUser(uuid)
+        .then((value) => asiriUser = value);
 
     return oldDrawer(context);
   }
@@ -110,13 +114,14 @@ class _NavDrawerState extends State<NavDrawer> {
               builder: (BuildContext context) => ServicesInfo()));
         }
         break;
-      case "KICK_COUNTER": {
-        Navigator.of(context).push(MaterialPageRoute(
-            builder: (BuildContext context) => KickCounter(
-              asiriUser: asiriUser,
-            )));
-      }
-      break;
+      case "KICK_COUNTER":
+        {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (BuildContext context) => KickCounter(
+                    asiriUser: asiriUser,
+                  )));
+        }
+        break;
       default:
         {
           Navigator.of(context).push(MaterialPageRoute(
@@ -164,30 +169,41 @@ class _NavDrawerState extends State<NavDrawer> {
                   ],
                 ),
               ),
-              asiriUser != null ? Stack(
-                children: [
-                  Align(
-                    alignment: Alignment.center,
-                    child: asiriUser.imageUrl == "" ? Image.asset(
-                      "assets/images/drawer/avatar.png",
+              asiriUser != null
+                  ? Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: asiriUser.imageUrl == ""
+                              ? Image.asset(
+                                  "assets/images/drawer/avatar.png",
+                                  height: 150,
+                                  width: 150,
+                                )
+                              : Image.network(
+                                  asiriUser.imageUrl,
+                                  height: 150,
+                                  width: 150,
+                                ),
+                        ),
+                        Positioned(
+                          right: 50,
+                          bottom: 0,
+                          child: IconButton(
+                            icon: Icon(Icons.settings),
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      SettingsScreen()));
+                            },
+                          ),
+                        )
+                      ],
+                    )
+                  : SizedBox(
+                      child: Center(child: CircularProgressIndicator()),
                       height: 150,
-                      width: 150,
-                    ) : Image.network(asiriUser.imageUrl, height: 150, width: 150,),
-                  ),
-                  Positioned(
-                    right: 50,
-                    bottom: 0,
-                    child: IconButton(
-                      icon: Icon(Icons.settings),
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                SettingsScreen()));
-                      },
                     ),
-                  )
-                ],
-              ) : SizedBox(child: Center(child: CircularProgressIndicator()), height: 150,),
 
               DrawerListItem(
                 title: Languages.of(context).diary,

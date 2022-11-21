@@ -1,8 +1,11 @@
+// @dart=2.9
+
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:mother_and_baby/lan/Languages.dart';
@@ -113,7 +116,10 @@ class _DiaryScreenState extends State<DiaryScreen> {
                 /**
                  * Diary details for date
                  */
-                DiaryDataWidget(uuid: userId, selectedDate: DateFormat("yyyy-MM-dd").format(_selectedDay),),
+                DiaryDataWidget(
+                  uuid: userId,
+                  selectedDate: DateFormat("yyyy-MM-dd").format(_selectedDay),
+                ),
 
                 Container(
                   decoration: new BoxDecoration(
@@ -165,13 +171,12 @@ class _DiaryScreenState extends State<DiaryScreen> {
                 //   ),
                 // ),
 
-
                 Container(
                   decoration: new BoxDecoration(
                       color: Color.fromRGBO(199, 233, 251, 1),
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   padding:
-                  EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+                      EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
                   margin: EdgeInsets.only(left: 10, right: 10, top: 10),
                   child: ExpansionTile(
                     title: Text(
@@ -290,7 +295,11 @@ class _DiaryScreenState extends State<DiaryScreen> {
                     ],
                   ),
                 ),
-                SymptomsWidget(selectedDate: "${_selectedDay.year}-${_selectedDay.year}-${_selectedDay.year}", userId: userId,),
+                SymptomsWidget(
+                  selectedDate:
+                      "${_selectedDay.year}-${_selectedDay.year}-${_selectedDay.year}",
+                  userId: userId,
+                ),
               ],
             ),
           ),
@@ -299,4 +308,3 @@ class _DiaryScreenState extends State<DiaryScreen> {
     );
   }
 }
-

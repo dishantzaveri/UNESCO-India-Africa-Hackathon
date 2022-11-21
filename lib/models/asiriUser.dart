@@ -1,3 +1,5 @@
+// @dart=2.9
+
 class AsiriUser {
   final String userId;
   final String name;
@@ -10,7 +12,14 @@ class AsiriUser {
   int dueDate;
   int kickCount = 0;
 
-  AsiriUser(this.userId, this.name, this.email, this.telephone, this.address, this.imageUrl,);
+  AsiriUser(
+    this.userId,
+    this.name,
+    this.email,
+    this.telephone,
+    this.address,
+    this.imageUrl,
+  );
 
   Map<String, dynamic> toJson() => {
         'name': name,

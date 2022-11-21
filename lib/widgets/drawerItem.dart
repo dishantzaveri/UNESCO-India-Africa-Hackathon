@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 
 class DrawerListItem extends StatelessWidget {
@@ -5,7 +6,9 @@ class DrawerListItem extends StatelessWidget {
   final String title;
   final VoidCallback onClicked;
 
-  const DrawerListItem({Key key, @required this.imagePath, @required this.title, this.onClicked}) : super(key: key);
+  const DrawerListItem(
+      {Key key, @required this.imagePath, @required this.title, this.onClicked})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

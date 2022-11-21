@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/widgets/months/monthItemList.dart';
 import 'package:mother_and_baby/widgets/months/monthSlider.dart';
@@ -5,7 +6,8 @@ import 'package:mother_and_baby/widgets/months/monthVideoPreview.dart';
 import 'package:mother_and_baby/widgets/months/paragraph.dart';
 
 class FifthMonth extends StatelessWidget {
-  final String url = "https://firebasestorage.googleapis.com/v0/b/asiri-hospital-tour.appspot.com/o/videos%2F5th_Month.mp4?alt=media&token=4d4e3a89-b3ff-45a5-90f6-8780457e0e3a";
+  final String url =
+      "https://firebasestorage.googleapis.com/v0/b/asiri-hospital-tour.appspot.com/o/videos%2F5th_Month.mp4?alt=media&token=4d4e3a89-b3ff-45a5-90f6-8780457e0e3a";
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
@@ -60,7 +62,9 @@ class FifthMonth extends StatelessWidget {
                     ],
                   ),
 
-                  MonthSliderWidget(selectedMonth: 5,),
+                  MonthSliderWidget(
+                    selectedMonth: 5,
+                  ),
 
                   Container(
                     padding: EdgeInsets.only(
@@ -325,19 +329,37 @@ class FifthMonth extends StatelessWidget {
                     leadingIcon: Icons.star_border,
                   ),
 
-                  Paragraph(color: Colors.deepPurpleAccent, text: "Some women at high risk may be offered a test called ‘Cordocentesis’ to diagnose and confirm chromosomal abnormalities or whether there is a definite birth defect. In this test, a hollow needle is inserted into a small vein near the placenta,"
-                      " through the mother's abdominal wall, and a sample of the baby's blood is collected. This test is "
-                      "done around the 18th week of pregnancy."),
-                  Paragraph(color: Colors.deepPurpleAccent, text: "You may experience emotional changes and depression during the second trimester of the pregnancy. "
-                      "Moods are different than in the first or third trimester of this quarter."),
-                  Paragraph(color: Colors.deepPurpleAccent, text: "You may feel frustrated that you can no longer control the look of your body and you may want to reassure your partner that you are "
-                      "still beautiful and sexy. However you have to keep in mind that appearances are not important compared to motherhood."),
-                  Paragraph(color: Colors.deepPurpleAccent, text: "Depression in the second trimester is lower during pregnancy than at any other time. Depression during these months "
-                      "is usually associated with anxiety and pain in previous pregnancies."),
-                  Paragraph(color: Colors.deepPurpleAccent, text: "For example, if a woman has had a difficult previous pregnancy, she may be suffering from depression. Existing marital "
-                      "problems can also lead to depression."),
-                  Paragraph(color: Colors.deepPurpleAccent, text: "It is best to try to talk to your partner about any problems you may have. Supportive psychotherapy can also help if "
-                      "you feel particularly distressed."),
+                  Paragraph(
+                      color: Colors.deepPurpleAccent,
+                      text:
+                          "Some women at high risk may be offered a test called ‘Cordocentesis’ to diagnose and confirm chromosomal abnormalities or whether there is a definite birth defect. In this test, a hollow needle is inserted into a small vein near the placenta,"
+                          " through the mother's abdominal wall, and a sample of the baby's blood is collected. This test is "
+                          "done around the 18th week of pregnancy."),
+                  Paragraph(
+                      color: Colors.deepPurpleAccent,
+                      text:
+                          "You may experience emotional changes and depression during the second trimester of the pregnancy. "
+                          "Moods are different than in the first or third trimester of this quarter."),
+                  Paragraph(
+                      color: Colors.deepPurpleAccent,
+                      text:
+                          "You may feel frustrated that you can no longer control the look of your body and you may want to reassure your partner that you are "
+                          "still beautiful and sexy. However you have to keep in mind that appearances are not important compared to motherhood."),
+                  Paragraph(
+                      color: Colors.deepPurpleAccent,
+                      text:
+                          "Depression in the second trimester is lower during pregnancy than at any other time. Depression during these months "
+                          "is usually associated with anxiety and pain in previous pregnancies."),
+                  Paragraph(
+                      color: Colors.deepPurpleAccent,
+                      text:
+                          "For example, if a woman has had a difficult previous pregnancy, she may be suffering from depression. Existing marital "
+                          "problems can also lead to depression."),
+                  Paragraph(
+                      color: Colors.deepPurpleAccent,
+                      text:
+                          "It is best to try to talk to your partner about any problems you may have. Supportive psychotherapy can also help if "
+                          "you feel particularly distressed."),
 
                   Container(
                     padding:
@@ -354,9 +376,21 @@ class FifthMonth extends StatelessWidget {
                     ),
                   ),
 
-                  Paragraph(color: Colors.pinkAccent, text: "It is the role of the father to try to comfort his pregnant wife at all times. Give her a lot of love no matter how physically changed she is.",),
-                  Paragraph(color: Colors.pinkAccent, text: "Remind her that the beauty and appearances are not important in the face of the great title of motherhood she is about to receive and that she will be loved as a mother more than ever.",),
-                  Paragraph(color: Colors.pinkAccent, text: "Undoubtedly, your love will greatly affect her successful delivery of the baby.",),
+                  Paragraph(
+                    color: Colors.pinkAccent,
+                    text:
+                        "It is the role of the father to try to comfort his pregnant wife at all times. Give her a lot of love no matter how physically changed she is.",
+                  ),
+                  Paragraph(
+                    color: Colors.pinkAccent,
+                    text:
+                        "Remind her that the beauty and appearances are not important in the face of the great title of motherhood she is about to receive and that she will be loved as a mother more than ever.",
+                  ),
+                  Paragraph(
+                    color: Colors.pinkAccent,
+                    text:
+                        "Undoubtedly, your love will greatly affect her successful delivery of the baby.",
+                  ),
                 ],
               ),
             ),

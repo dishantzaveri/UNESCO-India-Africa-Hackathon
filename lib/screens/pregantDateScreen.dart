@@ -1,4 +1,7 @@
+// @dart=2.9
+
 import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mother_and_baby/screens/home.dart';
@@ -33,9 +36,9 @@ class _PregnantDateScreenState extends State<PregnantDateScreen> {
   bool isDueDateCalculated = false;
 
   void next() {
-    if(isDueDateCalculated) {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (BuildContext context) => HomeScreen()));
+    if (isDueDateCalculated) {
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (BuildContext context) => HomeScreen()));
     } else {
       recordPregnantDate();
     }
@@ -56,7 +59,7 @@ class _PregnantDateScreenState extends State<PregnantDateScreen> {
             firebaseUser.uid, dueDateCalculateMethod, selectedDate);
     print(firebaseUser);
     print(dueDate);
-    if(dueDate != null) {
+    if (dueDate != null) {
       setState(() {
         isDueDateCalculated = true;
       });
@@ -110,7 +113,9 @@ class _PregnantDateScreenState extends State<PregnantDateScreen> {
           child: Center(
             child: AnimatedCrossFade(
               duration: const Duration(microseconds: 5000),
-              crossFadeState: !isDueDateCalculated ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+              crossFadeState: !isDueDateCalculated
+                  ? CrossFadeState.showFirst
+                  : CrossFadeState.showSecond,
               firstChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -219,10 +224,22 @@ class _PregnantDateScreenState extends State<PregnantDateScreen> {
               ),
               secondChild: Column(
                 children: [
-                  Container(child: Text("Your due date is", style: TextStyle(
-                      fontSize: 18, color: Color.fromRGBO(88, 2, 106, 1.0)),),),
-                  if(isDueDateCalculated && dueDate != null) Container(child: Text(DateFormat("MMMM d, yyyy").format(dueDate), style: TextStyle(
-                      fontSize: 22, color: Color.fromRGBO(88, 2, 106, 1.0)),),),
+                  Container(
+                    child: Text(
+                      "Your due date is",
+                      style: TextStyle(
+                          fontSize: 18, color: Color.fromRGBO(88, 2, 106, 1.0)),
+                    ),
+                  ),
+                  if (isDueDateCalculated && dueDate != null)
+                    Container(
+                      child: Text(
+                        DateFormat("MMMM d, yyyy").format(dueDate),
+                        style: TextStyle(
+                            fontSize: 22,
+                            color: Color.fromRGBO(88, 2, 106, 1.0)),
+                      ),
+                    ),
                 ],
               ),
             ),

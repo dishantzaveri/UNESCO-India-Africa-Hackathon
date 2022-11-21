@@ -1,3 +1,6 @@
+// @dart=2.9
+
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/screens/videoPlayer.dart';
 
@@ -13,7 +16,8 @@ class MonthVideoPreview extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Color.fromRGBO(255, 164, 179, 1), borderRadius: BorderRadius.all(Radius.circular(20))),
+          color: Color.fromRGBO(255, 164, 179, 1),
+          borderRadius: BorderRadius.all(Radius.circular(20))),
       margin: EdgeInsets.only(top: 15, bottom: 15),
       padding: const EdgeInsets.all(20.0),
       child: Row(
@@ -23,8 +27,8 @@ class MonthVideoPreview extends StatelessWidget {
             onTap: () => {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => VideoApp(
-                    url: url,
-                  )))
+                        url: url,
+                      )))
             },
             child: Container(
               alignment: Alignment.center,
@@ -32,8 +36,7 @@ class MonthVideoPreview extends StatelessWidget {
               padding: EdgeInsets.all(8),
               decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius:
-                  BorderRadius.all(Radius.circular(10))),
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
               child: Column(
                 children: [
                   Icon(
@@ -43,8 +46,7 @@ class MonthVideoPreview extends StatelessWidget {
                   ),
                   Text(
                     "Play",
-                    style: TextStyle(
-                        fontSize: 18, color: Colors.pink),
+                    style: TextStyle(fontSize: 18, color: Colors.pink),
                   )
                 ],
               ),

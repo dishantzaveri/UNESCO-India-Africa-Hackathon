@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:mother_and_baby/lan/Languages.dart';
@@ -17,7 +18,8 @@ class SymptomsRecorder extends StatefulWidget {
       this.title,
       this.iconData,
       this.symptomIconName,
-      this.iconsColor, this.userId})
+      this.iconsColor,
+      this.userId})
       : super(key: key);
 
   @override

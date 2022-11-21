@@ -1,4 +1,7 @@
+// @dart=2.9
+
 import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/models/asiriUser.dart';
 import 'package:mother_and_baby/screens/Login.dart';
@@ -24,6 +27,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 1;
   AsiriUser asiriUser;
+
   ///
   int currentMonth = 1;
   @override
@@ -35,24 +39,30 @@ class _HomeScreenState extends State<HomeScreen> {
       // TODO - handle error
     }
     try {
-      Provider.of<UserService>(context, listen: false).getUser(firebaseUser.uid).then((userData) {
-        if(userData == null) {
-          final snackBar = SnackBar(content: Text('Something occurred! please log again'), backgroundColor: Colors.red,);
+      Provider.of<UserService>(context, listen: false)
+          .getUser(firebaseUser.uid)
+          .then((userData) {
+        if (userData == null) {
+          final snackBar = SnackBar(
+            content: Text('Something occurred! please log again'),
+            backgroundColor: Colors.red,
+          );
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
           Navigator.of(context).pushReplacement(MaterialPageRoute(
               builder: (BuildContext context) => LoginScreen()));
         }
-        if(userData.pregnantStartDate != null) {
+        if (userData.pregnantStartDate != null) {
           setState(() {
             asiriUser = userData;
-            currentMonth = calculateCurrentMonth(DateTime.fromMillisecondsSinceEpoch(userData.pregnantStartDate));
+            currentMonth = calculateCurrentMonth(
+                DateTime.fromMillisecondsSinceEpoch(
+                    userData.pregnantStartDate));
           });
         } else {
-          Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (BuildContext context) => PregnantDateScreen()));
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+              builder: (BuildContext context) => PregnantDateScreen()));
         }
-
       });
     } on Exception catch (e) {
       print(e);
@@ -62,12 +72,12 @@ class _HomeScreenState extends State<HomeScreen> {
   int calculateCurrentMonth(DateTime startDate) {
     DateTime today = DateTime.now();
     int dateCount = today.difference(startDate).inDays;
-    int month = (dateCount~/30)+1;
-    return month > 0? month : 1;
+    int month = (dateCount ~/ 30) + 1;
+    return month > 0 ? month : 1;
   }
 
   static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   void _onItemTapped(int index) {
     setState(() {
@@ -77,16 +87,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     List<Widget> _widgetOptions = <Widget>[
       DiaryScreen(),
-      LandingPage(asiriUser: asiriUser, currentMonth: currentMonth,),
-      CommunityPage(asiriUser: asiriUser,),
+      LandingPage(
+        asiriUser: asiriUser,
+        currentMonth: currentMonth,
+      ),
+      CommunityPage(
+        asiriUser: asiriUser,
+      ),
     ];
 
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        type:  BottomNavigationBarType.fixed,
+        type: BottomNavigationBarType.fixed,
         backgroundColor: Color.fromRGBO(161, 129, 239, 1.0),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -107,8 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: _onItemTapped,
       ),
       drawer: NavDrawer(),
-      floatingActionButton:  _bottomButtons(),
-
+      floatingActionButton: _bottomButtons(),
       body: SingleChildScrollView(
         child: Container(
           child: _widgetOptions.elementAt(_selectedIndex),
@@ -120,17 +133,18 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _bottomButtons() {
     return _selectedIndex == 2
         ? FloatingActionButton(
-        shape: StadiumBorder(),
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (BuildContext context) => ChatPage(asiriUser: asiriUser,)));
-        },
-        backgroundColor: Colors.blue,
-        child: Icon(
-          Icons.message,
-          size: 20.0,
-        ))
+            shape: StadiumBorder(),
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => ChatPage(
+                        asiriUser: asiriUser,
+                      )));
+            },
+            backgroundColor: Colors.blue,
+            child: Icon(
+              Icons.message,
+              size: 20.0,
+            ))
         : null;
   }
-
 }

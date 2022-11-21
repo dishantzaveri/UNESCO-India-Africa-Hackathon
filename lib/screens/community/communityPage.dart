@@ -1,10 +1,12 @@
-import 'dart:io';
+// @dart=2.9
 
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/models/asiriUser.dart';
 import 'package:mother_and_baby/models/communityPost.dart';
@@ -315,47 +317,54 @@ class _CommunityPageState extends State<CommunityPage> {
                                     SizedBox(
                                       height: 5,
                                     ),
-                                    userData != null ? Row(
-                                      children: [
-                                        post.likedUserIdList == null ||
-                                                !post.likedUserIdList.contains(
-                                                    userData.userId)
-                                            ? IconButton(
-                                                icon: Icon(
-                                                  Icons
-                                                      .favorite_border_outlined,
-                                                ),
-                                                onPressed: () => {
-                                                  Provider.of<UserService>(
-                                                          context,
-                                                          listen: false)
-                                                      .likePost(
-                                                          snapshot.data
-                                                              .docs[index].id,
-                                                          widget
-                                                              .asiriUser.userId)
-                                                },
-                                              )
-                                            : IconButton(
-                                                icon: Icon(
-                                                  Icons.favorite,
-                                                  color: Colors.red,
-                                                ),
-                                                onPressed: () => {
-                                                  Provider.of<UserService>(
-                                                          context,
-                                                          listen: false)
-                                                      .unlikePost(
-                                                          snapshot.data
-                                                              .docs[index].id,
-                                                          widget
-                                                              .asiriUser.userId)
-                                                },
-                                              ),
-                                        Text(
-                                            "${post.likedUserIdList != null ? post.likedUserIdList.length.toString() : 0} likes")
-                                      ],
-                                    ) : Container(),
+                                    userData != null
+                                        ? Row(
+                                            children: [
+                                              post.likedUserIdList == null ||
+                                                      !post.likedUserIdList
+                                                          .contains(
+                                                              userData.userId)
+                                                  ? IconButton(
+                                                      icon: Icon(
+                                                        Icons
+                                                            .favorite_border_outlined,
+                                                      ),
+                                                      onPressed: () => {
+                                                        Provider.of<UserService>(
+                                                                context,
+                                                                listen: false)
+                                                            .likePost(
+                                                                snapshot
+                                                                    .data
+                                                                    .docs[index]
+                                                                    .id,
+                                                                widget.asiriUser
+                                                                    .userId)
+                                                      },
+                                                    )
+                                                  : IconButton(
+                                                      icon: Icon(
+                                                        Icons.favorite,
+                                                        color: Colors.red,
+                                                      ),
+                                                      onPressed: () => {
+                                                        Provider.of<UserService>(
+                                                                context,
+                                                                listen: false)
+                                                            .unlikePost(
+                                                                snapshot
+                                                                    .data
+                                                                    .docs[index]
+                                                                    .id,
+                                                                widget.asiriUser
+                                                                    .userId)
+                                                      },
+                                                    ),
+                                              Text(
+                                                  "${post.likedUserIdList != null ? post.likedUserIdList.length.toString() : 0} likes")
+                                            ],
+                                          )
+                                        : Container(),
                                     Divider(
                                       thickness: 1,
                                     ),

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:mother_and_baby/screens/Login.dart';
 import 'package:mother_and_baby/screens/diary.dart';
@@ -14,22 +15,25 @@ class WelcomeScreen extends StatefulWidget {
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
-  void initState() {
-  }
+  void initState() {}
 
   @override
   Widget build(BuildContext context) {
     final firebaseUser = Provider.of<User>(context, listen: false);
-    var timer = Timer(Duration(seconds: 3), ()=> {
-      if(firebaseUser == null) {
-        Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (BuildContext context) => LoginScreen()))
-      } else {
-        Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (BuildContext context) => HomeScreen()))
-      }
-
-    });
+    var timer = Timer(
+        Duration(seconds: 3),
+        () => {
+              if (firebaseUser == null)
+                {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (BuildContext context) => LoginScreen()))
+                }
+              else
+                {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (BuildContext context) => HomeScreen()))
+                }
+            });
 
     return Container(
       decoration: BoxDecoration(
