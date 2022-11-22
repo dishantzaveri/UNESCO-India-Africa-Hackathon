@@ -38,6 +38,7 @@ app.use("/", patientAuth);
 app.use("/", refcenAuth);
 app.use("/", partogramR);
 app.use("/", examCreation);
+app.use("/", sendpdf);
 app.listen(process.env.PORT || 3000, () =>
   console.log("Server Up and running")
 );
