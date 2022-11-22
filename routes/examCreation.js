@@ -51,6 +51,13 @@ router.post("/exam/creation", async (req, res) => {
       mother: newMother._id,
     });
 
+    newMother.exam = newExam._id;
+    newInterventions.exam = newExam._id;
+    newLabour.exam = newExam._id;
+    newAmnfluid.exam = newExam._id;
+    newFetus.exam = newExam._id;
+    // partogramuser.exam = newExam._id;
+
     console.log(newExam);
     try {
       const saveFetus = await newFetus.save(function (err, result) {

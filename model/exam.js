@@ -1,5 +1,4 @@
 const man = require("mongoose");
-const amnfluid = require("../model/amnfluid");
 
 var examSchema = new man.Schema({
   // idExam: Schema.ObjectId,

@@ -1,0 +1,36 @@
+const router = require("express").Router();
+const partogram = require("../model/partogram");
+const exam = require("../model/exam");
+const fetus = require("../model/fetus");
+
+router.post("/exam/fetus", async (req, res) => {
+  //identify the partogram to connect
+  const partogramuser = await partogram.findOne({
+    firstName: req.body.firstName,
+  });
+  const examuser = await exam.findOne({
+    partogram: partogramuser._id,
+  });
+  if (partogramuser) {
+    const newFetus = new fetus({
+      heartbeat: req.body.heartbeat,
+      exam: examuser._id,
+    });
+
+    try {
+      const saveFetus = await newFetus.save(function (err, result) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(result);
+          // res.append(dataToSend, result);
+          res.status(200).json(result);
+        }
+      });
+    } catch (err) {
+      res.status(500).send(err);
+    }
+  }
+});
+
+module.exports = router;

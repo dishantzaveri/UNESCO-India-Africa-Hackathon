@@ -10,6 +10,7 @@ const patientAuth = require("./routes/patientAuth");
 const refcenAuth = require("./routes/refcenAuth");
 const partogramR = require("./routes/partogramR");
 const examCreation = require("./routes/examCreation");
+const fetusPlot = require("./routes/fetusPlot");
 dotenv.config();
 
 // MIDDLEWARE;
@@ -38,6 +39,7 @@ app.use("/", patientAuth);
 app.use("/", refcenAuth);
 app.use("/", partogramR);
 app.use("/", examCreation);
+app.use("/", fetusPlot);
 app.listen(process.env.PORT || 3000, () =>
   console.log("Server Up and running")
 );
