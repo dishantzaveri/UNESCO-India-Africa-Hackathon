@@ -30,7 +30,7 @@ include("includes/db.php");
       <div class="container mt-5">
         <div class="row">
         <!-- <div class="col-md-6 col-sm-6 col-12"> -->
-        <div class="col-6 col-md-6 col-lg-5 ">
+        <div class="col-6 col-md-6 col-lg-5">
         <br>
                   <br>
                   <br>
