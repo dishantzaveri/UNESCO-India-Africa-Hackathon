@@ -1,5 +1,6 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
+import 'package:mother_and_baby/app.dart';
 import 'package:mother_and_baby/screens/home.dart';
 import 'package:mother_and_baby/screens/register.dart';
 import 'package:mother_and_baby/services/auth.service.dart';
@@ -235,13 +236,8 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                            // TODO - fix fb problem
-                            // Provider.of<AuthenticationService>(context, listen: false)
-                            //     .signInWithFacebook()
-                            //     .then((result) {
-                            //   Navigator.of(context).push(
-                            //       MaterialPageRoute(builder: (BuildContext context) => HomeScreen(selectedIndex: 1,)));
-                            // });
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (BuildContext context) => App()));
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -255,7 +251,7 @@ class LoginScreen extends StatelessWidget {
                               Container(
                                 padding: EdgeInsets.all(10),
                                 child: Text(
-                                  "Login with facebook",
+                                  "Login as a doctor",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontFamily: 'Raleway',

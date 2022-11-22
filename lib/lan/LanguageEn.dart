@@ -44,7 +44,8 @@ class LanguageEn extends Languages {
   String get title => "Menu";
   String get diary => "Diary";
   String get reminders => "Reminders";
-  String get community => "Community";
+  String get resources => "Resources";
+  String get profile => "Profile";
   String get consultant => "Meet your consultant";
   String get midwife => "Meet your midwife";
   String get exercise => "Pregnancy Exercise";

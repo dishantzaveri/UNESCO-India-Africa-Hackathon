@@ -26,7 +26,8 @@ class LanguageSi extends Languages {
 
   // specialist pages
   String get specialistTopic => "Tnf.a úfYaI{ ffjoHjrhd yuqfjuq";
-  String get specialistCaption1 => ".¾NŒ iufha uqL fi!LH wdrlaId lr.kafka flfiao@";
+  String get specialistCaption1 =>
+      ".¾NŒ iufha uqL fi!LH wdrlaId lr.kafka flfiao@";
   String get specialistCaption2 => "iaNdúl ore m%iQ;shla ms<sn|j";
   String get specialistCaption3 => ".¾NŒ ndjh;a iu. we;sjk Èhjeähd ;;a;ajh";
   String get specialistCaption4 => "uõ moúh ,eîug n,dfmdfrd;a;= jk Tng Wmfoia";
@@ -43,7 +44,8 @@ class LanguageSi extends Languages {
   String get title => "Menu";
   String get diary => "Diary";
   String get reminders => "Reminders";
-  String get community => "Community";
+  String get resources => "Resources";
+  String get profile => "Profile";
   String get consultant => "Meet your consultant";
   String get midwife => "Meet your midwife";
   String get exercise => "Pregnancy Exercise";

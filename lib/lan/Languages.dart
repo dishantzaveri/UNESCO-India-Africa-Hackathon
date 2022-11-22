@@ -1,6 +1,4 @@
 // @dart=2.9
-
-// @dart=2.9
 import 'package:flutter/material.dart';
 
 abstract class Languages {
@@ -51,7 +49,8 @@ abstract class Languages {
   String get title;
   String get diary;
   String get reminders;
-  String get community;
+  String get resources;
+  String get profile;
   String get consultant;
   String get midwife;
   String get exercise;

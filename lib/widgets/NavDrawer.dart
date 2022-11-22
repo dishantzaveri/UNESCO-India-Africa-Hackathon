@@ -17,6 +17,9 @@ import 'package:mother_and_baby/screens/servicesInfo.dart';
 import 'package:mother_and_baby/screens/settings.dart';
 import 'package:mother_and_baby/screens/specialistPage.dart';
 import 'package:mother_and_baby/services/user.service.dart';
+import 'package:mother_and_baby/ui/pages/home/tabs/home_tab.dart';
+import 'package:mother_and_baby/ui/pages/home/tabs/profile_tab.dart';
+import 'package:mother_and_baby/ui/pages/resources/resources_list.dart';
 import 'package:mother_and_baby/widgets/drawerItem.dart';
 import 'package:provider/provider.dart';
 
@@ -58,12 +61,16 @@ class _NavDrawerState extends State<NavDrawer> {
                   )));
         }
         break;
-      case "COMMUNITY":
+      case "RESOURCES":
+        {
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (BuildContext context) => ResList()));
+        }
+        break;
+      case "PROFILE":
         {
           Navigator.of(context).push(MaterialPageRoute(
-              builder: (BuildContext context) => HomeScreen(
-                    selectedIndex: 2,
-                  )));
+              builder: (BuildContext context) => ProfileTab()));
         }
         break;
       case "MEDICINE_REMINDER":
@@ -251,9 +258,14 @@ class _NavDrawerState extends State<NavDrawer> {
                 onClicked: () => navigateToPage(context, "KICK_COUNTER"),
               ),
               DrawerListItem(
-                title: Languages.of(context).community,
+                title: Languages.of(context).resources,
                 imagePath: "community.png",
-                onClicked: () => navigateToPage(context, "COMMUNITY"),
+                onClicked: () => navigateToPage(context, "RESOURCES"),
+              ),
+              DrawerListItem(
+                title: Languages.of(context).profile,
+                imagePath: "consultant.png",
+                onClicked: () => navigateToPage(context, "PROFILE"),
               ),
               DrawerListItem(
                 title: Languages.of(context).consultant,
