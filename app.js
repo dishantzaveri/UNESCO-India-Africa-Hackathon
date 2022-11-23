@@ -13,6 +13,9 @@ const examCreation = require("./routes/examCreation");
 const fetusPlot = require("./routes/fetusPlot");
 const sendPdf = require("./routes/sendpdf");
 const fetchUser = require("./routes/fetchUser");
+const amnfluidPlot = require("./routes/amnfluidPlot");
+const interventionsPlot = require("./routes/interventionsPlot");
+const labourPlot = require("./routes/labourPlot");
 dotenv.config();
 
 // MIDDLEWARE;
@@ -44,6 +47,9 @@ app.use("/", examCreation);
 app.use("/", fetusPlot);
 app.use("/", sendPdf);
 app.use("/", fetchUser);
+app.use("/", amnfluidPlot);
+app.use("/", interventionsPlot);
+app.use("/", labourPlot);
 app.listen(process.env.PORT || 3000, () =>
   console.log("Server Up and running")
 );
