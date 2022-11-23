@@ -60,77 +60,19 @@ router.post("/exam/creation", async (req, res) => {
 
     console.log(newExam);
     try {
-      const saveFetus = await newFetus.save(function (err, result) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log(result);
-          // res.append(dataToSend, result);
-          // res.status(200).json(result);
-        }
-      });
-
-      const saveAmnfluid = await newAmnfluid.save(function (err, result) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log(result);
-          // res.append("dataToSend", result);
-          // res.status(200).json(result);
-        }
-      });
-
-      const saveLabour = await newLabour.save(function (err, result) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log(result);
-          // res.append("dataToSend", result);
-          // res.status(200).json(result);
-        }
-      });
-
-      const saveInterventions = await newInterventions.save(function (
-        err,
-        result
-      ) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log(result);
-          // res.append("dataToSend", result);
-          // res.status(200).json(result);
-        }
-      });
-
-      const saveMother = await newMother.save(function (err, result) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log(result);
-          // res.append("dataToSend", result);
-          // res.status(200).json(result);
-        }
-      });
-
-      const saveExam = await newExam.save(function (err, result) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log(result);
-          // res.get("dataToSend");
-          // const spread = merge.all([
-          //   saveFetus,
-          //   saveAmnfluid,
-          //   saveLabour,
-          //   saveInterventions,
-          //   saveMother,
-          //   saveExam,
-          // ]);
-
-          // console.log(spread);
-          res.status(200).json(result);
-        }
+      const saveFetus = await newFetus.save();
+      const saveAmnfluid = await newAmnfluid.save();
+      const saveLabour = await newLabour.save();
+      const saveInterventions = await newInterventions.save();
+      const saveMother = await newMother.save();
+      const saveExam = await newExam.save();
+      res.status(200).send({
+        saveFetus,
+        saveAmnfluid,
+        saveLabour,
+        saveInterventions,
+        saveMother,
+        saveExam,
       });
     } catch (err) {
       res.status(500).send(err);

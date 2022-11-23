@@ -12,6 +12,7 @@ const partogramR = require("./routes/partogramR");
 const examCreation = require("./routes/examCreation");
 const fetusPlot = require("./routes/fetusPlot");
 const sendPdf = require("./routes/sendpdf");
+const fetchUser = require("./routes/fetchUser");
 dotenv.config();
 
 // MIDDLEWARE;
@@ -42,6 +43,7 @@ app.use("/", partogramR);
 app.use("/", examCreation);
 app.use("/", fetusPlot);
 app.use("/", sendPdf);
+app.use("/", fetchUser);
 app.listen(process.env.PORT || 3000, () =>
   console.log("Server Up and running")
 );
