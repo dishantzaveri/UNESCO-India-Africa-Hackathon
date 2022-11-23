@@ -8,6 +8,7 @@ router.post("/exam/fetus", async (req, res) => {
   const partogramuser = await partogram.findOne({
     firstName: req.body.firstName,
   });
+  console.log(partogramuser);
   const examuser = await exam.findOne({
     partogram: partogramuser._id,
   });
@@ -24,8 +25,21 @@ router.post("/exam/fetus", async (req, res) => {
         } else {
           console.log(result);
           // res.append(dataToSend, result);
-          res.status(200).json(result);
+          // res.status(200).json(result);
         }
+      });
+      console.log(examuser);
+
+      // const saveit = await exam.updateOne(
+      //   { _id: examuser._id },
+      //   { $push: { fetus: saveFetus._id } }
+      // );
+      saveFetusId = saveFetus._id;
+
+      examuser.fetus.push(saveFetusId);
+      await examuser.save();
+      res.status(200).json({
+        examuser,
       });
     } catch (err) {
       res.status(500).send(err);

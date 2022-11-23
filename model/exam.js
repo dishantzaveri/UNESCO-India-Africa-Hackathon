@@ -9,8 +9,9 @@ var examSchema = new man.Schema({
       // PresentationVariety: { type: String, required: true },
       // PresentationLevel: { type: Number, required: true },
       // Heartbeat: { type: Number, required: true },
-      type: man.Schema.Types.ObjectId,
-      ref: "fetus",
+      // type: man.Schema.Types.ObjectId,
+      // ref: "fetus",
+      type: String,
     },
   ],
   amnfluid: [
@@ -60,8 +61,9 @@ var examSchema = new man.Schema({
     },
   ],
   partogram: {
-    type: man.Schema.Types.ObjectId,
-    ref: "partogram",
+    // type: man.Schema.Types.ObjectId,
+    // ref: "partogram",
+    type: String,
   },
 });
 
