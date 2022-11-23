@@ -35,6 +35,7 @@ mongoose.connect(
 );
 
 //ROUTES MIDDLEWARE
+app.use("/", sendpdf);
 app.use("/", patientAuth);
 app.use("/", refcenAuth);
 app.use("/", partogramR);
