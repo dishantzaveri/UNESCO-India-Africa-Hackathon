@@ -1,12 +1,9 @@
 const router = require("express").Router();
-const multer = require("./mulfile");
-const pdf = require("./pdfmake.js");
+const fs = require("fs");
 const mail = require("nodemailer");
 
-router.post("/partogram/sendpdf", multer, async (req, res) => {
-  var partimg = req.file;
-
-  let sendPdf = await pdf(partimg);
+router.post("/partogram/sendpdf", async (req, res) => {
+  let sendPdf = req.get({ uri: pdfURL, encoding: null });
   var emailu = req.body.emailuser;
   var emailp = req.body.emailpatient;
   let mailTransporter = mail.createTransport({
@@ -24,7 +21,12 @@ router.post("/partogram/sendpdf", multer, async (req, res) => {
     emailp,
     subject: "Partogram alert",
     text: "You see My parotogram...",
-    document: sendPdf,
+    attachments: [
+      {
+        File: sendPdf,
+        contentType: 'application/pdf'
+      }
+    ]
   };
 
   mailTransporter.sendMail(mailDetails, function (err, data) {

@@ -8,6 +8,10 @@ function makePdf(image) {
     pageOrientation: "landscape",
     pageMargins: [40, 60, 40, 60],
   };
+    let pdfDoc = pdf.createPdfKitDocument(docdef, {});
+    var name = "partogram"+"_"+Date.now()
+    pdfDoc.pipe(fs.createWriteStream('../uploads/pdfs/name'));
+    pdfDoc.end();
   return pdf(docdef);
 }
 
