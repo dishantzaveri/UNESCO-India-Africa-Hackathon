@@ -17,19 +17,19 @@ router.post("/partogram/graph/fetch", async (req, res) => {
   const examuser = await exam.findOne({
     partogram: partogramuser._id,
   });
-  const amnfluiduser = await amnfluid.findOne({
+  const amnfluiduser = await amnfluid.find({
     exam: examuser._id,
   });
-  const fetususer = await fetus.findOne({
+  const fetususer = await fetus.find({
     exam: examuser._id,
   });
-  const labouruser = await labour.findOne({
+  const labouruser = await labour.find({
     exam: examuser._id,
   });
-  const interventionsuser = await interventions.findOne({
+  const interventionsuser = await interventions.find({
     exam: examuser._id,
   });
-  const motheruser = await mother.findOne({
+  const motheruser = await mother.find({
     exam: examuser._id,
   });
 
