@@ -26,9 +26,7 @@ router.post("/exam/interventions", async (req, res) => {
 
       const final = await examuser.interventions.push(saveInterventionsId);
       await examuser.save();
-      res.status(200).json({
-        examuser,
-      });
+      res.status(200).json(newInterventions);
     } catch (err) {
       res.status(500).send(err);
     }

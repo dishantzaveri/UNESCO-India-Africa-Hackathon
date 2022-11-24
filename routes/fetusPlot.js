@@ -30,9 +30,7 @@ router.post("/exam/fetus", async (req, res) => {
 
       const final = await examuser.fetus.push(saveFetusId);
       await examuser.save();
-      res.status(200).json({
-        examuser,
-      });
+      res.status(200).json(newFetus);
     } catch (err) {
       res.status(500).send(err);
     }

@@ -24,9 +24,7 @@ router.post("/exam/amnfluid", async (req, res) => {
 
       const final = await examuser.amnfluid.push(saveAmnId);
       await examuser.save();
-      res.status(200).json({
-        examuser,
-      });
+      res.status(200).json(newAmnfluid);
     } catch (err) {
       res.status(500).send(err);
     }
