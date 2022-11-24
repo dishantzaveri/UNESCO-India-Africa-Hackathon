@@ -12,6 +12,13 @@ const partogramR = require("./routes/partogramR");
 const examCreation = require("./routes/examCreation");
 const fetusPlot = require("./routes/fetusPlot");
 const sendPdf = require("./routes/sendpdf");
+const fetchUser = require("./routes/fetchUser");
+const amnfluidPlot = require("./routes/amnfluidPlot");
+const interventionsPlot = require("./routes/interventionsPlot");
+const labourPlot = require("./routes/labourPlot");
+const motherPlot = require("./routes/motherPlot");
+const uterContractPlot = require("./routes/uterContractPlot");
+const fetchGraphs = require("./routes/fetchGraphs");
 dotenv.config();
 
 // MIDDLEWARE;
@@ -42,6 +49,13 @@ app.use("/", partogramR);
 app.use("/", examCreation);
 app.use("/", fetusPlot);
 app.use("/", sendPdf);
+app.use("/", fetchUser);
+app.use("/", amnfluidPlot);
+app.use("/", interventionsPlot);
+app.use("/", labourPlot);
+app.use("/", motherPlot);
+app.use("/", uterContractPlot);
+app.use("/", fetchGraphs);
 app.listen(process.env.PORT || 3000, () =>
   console.log("Server Up and running")
 );

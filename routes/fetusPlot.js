@@ -19,28 +19,18 @@ router.post("/exam/fetus", async (req, res) => {
     });
 
     try {
-      const saveFetus = await newFetus.save(function (err, result) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log(result);
-          // res.append(dataToSend, result);
-          // res.status(200).json(result);
-        }
-      });
+      const saveFetus = await newFetus.save();
       console.log(examuser);
 
       // const saveit = await exam.updateOne(
       //   { _id: examuser._id },
       //   { $push: { fetus: saveFetus._id } }
       // );
-      saveFetusId = saveFetus._id;
+      var saveFetusId = saveFetus._id;
 
-      examuser.fetus.push(saveFetusId);
+      const final = await examuser.fetus.push(saveFetusId);
       await examuser.save();
-      res.status(200).json({
-        examuser,
-      });
+      res.status(200).json(newFetus);
     } catch (err) {
       res.status(500).send(err);
     }

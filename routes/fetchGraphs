@@ -1,0 +1,50 @@
+const router = require("express").Router();
+const partogram = require("../model/partogram");
+const exam = require("../model/exam");
+const amnfluid = require("../model/amnfluid");
+const fetus = require("../model/fetus");
+const labour = require("../model/labour");
+const interventions = require("../model/interventions");
+const mother = require("../model/mother");
+
+const mongoose = require("mongoose");
+
+router.post("/partogram/graph/fetch", async (req, res) => {
+  const partogramuser = await partogram.findOne({
+    firstName: req.body.firstName,
+  });
+  console.log(partogramuser);
+  const examuser = await exam.findOne({
+    partogram: partogramuser._id,
+  });
+  const amnfluiduser = await amnfluid.findOne({
+    exam: examuser._id,
+  });
+  const fetususer = await fetus.findOne({
+    exam: examuser._id,
+  });
+  const labouruser = await labour.findOne({
+    exam: examuser._id,
+  });
+  const interventionsuser = await interventions.findOne({
+    exam: examuser._id,
+  });
+  const motheruser = await mother.findOne({
+    exam: examuser._id,
+  });
+
+  try {
+    res.status(200).json({
+      examuser,
+      amnfluiduser,
+      fetususer,
+      labouruser,
+      interventionsuser,
+      motheruser,
+    });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+module.exports = router;
