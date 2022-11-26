@@ -56,7 +56,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       pages: [
         PageViewModel(
           title: "Welcome to Partogram",
-          body: "A tool used to record the preogress of labour",
+          body: "A tool used to record the pregress of labour",
           image: _buildImage('images/slide2.png'),
           decoration: pageDecoration,
         ),

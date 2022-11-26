@@ -49,6 +49,12 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   quickalert: ^1.0.0
   youtube_player_flutter: ^8.1.1
+  twilio_flutter: ^0.0.9
+  fluttertoast: ^8.1.1
+  location: ^4.4.0
+  google_maps_flutter: ^2.2.1
+  url_launcher: ^6.1.7
+  geocoder: ^0.2.1
 
 dev_dependencies:
   flutter_test:

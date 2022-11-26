@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:partograph/model/twilio.dart';
 import 'package:partograph/ui/pages/auth/login_page.dart';
+import 'package:partograph/ui/pages/patient_page.dart';
 
 class DrawerPage extends StatelessWidget {
   const DrawerPage({Key? key}) : super(key: key);
@@ -31,6 +33,26 @@ class DrawerPage extends StatelessWidget {
             leading: const Icon(Icons.security),
             title: const Text('Privacy'),
             onTap: () {},
+          ),
+          ListTile(
+            leading: const Icon(Icons.exit_to_app),
+            title: const Text('Alert'),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (_) => TwilioScreen(
+                            title: '',
+                          )));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.exit_to_app),
+            title: const Text('Referral Centres'),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => const PatientPage2()));
+            },
           ),
           ListTile(
             leading: const Icon(Icons.exit_to_app),

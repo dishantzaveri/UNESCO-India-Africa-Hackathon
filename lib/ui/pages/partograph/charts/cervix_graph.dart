@@ -24,7 +24,7 @@ class _CervixGraphState extends State<CervixGraph> {
         child: SfCartesianChart(
             primaryXAxis: CategoryAxis(),
             // Chart title
-            title: ChartTitle(text: 'Crvix (cm)'),
+            title: ChartTitle(text: ' (cm)'),
             // Enable legend
             legend: Legend(isVisible: true),
             // Enable tooltip

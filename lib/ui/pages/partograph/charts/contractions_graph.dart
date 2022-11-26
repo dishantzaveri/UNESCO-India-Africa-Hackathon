@@ -35,7 +35,7 @@ class _ContactionsGraphState extends State<ContactionsGraph> {
   SfCartesianChart _buildStackedColumn100Chart() {
     return SfCartesianChart(
       plotAreaBorderWidth: 0,
-      title: ChartTitle(text: 'Labour porgress'),
+      title: ChartTitle(text: 'Labour progess'),
       legend:
           Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
       primaryXAxis: CategoryAxis(
